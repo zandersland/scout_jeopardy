@@ -1,0 +1,394 @@
+#include <FastLED.h>
+#define LED_PIN 23
+#define NUM_LEDS 60
+#define BRIGHTNESS 96
+#define LED_TYPE WS2812B
+#define COLOR_ORDER GRB
+CRGB leds[NUM_LEDS];
+
+#define UPDATES_PER_SECOND 100
+
+// set pin numbers to names for easy reference
+const int switch_1 = 12;
+const int switch_2 = 11;
+const int switch_3 = 10;
+const int switch_4 = 9;
+const int switch_5 = 8;
+const int switch_6 = 7;
+const int switch_7 = 6;
+const int switch_8 = 5;
+const int button_1 = 48;
+const int button_2 = 44;
+const int button_3 = 40;
+const int button_4 = 34;
+const int button_5 = 36;
+const int green_led = 24;
+const int yellow_led = 26;
+const int red_led = 28;
+const int white_led = 53;
+const int blue_led = 49;
+const int buzzer_pin = 35;
+
+// variables for game system
+int game_speed = 0;
+int game_mode = 0;
+
+
+void setup() {
+    // setup code for LED strip
+    delay(  3000  ); // 3 second safety delay
+    FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
+    FastLED.setBrightness(  BRIGHTNESS  );
+    
+    // initialize pin modes (input or output)
+    pinMode(switch_1, INPUT);
+    pinMode(switch_2, INPUT);
+    pinMode(switch_3, INPUT);
+    pinMode(switch_4, INPUT);
+    pinMode(switch_5, INPUT);
+    pinMode(switch_6, INPUT);
+    pinMode(switch_7, INPUT);
+    pinMode(switch_8, INPUT);
+    pinMode(button_1, INPUT);
+    pinMode(button_2, INPUT);
+    pinMode(button_3, INPUT);
+    pinMode(button_4, INPUT);
+    pinMode(button_5, INPUT);
+    pinMode(green_led, OUTPUT);
+    pinMode(yellow_led, OUTPUT);
+    pinMode(red_led, OUTPUT);
+    pinMode(white_led, OUTPUT);
+    pinMode(blue_led, OUTPUT);
+
+
+     // read switches
+    if (digitalRead(switch_1) == HIGH){
+        game_speed = 5000;
+    }
+    else if (digitalRead(switch_2) == HIGH){
+        game_speed = 10000;
+    }
+    else if (digitalRead(switch_3) == HIGH){
+        game_speed = 15000;
+    }
+    else if (digitalRead(switch_4) == HIGH){
+        game_speed = 20000;
+    }
+    else if (digitalRead(switch_5) == HIGH){
+        game_speed = 30000;
+    }
+    else if (digitalRead(switch_6) == HIGH){
+        game_speed = 60000;
+    }
+    if (digitalRead(switch_7) == HIGH){
+        game_mode = 1;
+    }
+    else if (digitalRead(switch_8) == HIGH){
+        game_mode = 2;
+    }
+
+}
+
+// create a function with parameters as 
+// c = color
+void myledstrip(int c){
+    switch (c){
+      case 1:
+    for (int i = 0; i < NUM_LEDS; i++){
+    leds[i].setRGB(100, 100, 100);
+    }
+    FastLED.show();
+      break;
+      
+      case 2:
+    for (int i = 0; i < NUM_LEDS; i++){
+    leds[i] = CRGB::Red;
+    }
+    FastLED.show();
+      break;
+      
+      case 3:
+    for (int i = 0; i < NUM_LEDS; i++){
+    leds[i] = CRGB::Green;
+    }
+    FastLED.show();
+      break;
+      
+      case 4:
+    for (int i = 0; i < NUM_LEDS; i++){
+    leds[i] = CRGB::Blue;
+    }
+    FastLED.show();
+      break;
+
+    default:
+    for (int i = 0; i < NUM_LEDS; i++){
+    leds[i] = CRGB::Black;
+    }
+    FastLED.show();
+    break;
+    }
+}
+
+void loop() {
+    digitalWrite(green_led, LOW);
+    digitalWrite(yellow_led, LOW);
+    digitalWrite(red_led, LOW);
+    myledstrip(0);
+    // check for game mode
+    if (game_mode == 1){
+        // start game
+        digitalWrite(blue_led, HIGH);
+        bool wait = true;
+        while (wait == true){
+            if (digitalRead(button_4) == HIGH) {
+                wait = false;
+            }
+        }
+        // indicate that the buttons can now be pressed
+            digitalWrite(white_led, HIGH);
+            myledstrip(1);
+            delay(300);
+        int button_number = 0;
+        for (int i = 500; i >= 0; i--){
+            if (digitalRead(button_1) == HIGH){
+                button_number = 1;
+                digitalWrite(green_led, HIGH);
+                myledstrip(3);
+            }
+            else if (digitalRead(button_2) == HIGH){
+                button_number = 2;
+                digitalWrite(yellow_led, HIGH);
+                myledstrip(4);
+            }
+            else if (digitalRead(button_3) == HIGH){
+                button_number = 3;
+                digitalWrite(red_led, HIGH);
+                myledstrip(2);
+            }
+            if (button_number > 0) {
+                break;
+            }
+            delay(10);
+        } digitalWrite(white_led, LOW);
+        delay(100);
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        int remaining_player_1 = 0;
+        int remaining_player_2 = 0;
+        int remaining_player_1_led = 0;
+        int remaining_player_2_led = 0;
+        int last_player = 0;
+        int last_player_led = 0;
+        int response_button_check = 0;
+        int strip1 = 0;
+        int strip2 = 0;
+        int strip3 = 0;
+        for (int i = game_speed / 10; i >= 0; i--){ // chance to answer
+
+            if (button_number == 0){
+                break;
+            }
+            // if answer WRONG
+            if (digitalRead(button_4) == HIGH){ // WRONG answer
+                // if the first player to buzz in got the answer wrong
+                if (button_number == 1){
+                
+                
+                    int button_number = 0;           // ----------
+                    for (int i = 500; i >= 0; i--){
+                        if (digitalRead(button_2) == HIGH){
+                            button_number = 2;
+                            digitalWrite(yellow_led, HIGH);
+                            myledstrip(4);
+                        }
+                        else if (digitalRead(button_3) == HIGH){
+                            button_number = 3;
+                            digitalWrite(red_led, HIGH);
+                            myledstrip(2);
+                        }
+                        if (button_number > 0) {
+                            break;
+                        }
+                        delay(10);
+                    } digitalWrite(white_led, LOW);   // ----------
+                    delay(100);
+
+                }
+                if (button_number == 2){
+                    for (int i = 500; i >= 0; i--){     // ---------
+                        if (digitalRead(button_1) == HIGH){
+                            button_number = 1;
+                            digitalWrite(green_led, HIGH);
+                            myledstrip(3);
+                        }
+                        else if (digitalRead(button_2) == HIGH){
+                            button_number = 2;
+                            digitalWrite(yellow_led, HIGH);
+                            myledstrip(4);
+                        }
+                        else if (digitalRead(button_3) == HIGH){
+                            button_number = 3;
+                            digitalWrite(red_led, HIGH);
+                            myledstrip(2);
+                        }
+                        if (button_number > 0) {
+                            break;
+                        }
+                        delay(10);
+                    } digitalWrite(white_led, LOW);    // --------
+                    delay(100);
+                }
+                if (button_number == 3){
+                    for (int i = 500; i >= 0; i--){     // ---------
+                        if (digitalRead(button_1) == HIGH){
+                            button_number = 1;
+                            digitalWrite(green_led, HIGH);
+                            myledstrip(3);
+                        }
+                        else if (digitalRead(button_2) == HIGH){
+                            button_number = 2;
+                            digitalWrite(yellow_led, HIGH);
+                            myledstrip(4);
+                        }
+                        else if (digitalRead(button_3) == HIGH){
+                            button_number = 3;
+                            digitalWrite(red_led, HIGH);
+                            myledstrip(2);
+                        }
+                        if (button_number > 0) {
+                            break;
+                        }
+                        delay(10);
+                    } digitalWrite(white_led, LOW);    // --------
+                    delay(100);
+                }
+
+
+
+
+
+
+// TODO continue fixing wrong anser led strip not lighting
+
+
+
+
+
+
+
+
+
+// TODO
+// TODO
+
+                // give the other players a chance
+
+                digitalWrite(white_led, HIGH);
+                digitalWrite(green_led, LOW);
+                digitalWrite(yellow_led, LOW);
+                digitalWrite(red_led, LOW);
+                myledstrip(1);
+                delay(100);
+                int button_number = 0;
+                for (int i = game_speed / 10; i >= 0; i--){
+                    if (digitalRead(remaining_player_1) == HIGH){
+                        button_number = 1;
+                        digitalWrite(remaining_player_1_led, HIGH);
+                        myledstrip(strip1);
+                    }
+                    else if (digitalRead(remaining_player_2) == HIGH){
+                        button_number = 2;
+                        digitalWrite(remaining_player_2_led, HIGH);
+                        myledstrip(strip2);
+                    }
+                    if (button_number > 0) {
+                        break;
+                    }
+                    if (digitalRead(button_5) == HIGH){
+                        break;
+                    }
+                    delay(10);
+                    } digitalWrite(white_led, LOW);
+                    myledstrip(0);
+
+
+                if (button_number == 0) {
+                    break;
+                }
+                //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                // if answer WRONG twice
+                if (digitalRead(button_4) == HIGH){ // second WRONG answer
+                    // if the second player to buzz in got the answer wrong
+                    if (button_number == 1){
+                        last_player = remaining_player_2;
+                        last_player_led = remaining_player_2_led;
+                        
+                    }
+                    if (button_number == 2){
+                        last_player = remaining_player_1;
+                        last_player_led = remaining_player_1_led;
+                    }
+
+                    // give the last player a chance
+
+                    digitalWrite(white_led, HIGH);
+                    digitalWrite(green_led, LOW);
+                    digitalWrite(yellow_led, LOW);
+                    digitalWrite(red_led, LOW);
+                    int button_number = 0;
+                    for (int i = game_speed / 10; i >= 0; i--){
+                        if (digitalRead(last_player) == HIGH){
+                            digitalWrite(last_player_led, HIGH);
+                          if (last_player == button_1){
+                          myledstrip(3);
+                          }
+                          else if (last_player == button_2){
+                          myledstrip(4);
+                          }
+                          else if (last_player == button_3){
+                          myledstrip(2);
+                          }
+                        }
+                        if (digitalRead(button_5) == HIGH){
+                            break;
+                        }
+                        delay(10);
+                    } digitalWrite(white_led, LOW);
+                    myledstrip(0);
+
+                    if (button_number == 0) {
+                        break;
+                    }
+
+                }
+
+                delay(10);
+            }// response check
+
+
+            if (digitalRead(button_5) == HIGH){
+                break;
+            }
+            delay(10);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
