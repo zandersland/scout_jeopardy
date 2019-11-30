@@ -1,0 +1,28 @@
+{% if gameData is not none%}
+
+<div>
+    {% for data in gameData %}
+    {% if data[0] not in (100, 200, 300, 400, 500, 600, 800, 1000) %}
+    <button class="buttons" style="color:white;">{{ data[0] }}</button>
+    {% else %}
+    <form action="{{ url_for('answer', points=data[0], answer=data[1], question=data[2], color=data[4], index=loop.index) }}"
+          method="POST">
+        {% if data[4] == 'blue' %}
+        <button class="buttons" style="color:blue;">{{ data[0] }}</button>
+        {% else %}
+        <button class="buttons" style="color:white;">{{ data[0] }}</button>
+        {% endif %}
+        {{ data[4] }}
+    </form>
+    {% endif%}
+    {% endfor %}
+
+</div>
+{% else %}
+<div>
+    <button class="buttons" id="row-one-one">0</button>
+    <button class="buttons" id="row-two-one">0</button>
+    <button class="buttons" id="row-three-one">0</button>
+    <button class="buttons" id="row-four-one">0</button>
+</div>
+{% endif %}
