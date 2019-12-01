@@ -1,5 +1,25 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<h1>This is block content of index</h1>
+<div class="main">
+    <div class="welcome">
+        <div class="welcome-msg">Welcome</div>
+        <div class="welcome-msg"> to</div>
+        <div class="welcome-msg">Scout Jeopardy</div>
+    </div>
+    <div class="load-game">
+
+        <form action="{{ url_for('generate_game') }}" method="post">
+            <label class="game-options" for="action">Game Options:</label>
+            <select class="dropdown-options" name="dropdown-option">
+                <option class="options" value="1">1</option>
+                <option class="options" value="2">2</option>
+                <option class="options" value="3">3</option>
+                <option class="options" value="4">4</option>
+            </select>
+            <button class="game-submit-button">Submit</button>
+        </form>
+    </div>
+</div>
+
 {% endblock %}

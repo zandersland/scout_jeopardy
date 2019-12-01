@@ -1,15 +1,37 @@
-<div>
-    <form action="{{ url_for('update_game', points=points, index=index) }}" method="POST">
-        <h3>Team 1</h3>
-        <p>{{ team_one_points }}</p>
-        <input type="text" name="teamOne">
-        <h3>Team 2</h3>
-        <p>{{ team_two_points }}</p>
-        <input type="text" name="teamTwo">
-        <h3>Team 3</h3>
-        <p>{{ team_three_points }}</p>
-        <input type="text" name="teamThree">
-
-        <button class="buttons">Submit</button>
+<div class="scoring_answer">
+    <div class="scoring-teams">
+        <div class="scoring-team">Team 1: {{ team_one_points }}
+        </div>
+        <div class="scoring-button">
+            <button class="answer-buttons">+{{points}}</button>
+        </div>
+        <div class="scoring-button">
+            <button class="answer-buttons">-{{points}}</button>
+        </div>
+    </div>
+    <div class="scoring-teams">
+        <div class="scoring-team">Team 2: {{ team_two_points }}
+        </div>
+        <div class="scoring-button">
+            <button class="answer-buttons">+{{points}}</button>
+        </div>
+        <div class="scoring-button">
+            <button class="answer-buttons">-{{points}}</button>
+        </div>
+    </div>
+    <div class="scoring-teams">
+        <div class="scoring-team">Team 3: {{ team_three_points }}
+        </div>
+        <div class="scoring-button">
+            <button class="answer-buttons">+{{points}}</button>
+        </div>
+        <div class="scoring-button">
+            <button class="answer-buttons">-{{points}}</button>
+        </div>
+    </div>
+    <form class="scoring-teams" id="score_form" action="{{ url_for('update_game', points=points, index=index) }}" method="POST">
+        <div class="scoring">
+            <button class="answer-buttons">Submit</button>
+        </div>
     </form>
 </div>

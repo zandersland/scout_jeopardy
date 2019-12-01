@@ -1,11 +1,10 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<h1>{{ points }}</h1>
-<h1>{{ answer }}</h1>
-<h1>{{ question }}</h1>
-<h1>{{ index }}</h1>
-<h1>{{ color }}</h1>
-
+<div class="container-answer">
+    <div class="dummy"></div>
+    <div class="answer">{{ answer }}</div>
+    <div class="dummy"></div>
+</div>
 {% include 'includes/score.html' %}
 {% endblock %}

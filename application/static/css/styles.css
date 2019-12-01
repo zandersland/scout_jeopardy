@@ -1,4 +1,136 @@
-.buttons {
-    background-color: blue;
+html {
+    background-color: black;
+    color: #e3c102;
+}
+
+.main {
+    background-color: #0047b8;
+    width: 99vw;
+    height: 98vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+}
+
+.welcome-msg {
+    font-size: 125px;
+    text-align: center;
+    align-items: top;
+}
+
+.load-game {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+
+}
+.game-options {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.options {
+    color: #e3c102;
+}
+
+.dropdown-options {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #e3c102;
+    background-color: #0047b8;
+}
+
+.game-submit-button {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #e3c102;
+    background-color: #0047b8;
+}
+
+#game-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+.container-button {
+    margin-top: 8px;
+    margin-right: 4px;
+    margin-bottom: 8px;
+    margin-left: 4px;
+}
+.game-cat-buttons {
+    background-color: #0047b8;
+    border-radius: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    width: 15vw;
+    height: 14vh;
+    border: 0px;
+    margin-bottom: 10px;
+}
+.game-buttons {
+    background-color: #0047b8;
+    border-radius: 5px;
+    font-size: 50px;
+    font-weight: bold;
+    width: 15vw;
+    height: 14vh;
+    border: 0px;
+}
+.scores {
+    display: flex;
+    justify-content: space-evenly;
+    font-weight; bold;
+    font-size: 20px;
+}
+
+.container-answer {
+    background-color: #0047b8;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    width: 99vw;
+    height: 94vh;
+}
+.answer {
+    font-size: 30px;
+    font-weight: bold;
+    border: 0px;
     text-align: center;
 }
+
+.scoring_answer {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    margin-top: 2vh;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.scoring-teams {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-evenly;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.scoring-button {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.answer-buttons {
+    background-color: #0047b8;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #e3c102;
+    border: 0px;
+}
+.scoring {
+    margin-left: 15px;
+}
+
+
+
