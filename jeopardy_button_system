@@ -192,94 +192,30 @@ void loop() {
             if (digitalRead(button_4) == HIGH){ // WRONG answer
                 // if the first player to buzz in got the answer wrong
                 if (button_number == 1){
-                
-                
-                    int button_number = 0;           // ----------
-                    for (int i = 500; i >= 0; i--){
-                        if (digitalRead(button_2) == HIGH){
-                            button_number = 2;
-                            digitalWrite(yellow_led, HIGH);
-                            myledstrip(4);
-                        }
-                        else if (digitalRead(button_3) == HIGH){
-                            button_number = 3;
-                            digitalWrite(red_led, HIGH);
-                            myledstrip(2);
-                        }
-                        if (button_number > 0) {
-                            break;
-                        }
-                        delay(10);
-                    } digitalWrite(white_led, LOW);   // ----------
-                    delay(100);
-
+                    remaining_player_1 = button_2;
+                    remaining_player_1_led = yellow_led;
+                    remaining_player_2 = button_3;
+                    remaining_player_2_led = red_led;
+                    strip1 = 4;
+                    strip2 = 2;
                 }
                 if (button_number == 2){
-                    for (int i = 500; i >= 0; i--){     // ---------
-                        if (digitalRead(button_1) == HIGH){
-                            button_number = 1;
-                            digitalWrite(green_led, HIGH);
-                            myledstrip(3);
-                        }
-                        else if (digitalRead(button_2) == HIGH){
-                            button_number = 2;
-                            digitalWrite(yellow_led, HIGH);
-                            myledstrip(4);
-                        }
-                        else if (digitalRead(button_3) == HIGH){
-                            button_number = 3;
-                            digitalWrite(red_led, HIGH);
-                            myledstrip(2);
-                        }
-                        if (button_number > 0) {
-                            break;
-                        }
-                        delay(10);
-                    } digitalWrite(white_led, LOW);    // --------
-                    delay(100);
+                    remaining_player_1 = button_1;
+                    remaining_player_1_led = green_led;
+                    remaining_player_2 = button_3;
+                    remaining_player_2_led = red_led;
+                    strip1 = 3;
+                    strip2 = 2;
                 }
                 if (button_number == 3){
-                    for (int i = 500; i >= 0; i--){     // ---------
-                        if (digitalRead(button_1) == HIGH){
-                            button_number = 1;
-                            digitalWrite(green_led, HIGH);
-                            myledstrip(3);
-                        }
-                        else if (digitalRead(button_2) == HIGH){
-                            button_number = 2;
-                            digitalWrite(yellow_led, HIGH);
-                            myledstrip(4);
-                        }
-                        else if (digitalRead(button_3) == HIGH){
-                            button_number = 3;
-                            digitalWrite(red_led, HIGH);
-                            myledstrip(2);
-                        }
-                        if (button_number > 0) {
-                            break;
-                        }
-                        delay(10);
-                    } digitalWrite(white_led, LOW);    // --------
-                    delay(100);
+                    remaining_player_1 = button_1;
+                    remaining_player_1_led = green_led;
+                    remaining_player_2 = button_2;
+                    remaining_player_2_led = yellow_led;
+                    strip1 = 3;
+                    strip2 = 4;
                 }
 
-
-
-
-
-
-// TODO continue fixing wrong anser led strip not lighting
-
-
-
-
-
-
-
-
-
-// TODO
-// TODO
 
                 // give the other players a chance
 
@@ -290,7 +226,7 @@ void loop() {
                 myledstrip(1);
                 delay(100);
                 int button_number = 0;
-                for (int i = game_speed / 10; i >= 0; i--){
+                for (int x = game_speed / 10; x >= 0; x--){
                     if (digitalRead(remaining_player_1) == HIGH){
                         button_number = 1;
                         digitalWrite(remaining_player_1_led, HIGH);
@@ -309,7 +245,6 @@ void loop() {
                     }
                     delay(10);
                     } digitalWrite(white_led, LOW);
-                    myledstrip(0);
 
 
                 if (button_number == 0) {
@@ -322,7 +257,7 @@ void loop() {
                     if (button_number == 1){
                         last_player = remaining_player_2;
                         last_player_led = remaining_player_2_led;
-                        
+
                     }
                     if (button_number == 2){
                         last_player = remaining_player_1;
@@ -335,8 +270,9 @@ void loop() {
                     digitalWrite(green_led, LOW);
                     digitalWrite(yellow_led, LOW);
                     digitalWrite(red_led, LOW);
+                    myledstrip(1);
                     int button_number = 0;
-                    for (int i = game_speed / 10; i >= 0; i--){
+                    for (int x = game_speed / 10; x >= 0; x--){
                         if (digitalRead(last_player) == HIGH){
                             digitalWrite(last_player_led, HIGH);
                           if (last_player == button_1){
@@ -354,7 +290,6 @@ void loop() {
                         }
                         delay(10);
                     } digitalWrite(white_led, LOW);
-                    myledstrip(0);
 
                     if (button_number == 0) {
                         break;
@@ -373,22 +308,3 @@ void loop() {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
