@@ -130,13 +130,30 @@ void myledstrip(int c){
     }
 }
 
+
+int remaining_player_1 = 0;
+int remaining_player_2 = 0;
+int remaining_player_1_led = 0;
+int remaining_player_2_led = 0;
+int last_player = 0;
+int last_player_led = 0;
+int response_button_check = 0;
+int strip1 = 0;
+int strip2 = 0;
+int strip3 = 0;
+bool dont_blink_strip = false;
+int blink_strip_delay = 100;
+
+
+
+
 void loop() {
     digitalWrite(green_led, LOW);
     digitalWrite(yellow_led, LOW);
     digitalWrite(red_led, LOW);
     myledstrip(0);
     // check for game mode
-    if (game_mode == 1){
+    if (game_mode == 1){ // todo game start
         // start game
         digitalWrite(blue_led, HIGH);
         bool wait = true;
@@ -148,163 +165,155 @@ void loop() {
         // indicate that the buttons can now be pressed
             digitalWrite(white_led, HIGH);
             myledstrip(1);
-            delay(300);
         int button_number = 0;
-        for (int i = 500; i >= 0; i--){
+        for (int i = 500; i >= 0; i--){ // todo white strip
             if (digitalRead(button_1) == HIGH){
                 button_number = 1;
                 digitalWrite(green_led, HIGH);
                 myledstrip(3);
+                remaining_player_1 = button_2;
+                remaining_player_1_led = yellow_led;
+                remaining_player_2 = button_3;
+                remaining_player_2_led = red_led;
+                strip1 = 4;
+                strip2 = 2;
+                strip3 = 3;
             }
             else if (digitalRead(button_2) == HIGH){
                 button_number = 2;
                 digitalWrite(yellow_led, HIGH);
                 myledstrip(4);
+                remaining_player_1 = button_1;
+                remaining_player_1_led = green_led;
+                remaining_player_2 = button_3;
+                remaining_player_2_led = red_led;
+                strip1 = 3;
+                strip2 = 2;
+                strip3 = 4;
             }
             else if (digitalRead(button_3) == HIGH){
                 button_number = 3;
                 digitalWrite(red_led, HIGH);
                 myledstrip(2);
+                remaining_player_1 = button_1;
+                remaining_player_1_led = green_led;
+                remaining_player_2 = button_2;
+                remaining_player_2_led = yellow_led;
+                strip1 = 3;
+                strip2 = 4;
+                strip3 = 2;
             }
             if (button_number > 0) {
                 break;
             }
             delay(10);
         } digitalWrite(white_led, LOW);
-        delay(100);
+        delay(300);
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        int remaining_player_1 = 0;
-        int remaining_player_2 = 0;
-        int remaining_player_1_led = 0;
-        int remaining_player_2_led = 0;
-        int last_player = 0;
-        int last_player_led = 0;
-        int response_button_check = 0;
-        int strip1 = 0;
-        int strip2 = 0;
-        int strip3 = 0;
-        for (int i = game_speed / 10; i >= 0; i--){ // chance to answer
-
+        for (int i = game_speed / 10; i >= 0; i--){ // chance to answer // todo color strip
             if (button_number == 0){
+                dont_blink_strip = true;
                 break;
             }
-            // if answer WRONG
+
+            // if answer is correct
+            if (digitalRead(button_5) == HIGH){
+                dont_blink_strip = true;
+                break;
+            }
+
             if (digitalRead(button_4) == HIGH){ // WRONG answer
                 // if the first player to buzz in got the answer wrong
-                if (button_number == 1){
-                    remaining_player_1 = button_2;
-                    remaining_player_1_led = yellow_led;
-                    remaining_player_2 = button_3;
-                    remaining_player_2_led = red_led;
-                    strip1 = 4;
-                    strip2 = 2;
+                break;
+                dont_blink_strip = false;
+            }
+            dont_blink_strip = false;
+        delay(10);
+        }// response check
+
+
+
+        if (dont_blink_strip == false){
+            myledstrip(0);
+            delay(blink_strip_delay);
+            myledstrip(strip3);
+            delay(blink_strip_delay);
+            myledstrip(0);
+            delay(blink_strip_delay);
+            myledstrip(strip3);
+            delay(blink_strip_delay);
+            myledstrip(0);
+            delay(blink_strip_delay);
+        }
+        dont_blink_strip = true;
+
+        if (button_number > 0){
+        // give the other players a chance
+            digitalWrite(white_led, HIGH);
+            digitalWrite(green_led, LOW);
+            digitalWrite(yellow_led, LOW);
+            digitalWrite(red_led, LOW);
+            myledstrip(1);
+        }
+
+        // first wrong answer white strip
+        if (button_number > 0){
+            button_number = 0;
+            for (int x = 500; x >= 0; x--){ // todo white strip
+                if (digitalRead(remaining_player_1) == HIGH){
+                    button_number = 1;
+                    digitalWrite(remaining_player_1_led, HIGH);
+                    myledstrip(strip1);
+                    strip3 = strip1;
                 }
-                if (button_number == 2){
-                    remaining_player_1 = button_1;
-                    remaining_player_1_led = green_led;
-                    remaining_player_2 = button_3;
-                    remaining_player_2_led = red_led;
-                    strip1 = 3;
-                    strip2 = 2;
+                else if (digitalRead(remaining_player_2) == HIGH){
+                    button_number = 2;
+                    digitalWrite(remaining_player_2_led, HIGH);
+                    myledstrip(strip2);
+                    strip3 = strip2;
                 }
-                if (button_number == 3){
-                    remaining_player_1 = button_1;
-                    remaining_player_1_led = green_led;
-                    remaining_player_2 = button_2;
-                    remaining_player_2_led = yellow_led;
-                    strip1 = 3;
-                    strip2 = 4;
-                }
-
-
-                // give the other players a chance
-
-                digitalWrite(white_led, HIGH);
-                digitalWrite(green_led, LOW);
-                digitalWrite(yellow_led, LOW);
-                digitalWrite(red_led, LOW);
-                myledstrip(1);
-                delay(100);
-                int button_number = 0;
-                for (int x = game_speed / 10; x >= 0; x--){
-                    if (digitalRead(remaining_player_1) == HIGH){
-                        button_number = 1;
-                        digitalWrite(remaining_player_1_led, HIGH);
-                        myledstrip(strip1);
-                    }
-                    else if (digitalRead(remaining_player_2) == HIGH){
-                        button_number = 2;
-                        digitalWrite(remaining_player_2_led, HIGH);
-                        myledstrip(strip2);
-                    }
-                    if (button_number > 0) {
-                        break;
-                    }
-                    if (digitalRead(button_5) == HIGH){
-                        break;
-                    }
-                    delay(10);
-                    } digitalWrite(white_led, LOW);
-
-
-                if (button_number == 0) {
+                if (button_number > 0) {
+                    dont_blink_strip = false;
                     break;
                 }
-                //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-                // if answer WRONG twice
-                if (digitalRead(button_4) == HIGH){ // second WRONG answer
-                    // if the second player to buzz in got the answer wrong
-                    if (button_number == 1){
-                        last_player = remaining_player_2;
-                        last_player_led = remaining_player_2_led;
+                if (digitalRead(button_5) == HIGH){
+                    dont_blink_strip = true;
+                    break;
+                }
+                delay(10);
+                dont_blink_strip = false;
+                } digitalWrite(white_led, LOW);
 
-                    }
-                    if (button_number == 2){
-                        last_player = remaining_player_1;
-                        last_player_led = remaining_player_1_led;
-                    }
 
-                    // give the last player a chance
-
-                    digitalWrite(white_led, HIGH);
-                    digitalWrite(green_led, LOW);
-                    digitalWrite(yellow_led, LOW);
-                    digitalWrite(red_led, LOW);
-                    myledstrip(1);
-                    int button_number = 0;
-                    for (int x = game_speed / 10; x >= 0; x--){
-                        if (digitalRead(last_player) == HIGH){
-                            digitalWrite(last_player_led, HIGH);
-                          if (last_player == button_1){
-                          myledstrip(3);
-                          }
-                          else if (last_player == button_2){
-                          myledstrip(4);
-                          }
-                          else if (last_player == button_3){
-                          myledstrip(2);
-                          }
-                        }
-                        if (digitalRead(button_5) == HIGH){
-                            break;
-                        }
-                        delay(10);
-                    } digitalWrite(white_led, LOW);
-
-                    if (button_number == 0) {
-                        break;
-                    }
-
+            // color strip
+            for (int x = game_speed / 10; x >= 0; x--){ // todo color strip
+                if (digitalRead(button_5) == HIGH){
+                    dont_blink_strip = true;
+                    break;
                 }
 
+                if (digitalRead(button_4) == HIGH){
+                    // if the second player to buzz in got the answer wrong
+                    dont_blink_strip = false;
+                    break;
+                }
                 delay(10);
-            }// response check
-
-
-            if (digitalRead(button_5) == HIGH){
-                break;
             }
-            delay(10);
+
+            if (dont_blink_strip == false){
+                myledstrip(0);
+                delay(blink_strip_delay);
+                myledstrip(strip3);
+                delay(blink_strip_delay);
+                myledstrip(0);
+                delay(blink_strip_delay);
+                myledstrip(strip3);
+                delay(blink_strip_delay);
+                myledstrip(0);
+                delay(blink_strip_delay);
+            }
         }
+
+    delay(10);
     }
 }
