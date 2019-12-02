@@ -1,0 +1,18 @@
+<form class="update_scores" id="update_scores" action="{{ url_for('update_scores_post') }}"
+      method="POST">
+    <div class="update_scores">
+        <div>
+            <label>Team 1</label>
+            <input type="text" name="team_one_amount" id="team_one_amount" value="{{one}}"/>
+        </div>
+        <div>
+            <label>Team 2</label>
+            <input type="text" name="team_two_amount" id="team_two_amount" value="{{two}}"/>
+        </div>
+        <div>
+            <label>Team 3</label>
+            <input type="text" name="team_three_amount" id="team_three_amount" value="{{three}}"/>
+        </div>
+        <button class="final-buttons">Submit</button>
+    </div>
+</form>

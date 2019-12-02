@@ -141,3 +141,25 @@ def record_final():
 @app.route('/log')
 def log():
     return render_template('log.html', log=game_stats.log)
+
+
+@app.route('/update_scores_post', methods=['POST'])
+def update_scores_post():
+    game_stats.team_one_points = int(request.form.get('team_one_amount'))
+    game_stats.team_two_points = int(request.form.get('team_two_amount'))
+    game_stats.team_three_points = int(request.form.get('team_three_amount'))
+
+    game_stats.log_game(f"Updated team scores: "
+                        f"team one:   {game_stats.team_one_points}"
+                        f"team two:   {game_stats.team_two_points}"
+                        f"team three: {game_stats.team_three_points}")
+    return redirect(url_for('log'))
+
+
+@app.route('/update_scores')
+def update_scores():
+    one = game_stats.team_one_points
+    two = game_stats.team_two_points
+    three = game_stats.team_three_points
+
+    return render_template('update_scores.html', one=one, two=two, three=three)
