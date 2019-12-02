@@ -1,37 +1,58 @@
+<script>
+    function setScoring(ref, pt_val, team) {
+        var new_pts = 0;
+        var btn_val = ref.innerHTML
+
+        if (btn_val == 0) {
+            new_pts = pt_val
+        } else if (btn_val == pt_val) {
+            new_pts = -pt_val
+        } else {
+            new_pts = 0
+        }
+
+        ref.innerHTML = new_pts;
+        document.getElementById(team).value = new_pts;
+
+    }
+
+
+</script>
 <div class="scoring_answer">
     <div class="scoring-teams">
         <div class="scoring-team">Team 1: {{ team_one_points }}
         </div>
         <div class="scoring-button">
-            <button class="answer-buttons">+{{points}}</button>
-        </div>
-        <div class="scoring-button">
-            <button class="answer-buttons">-{{points}}</button>
+            <button type="button" class="answer-buttons" id="team_one_pos"
+                    onclick="setScoring(this, {{points}}, 'team_one')">0
+            </button>
         </div>
     </div>
     <div class="scoring-teams">
         <div class="scoring-team">Team 2: {{ team_two_points }}
         </div>
         <div class="scoring-button">
-            <button class="answer-buttons">+{{points}}</button>
-        </div>
-        <div class="scoring-button">
-            <button class="answer-buttons">-{{points}}</button>
+            <button type="button" class="answer-buttons" id="team_two_pos"
+                    onclick="setScoring(this, {{points}}, 'team_two')">0
+            </button>
         </div>
     </div>
     <div class="scoring-teams">
         <div class="scoring-team">Team 3: {{ team_three_points }}
         </div>
         <div class="scoring-button">
-            <button class="answer-buttons">+{{points}}</button>
-        </div>
-        <div class="scoring-button">
-            <button class="answer-buttons">-{{points}}</button>
+            <button type="button" class="answer-buttons" id="team_three_pos"
+                    onclick="setScoring(this, {{points}}, 'team_three')">0
+            </button>
         </div>
     </div>
-    <form class="scoring-teams" id="score_form" action="{{ url_for('update_game', points=points, index=index) }}" method="POST">
+    <form class="scoring-teams" id="score_form" action="{{ url_for('update_game', points=points, index=index) }}"
+          method="POST">
         <div class="scoring">
             <button class="answer-buttons">Submit</button>
+            <input hidden="True" type="text" name="team_one" id="team_one" value="0"/>
+            <input hidden="True" type="text" name="team_two" id="team_two" value="0"/>
+            <input hidden="True" type="text" name="team_three" id="team_three" value="0"/>
         </div>
     </form>
 </div>
