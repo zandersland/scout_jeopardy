@@ -22,6 +22,9 @@ const int button_2 = 44;
 const int button_3 = 40;
 const int button_4 = 34;
 const int button_5 = 36;
+const int button_6 = 41;
+const int button_7 = 37;
+const int button_8 = 33;
 const int green_led = 24;
 const int yellow_led = 26;
 const int red_led = 28;
@@ -39,7 +42,7 @@ void setup() {
     delay(  3000  ); // 3 second safety delay
     FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
     FastLED.setBrightness(  BRIGHTNESS  );
-    
+
     // initialize pin modes (input or output)
     pinMode(switch_1, INPUT);
     pinMode(switch_2, INPUT);
@@ -54,6 +57,9 @@ void setup() {
     pinMode(button_3, INPUT);
     pinMode(button_4, INPUT);
     pinMode(button_5, INPUT);
+    pinMode(button_6, INPUT);
+    pinMode(button_7, INPUT);
+    pinMode(button_8, INPUT);
     pinMode(green_led, OUTPUT);
     pinMode(yellow_led, OUTPUT);
     pinMode(red_led, OUTPUT);
@@ -89,7 +95,7 @@ void setup() {
 
 }
 
-// create a function with parameters as 
+// create a function with parameters as
 // c = color
 void myledstrip(int c){
     switch (c){
@@ -99,21 +105,21 @@ void myledstrip(int c){
     }
     FastLED.show();
       break;
-      
+
       case 2:
     for (int i = 0; i < NUM_LEDS; i++){
     leds[i] = CRGB::Red;
     }
     FastLED.show();
       break;
-      
+
       case 3:
     for (int i = 0; i < NUM_LEDS; i++){
     leds[i] = CRGB::Green;
     }
     FastLED.show();
       break;
-      
+
       case 4:
     for (int i = 0; i < NUM_LEDS; i++){
     leds[i] = CRGB::Blue;
@@ -143,6 +149,7 @@ int strip2 = 0;
 int strip3 = 0;
 bool dont_blink_strip = false;
 int blink_strip_delay = 100;
+int strip_blink_times = 4;
 
 
 
@@ -161,8 +168,56 @@ void loop() {
             if (digitalRead(button_4) == HIGH) {
                 wait = false;
             }
+
+            if (digitalRead(button_6) == HIGH) {
+                for (int i = 0; i <= 10; i++){
+                    leds[i] = CRGB::White;
+                }
+                for (int i = 20; i <= 30; i++){
+                    leds[i] = CRGB::White;
+                }
+                for (int i = 40; i <= 50; i++){
+                    leds[i] = CRGB::White;
+                }
+                    FastLED.show();
+                delay(50);
+                myledstrip(0);
+                for (int i = 10; i <= 20; i++){
+                    leds[i] = CRGB::White;
+                }
+                for (int i = 30; i <= 40; i++){
+                    leds[i] = CRGB::White;
+                }
+                for (int i = 50; i <= 60; i++){
+                    leds[i] = CRGB::White;
+                }
+                FastLED.show();
+                delay(50);
+                myledstrip(0);
+            }
+
+            if (digitalRead(button_7) == HIGH) {
+//                 int x = 60;
+//                 for (int y = 0; y <= x, y++){
+//                     leds[y] = CRGB::Tan;
+//                     FastLED.show();
+//                 }
+//                 delay(2000);
+//                 x = 55;
+                myledstrip(1);
+                for (int z = 0; z <= 15; z++){
+                    for (int x = 60; x >= 0; x = x - 2){
+                    int y = x + 1;
+                    leds[x] = CRGB::Black;
+                    leds[y] = CRGB::Black;
+                    FastLED.show();
+                    delay(1000);
+                    }
+                }
+            }
         }
-        // indicate that the buttons can now be pressed
+            // indicate that the buttons can now be pressed
+            delay(300);
             digitalWrite(white_led, HIGH);
             myledstrip(1);
         int button_number = 0;
@@ -206,6 +261,10 @@ void loop() {
             if (button_number > 0) {
                 break;
             }
+            if (digitalRead(button_5) == HIGH){
+                dont_blink_strip = true;
+                break;
+            }
             delay(10);
         } digitalWrite(white_led, LOW);
         delay(300);
@@ -235,17 +294,17 @@ void loop() {
 
         if (dont_blink_strip == false){
             myledstrip(0);
-            delay(blink_strip_delay);
-            myledstrip(strip3);
-            delay(blink_strip_delay);
-            myledstrip(0);
-            delay(blink_strip_delay);
-            myledstrip(strip3);
-            delay(blink_strip_delay);
-            myledstrip(0);
+            for (int x = 0; x <= strip_blink_times; x++){
+                delay(blink_strip_delay);
+                myledstrip(strip3);
+                delay(blink_strip_delay);
+                myledstrip(0);
+            }
             delay(blink_strip_delay);
         }
         dont_blink_strip = true;
+
+
 
         if (button_number > 0){
         // give the other players a chance
@@ -302,18 +361,57 @@ void loop() {
 
             if (dont_blink_strip == false){
                 myledstrip(0);
-                delay(blink_strip_delay);
-                myledstrip(strip3);
-                delay(blink_strip_delay);
-                myledstrip(0);
-                delay(blink_strip_delay);
-                myledstrip(strip3);
-                delay(blink_strip_delay);
-                myledstrip(0);
+                for (int x = 0; x <= strip_blink_times; x++){
+                    delay(blink_strip_delay);
+                    myledstrip(strip3);
+                    delay(blink_strip_delay);
+                    myledstrip(0);
+                }
                 delay(blink_strip_delay);
             }
+            dont_blink_strip = true;
         }
 
     delay(10);
+    }
+
+
+
+
+
+
+
+
+
+
+
+    if (game_mode == 2){
+        while (true){
+        int delay_number = 3;
+            // christmas test code
+           if (digitalRead(switch_2) == HIGH){
+               delay_number = 100;
+           }
+           if (digitalRead(switch_3) == HIGH){
+               delay_number = 50;
+           }
+           if (digitalRead(switch_4) == HIGH){
+               delay_number = 10;
+           }
+           if (digitalRead(switch_5) == HIGH){
+               delay_number = 3;
+           }
+           for (int i = 0; i < 60; i++){
+           leds[i] = CRGB::Red;
+           FastLED.show();
+           FastLED.delay(delay_number);
+           }
+
+           for (int i = 0; i < 60; i++){
+               leds[i] = CRGB::Green;
+               FastLED.show();
+               FastLED.delay(delay_number);
+           }
+        }
     }
 }
