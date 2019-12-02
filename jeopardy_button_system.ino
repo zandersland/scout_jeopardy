@@ -197,19 +197,10 @@ void loop() {
             }
 
             if (digitalRead(button_7) == HIGH) {
-//                 int x = 60;
-//                 for (int y = 0; y <= x, y++){
-//                     leds[y] = CRGB::Tan;
-//                     FastLED.show();
-//                 }
-//                 delay(2000);
-//                 x = 55;
                 myledstrip(1);
                 for (int z = 0; z <= 15; z++){
-                    for (int x = 60; x >= 0; x = x - 2){
-                    int y = x + 1;
+                    for (int x = 60; x >= 0; x--){
                     leds[x] = CRGB::Black;
-                    leds[y] = CRGB::Black;
                     FastLED.show();
                     delay(1000);
                     }
