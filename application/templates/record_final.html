@@ -1,0 +1,21 @@
+<form class="record-final" id="final-form" action="{{ url_for('record_final_answers') }}"
+      method="POST">
+    <div class="record-final-values">
+        <div>
+            <label>Team 1</label>
+            <input type="text" name="team_one_wager" id="team_one_wager" value=""/>
+            <input type="text" name="team_one_answer" id="team_one_answer" value=""/>
+        </div>
+        <div>
+            <label>Team 2</label>
+            <input type="text" name="team_two_wager" id="team_two_wager"/>
+            <input type="text" name="team_two_answer" id="team_two_answer" value=""/>
+        </div>
+        <div>
+            <label>Team 3</label>
+            <input type="text" name="team_three_wager" id="team_three_wager" value=""/>
+            <input type="text" name="team_three_answer" id="team_three_answer" value=""/>
+        </div>
+        <button class="final-buttons">Submit</button>
+    </div>
+</form>

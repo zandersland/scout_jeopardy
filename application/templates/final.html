@@ -1,5 +1,54 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<h1>Final</h1>
+<div class="container-answer">
+    <div class="dummy"></div>
+    <div class="answer" id="answer">{{ final[0][0] }}</div>
+    <div class="dummy"></div>
+</div>
+<script>
+    function advanceFinalRound(ref) {
+        current = document.getElementById(ref).innerHTML;
+
+        if (current == "{{ final[0][0] }}") {
+            document.getElementById(ref).innerHTML = "{{ final[0][1] }}";
+        }
+    }
+
+</script>
+<div class="scoring_answer">
+    <div class="scoring-teams">
+        <div class="scoring-team">Team 1: {{ one }}
+        </div>
+        <div class="scoring-button">
+
+        </div>
+    </div>
+    <div class="scoring-teams">
+        <div class="scoring-team">Team 2: {{ two }}
+        </div>
+        <div class="scoring-button">
+
+        </div>
+    </div>
+    <div class="scoring-teams">
+        <div class="scoring-team">Team 3: {{ three }}
+        </div>
+        <div class="scoring-button">
+
+        </div>
+    </div>
+    <div class="scoring">
+        <button type="button" class="answer-buttons" id="advance"
+                onclick="advanceFinalRound('answer')">Advance
+        </button>
+    </div>
+    <form class="scoring-teams" id="score_form" action="{{ url_for('game_result') }}"
+          method="POST">
+        <div class="scoring">
+            <button class="answer-buttons">Submit</button>
+        </div>
+    </form>
+
+</div>
 {% endblock %}

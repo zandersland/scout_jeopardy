@@ -1,23 +1,10 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div>
-    <h1>Game board</h1>
-
-</div>
-<div>
-    {% include 'includes/board.html' %}
-</div>
-<div>
-    <div>
-
-        <h3>Team 1</h3>
-        <p>{{ team_one_points }}</p>
-        <h3>Team 2</h3>
-        <p>{{ team_two_points }}</p>
-        <h3>Team 3</h3>
-        <p>{{ team_three_points }}</p>
-
-    </div>
+{% include 'includes/board.html' %}
+<div class="scores">
+    <div>Team 1: {{ team_one_points }}</div>
+    <div>Team 2: {{ team_two_points }}</div>
+    <div>Team 3: {{ team_three_points }}</div>
 </div>
 {% endblock %}

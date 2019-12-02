@@ -1,0 +1,119 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container-answer">
+    <div class="dummy"></div>
+    <div class="answer" id="answer">{{ final[0][1] }}</div>
+    <div class="dummy"></div>
+</div>
+<script>
+    function advanceFinalRound(ref, team) {
+        current = document.getElementById(ref).innerHTML;
+        input = document.getElementById(team).value;
+
+        if (input == '1a') {
+            document.getElementById(ref).innerHTML = "{{ one_answer }}";
+        }
+
+        if (input == '1w') {
+            document.getElementById(ref).innerHTML = "{{ one_wager }}";
+        }
+
+
+        if (input == '2a') {
+            document.getElementById(ref).innerHTML = "{{ two_answer }}";
+        }
+
+        if (input == '2w') {
+            document.getElementById(ref).innerHTML = "{{ two_wager }}";
+        }
+
+        if (input == '3a') {
+            document.getElementById(ref).innerHTML = "{{ three_answer }}";
+        }
+
+        if (input == '3w') {
+            document.getElementById(ref).innerHTML = "{{ three_wager }}";
+        }
+
+        if (input == '1c') {
+            one_val = {{ one }} + {{ one_wager}}
+            document.getElementById(ref).innerHTML = "Team 1: " + {{ one_wager }};
+            document.getElementById("team-one").innerHTML = "Team 1: " + one_val;
+        }
+
+        if (input == '1i') {
+            one_val = {{ one }} - {{ one_wager}}
+            document.getElementById(ref).innerHTML = "Team 1: -" + {{ one_wager }};
+            document.getElementById("team-one").innerHTML = "Team 1: " + one_val;
+        }
+        if (input == '2c') {
+            two_val = {{ two }} + {{ two_wager}}
+            document.getElementById(ref).innerHTML = "Team 2: " + {{ two_wager }};
+            document.getElementById("team-two").innerHTML = "Team 2: " + two_val;
+        }
+
+        if (input == '2i') {
+            two_val = {{ two }} - {{ two_wager}}
+            document.getElementById(ref).innerHTML = "Team 2: -" + {{ two_wager }};
+            document.getElementById("team-two").innerHTML = "Team 2: " + two_val;
+        }
+        if (input == '3c') {
+            three_val = {{ three }} + {{ three_wager}}
+            document.getElementById(ref).innerHTML = "Team 3: " + {{ three_wager }};
+            document.getElementById("team-three").innerHTML = "Team 3: " + three_val;
+        }
+
+        if (input == '3i') {
+            three_val = {{ three }} - {{ three_wager}}
+            document.getElementById(ref).innerHTML = "Team 3: -" + {{ three_wager }};
+            document.getElementById("team-three").innerHTML = "Team 3: " + three_val;
+        }
+
+        if (input == 'f') {
+            document.getElementById(ref).innerHTML =
+            document.getElementById("team-one").innerHTML + "<br>" +
+            document.getElementById("team-two").innerHTML + "<br>" +
+            document.getElementById("team-three").innerHTML;
+        }
+    }
+
+
+</script>
+<div class="scoring_answer">
+    <div class="scoring-teams">
+        <div class="scoring-team" id="team-one">Team 1: {{ one }}
+        </div>
+        <div class="scoring-button">
+
+        </div>
+    </div>
+    <div class="scoring-teams">
+        <div class="scoring-team" id="team-two">Team 2: {{ two }}
+        </div>
+        <div class="scoring-button">
+
+        </div>
+    </div>
+    <div class="scoring-teams">
+        <div class="scoring-team" id="team-three">Team 3: {{ three }}
+        </div>
+        <div class="scoring-button">
+
+        </div>
+    </div>
+    <div class="scoring">
+        <input type="text" id="team-input">
+        <button type="button" class="answer-buttons" id="advance"
+                onclick="advanceFinalRound('answer', 'team-input')">Advance
+        </button>
+    </div>
+    <form class="scoring-teams" id="score_form" action="{{ url_for('game_result') }}"
+          method="POST">
+        <div class="scoring">
+            <button class="answer-buttons">Submit</button>
+        </div>
+    </form>
+
+</div>
+{% endblock %}
