@@ -77,10 +77,12 @@ def add_daily_double(list1, list2, result_json):
     rand_1 = random.randint(0, 4)
     rand_2 = random.randint(0, 4)
     if round_2_dj_cat1 == round_2_dj_cat1 and rand_1 == rand_2:
+        print('fyi, the initial two random daily doubles was the same for round two. fixing the problem now...')
         if rand_2 != 4:
             rand_2 += 1
         else:
             rand_2 -= 1
+        print('done.')
     result_json[round_1_dj_cat[0]][random.randint(0, 4)]['daily_double'] = True
     result_json[round_2_dj_cat1[0]][rand_1]['daily_double'] = True
     result_json[round_2_dj_cat2[0]][rand_2]['daily_double'] = True
