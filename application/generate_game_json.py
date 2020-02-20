@@ -22,11 +22,15 @@ def create_scores():
 def create_questions(question_count, category, questions_json):
     questions = []
     for x in range(question_count):
+        try:
+            daily_double = questions_json[category][x]['daily_double']
+        except KeyError:
+            daily_double = False
         question = {
             'question': questions_json[category][x]['question'],
             'answer': questions_json[category][x]['answer'],
             'position': x + 1,
-            'daily_double': False,
+            'daily_double': daily_double,
             'display': True
         }
         questions.append(question)
@@ -65,12 +69,29 @@ def generate_game_3(round_1_category, round_2_category, question_json):
     return game
 
 
+def add_daily_double(list1, list2, result_json):
+    # abbreviations mean double jeopardy category
+    round_1_dj_cat = random.sample(list1, 1)
+    round_2_dj_cat1 = random.sample(list2, 1)
+    round_2_dj_cat2 = random.sample(list2, 1)
+    rand_1 = random.randint(0, 4)
+    rand_2 = random.randint(0, 4)
+    if round_2_dj_cat1 == round_2_dj_cat1 and rand_1 == rand_2:
+        if rand_2 != 4:
+            rand_2 += 1
+        else:
+            rand_2 -= 1
+    result_json[round_1_dj_cat[0]][random.randint(0, 4)]['daily_double'] = True
+    result_json[round_2_dj_cat1[0]][rand_1]['daily_double'] = True
+    result_json[round_2_dj_cat2[0]][rand_2]['daily_double'] = True
+    return result_json
+
+
 def convert_csv_to_json():
     with open("questions.csv", 'r') as f:
         reader = csv.reader(f)
         csv_list = list(reader)
         verify_list(csv_list)
-        keys = []
         result_json = {}
         for pos, val in enumerate(csv_list):
             if val[0] not in result_json.keys():
@@ -80,17 +101,14 @@ def convert_csv_to_json():
                 list_item.append({'question': val[1], 'answer': val[2]})
                 result_json[val[0]] = list_item
 
-        # print(json.dumps(result_json, indent=2))
-    # return reader
     category_ids = random.sample(result_json.keys(), 12)
     list1 = category_ids[0:6]
     list2 = category_ids[6:12]
+    result_json = add_daily_double(list1, list2, result_json)
     return list1, list2, result_json
 
 
 if __name__ == '__main__':
-    # json_test()
-    # print(generate_game_3())
     json_tuple = convert_csv_to_json()
-    with open('json_text_file.json', 'w') as f:
+    with open('game_json.json', 'w') as f:
         f.write(generate_game_3(json_tuple[0], json_tuple[1], json_tuple[2]))
