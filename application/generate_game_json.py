@@ -19,7 +19,7 @@ def create_scores():
     return scores
 
 
-def create_questions(question_count, category, questions_json):
+def create_questions(question_count, category, questions_json, round_num):
     questions = []
     for x in range(question_count):
         try:
@@ -31,19 +31,24 @@ def create_questions(question_count, category, questions_json):
             'answer': questions_json[category][x]['answer'],
             'position': x + 1,
             'daily_double': daily_double,
-            'display': True
+            'display': True,
+            'score_amount': (x + 1) * (round_num * 100)
         }
         questions.append(question)
     return questions
 
 
-def create_columns(column_count, categories, questions_json):
+def create_columns(column_count: int, categories: list, questions_json: dict, round_num: int) -> dict:
+    """
+
+    :rtype: dict
+    """
     columns = []
     for x in range(column_count):
         col = {
             'title': categories[x],
             'position': x + 1,
-            'questions': create_questions(5, categories[x], questions_json)
+            'questions': create_questions(5, categories[x], questions_json, round_num)
         }
         columns.append(col)
 
@@ -59,17 +64,17 @@ def create_board():
 
 
 def generate_game_3(round_1_category, round_2_category, question_json):
-    game = {'scores': create_scores(), 'board': create_board()}
+    game = {'current_round': 1, 'scores': create_scores(), 'board': create_board()}
 
-    game['board']['round1'] = create_columns(6, round_1_category, question_json)
+    game['board']['round1'] = create_columns(6, round_1_category, question_json, 1)
 
-    game['board']['round2'] = create_columns(6, round_2_category, question_json)
+    game['board']['round2'] = create_columns(6, round_2_category, question_json, 2)
 
     game = json.dumps(game, indent=2)
     return game
 
 
-def add_daily_double(list1, list2, result_json):
+def add_daily_double(list1, list2, question_json):
     # abbreviations mean double jeopardy category
     round_1_dj_cat = random.sample(list1, 1)
     round_2_dj_cat1 = random.sample(list2, 1)
@@ -83,31 +88,31 @@ def add_daily_double(list1, list2, result_json):
         else:
             rand_2 -= 1
         print('done.')
-    result_json[round_1_dj_cat[0]][random.randint(0, 4)]['daily_double'] = True
-    result_json[round_2_dj_cat1[0]][rand_1]['daily_double'] = True
-    result_json[round_2_dj_cat2[0]][rand_2]['daily_double'] = True
-    return result_json
+    question_json[round_1_dj_cat[0]][random.randint(0, 4)]['daily_double'] = True
+    question_json[round_2_dj_cat1[0]][rand_1]['daily_double'] = True
+    question_json[round_2_dj_cat2[0]][rand_2]['daily_double'] = True
+    return question_json
 
 
 def convert_csv_to_json():
-    with open("questions.csv", 'r') as f:
-        reader = csv.reader(f)
+    with open("questions.csv", 'r') as _f:
+        reader = csv.reader(_f)
         csv_list = list(reader)
         verify_list(csv_list)
-        result_json = {}
+        question_json = {}
         for pos, val in enumerate(csv_list):
-            if val[0] not in result_json.keys():
-                result_json[val[0]] = [{'question': val[1], 'answer': val[2]}]
+            if val[0] not in question_json.keys():
+                question_json[val[0]] = [{'question': val[1], 'answer': val[2]}]
             else:
-                list_item = result_json.get(val[0])
+                list_item = question_json.get(val[0])
                 list_item.append({'question': val[1], 'answer': val[2]})
-                result_json[val[0]] = list_item
+                question_json[val[0]] = list_item
 
-    category_ids = random.sample(result_json.keys(), 12)
+    category_ids = random.sample(question_json.keys(), 12)
     list1 = category_ids[0:6]
     list2 = category_ids[6:12]
-    result_json = add_daily_double(list1, list2, result_json)
-    return list1, list2, result_json
+    question_json = add_daily_double(list1, list2, question_json)
+    return list1, list2, question_json
 
 
 if __name__ == '__main__':
