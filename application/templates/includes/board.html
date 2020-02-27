@@ -1,21 +1,20 @@
 <div id="game-container">
-    {% for data in gameData %}
-    {% if data[0] not in (100, 200, 300, 400, 500, 600, 800, 1000) %}
+    {% for data in game_json['board']['round{}'.format(current_round)]['columns'] %}
     <div class="container-button">
-        <button class="game-cat-buttons" style="color:white;">{{ data[0] }}</button>
+        <button class="game-cat-buttons" style="color:white;">{{ data['title'] }}</button>
     </div>
-    {% else %}
+    {% for data2 in data['questions'] %}
     <div class="container-button">
         <form action="{{ url_for('answer', points=data[0], answer=data[1], question=data[2], color=data[4], index=loop.index) }}"
               method="POST">
-            {% if data[4] == '#0047b8' %}
-            <button class="game-buttons" style="color:#0047b8;" disabled>${{ data[0] }}</button>
+            {% if data2['display'] == False %}
+            <button class="game-buttons" style="color:#0047b8;" disabled>${{ data2['score_amount'] }}</button>
             {% else %}
-            <button class="game-buttons" style="color:#e3c102;">${{ data[0] }}</button>
+            <button class="game-buttons" style="color:#e3c102;">${{ data2['score_amount'] }}</button>
             {% endif %}
         </form>
     </div>
-    {% endif%}
+    {% endfor %}
     {% endfor %}
 
 </div>

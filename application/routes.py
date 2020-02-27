@@ -1,7 +1,10 @@
 from application import app
 from flask import render_template, request, redirect, url_for
+import json
 
 from application import generate_game as gg
+from application import generate_game_json as ggj
+from application import update_game_json as ug
 
 game_stats = gg.GenerateGame()
 
@@ -13,34 +16,85 @@ def index():
     return render_template('index.html')
 
 
+# @app.route('/generate_game', methods=['POST'])
+# def generate_game():
+#     game_stats.log_game('Creating game')
+#     game_stats.generate_game(request.form.get('dropdown-option', ''))
+#     game_stats.log_game(f'Round {game_stats.round}')
+#     return render_template('game.html', gameData=game_stats.game_data,
+#                            team_one_points=game_stats.team_one_points,
+#                            team_two_points=game_stats.team_two_points, team_three_points=game_stats.team_three_points)
+
+
 @app.route('/generate_game', methods=['POST'])
 def generate_game():
-    game_stats.log_game('Creating game')
-    game_stats.generate_game(request.form.get('dropdown-option', ''))
-    game_stats.log_game(f'Round {game_stats.round}')
-    return render_template('game.html', gameData=game_stats.game_data,
-                           team_one_points=game_stats.team_one_points,
-                           team_two_points=game_stats.team_two_points, team_three_points=game_stats.team_three_points)
+    ggj.generate_game_4()
+    return redirect(url_for('game'))
+
+
+# @app.route('/game')
+# def game():
+#     return render_template('game.html', gameData=game_stats.game_data,
+#                            team_one_points=game_stats.team_one_points,
+#                            team_two_points=game_stats.team_two_points, team_three_points=game_stats.team_three_points)
 
 
 @app.route('/game')
 def game():
-    return render_template('game.html', gameData=game_stats.game_data,
-                           team_one_points=game_stats.team_one_points,
-                           team_two_points=game_stats.team_two_points, team_three_points=game_stats.team_three_points)
+    return render_template('game.html', game_json=ug.return_full_json(),
+                           team_one_points=ug.read_team_score('Team1'),
+                           team_two_points=ug.read_team_score('Team2'), team_three_points=ug.read_team_score('Team3'), current_round=ug.read_current_round())
+# TODO line 52 in css, I changed row to column
+
+# @app.route('/update_game', methods=['POST'])
+# def update_game():
+#     _index = int(request.args.get('index')) - 1
+#     if request.form.get('team_one') is not None and request.form.get('team_one') != '':
+#         game_stats.team_one_points += int(request.form.get('team_one', 0))
+#     if request.form.get('team_two') is not None and request.form.get('team_two') != '':
+#         game_stats.team_two_points += int(request.form.get('team_two', 0))
+#     if request.form.get('team_three') is not None and request.form.get('team_three') != '':
+#         game_stats.team_three_points += int(request.form.get('team_three', 0))
+#
+#     game_stats.log_game(
+#         f"  Points:   One: {request.form.get('team_one')}, "
+#         f"  Two: {request.form.get('team_two')}, "
+#         f"  Three: {request.form.get('team_three')}")
+#     game_stats.log_game(f"  Scores:   One: {game_stats.team_one_points}, "
+#                         f"  Two: {game_stats.team_two_points}, "
+#                         f"  Three: {game_stats.team_three_points}")
+#     clear_question = (
+#         game_stats.game_data[_index][0], game_stats.game_data[_index][1], game_stats.game_data[_index][2],
+#         game_stats.game_data[_index][3], '#0047b8')
+#     game_stats.game_data[_index] = clear_question
+#
+#     round_complete = True
+#     for stat in game_stats.game_data:
+#         if stat[4] == 'white':
+#             round_complete = False
+#
+#     if round_complete is True:
+#         game_stats.round += 1
+#         game_stats.game_data = game_stats.round_two
+#         game_stats.log_game(f'Round {game_stats.round}')
+#
+#     if game_stats.round == 3:
+#         return redirect(url_for('final'))
+#     else:
+#         return redirect(url_for('game'))
 
 
 @app.route('/update_game', methods=['POST'])
 def update_game():
     _index = int(request.args.get('index')) - 1
     if request.form.get('team_one') is not None and request.form.get('team_one') != '':
-        game_stats.team_one_points += int(request.form.get('team_one', 0))
-
+        ug.update_team_scores('Team1', int(request.form.get('team_one', 0)))
     if request.form.get('team_two') is not None and request.form.get('team_two') != '':
-        game_stats.team_two_points += int(request.form.get('team_two', 0))
+        ug.update_team_scores('Team2', int(request.form.get('team_two', 0)))
     if request.form.get('team_three') is not None and request.form.get('team_three') != '':
-        game_stats.team_three_points += int(request.form.get('team_three', 0))
+        ug.update_team_scores('Team3', int(request.form.get('team_three', 0)))
 
+    # TODO figure out if I want to log the game
     game_stats.log_game(
         f"  Points:   One: {request.form.get('team_one')}, "
         f"  Two: {request.form.get('team_two')}, "
@@ -145,10 +199,16 @@ def log():
 
 @app.route('/update_scores_post', methods=['POST'])
 def update_scores_post():
+    with open('game_json.json', 'r') as _f:
+        _game_json = json.loads(_f.read())
     game_stats.team_one_points = int(request.form.get('team_one_amount'))
+    _game_json['scores']['Team1'] = int(request.form.get('team_one_amount'))
     game_stats.team_two_points = int(request.form.get('team_two_amount'))
+    _game_json['scores']['Team2'] = int(request.form.get('team_two_amount'))
     game_stats.team_three_points = int(request.form.get('team_three_amount'))
-
+    _game_json['scores']['Team3'] = int(request.form.get('team_three_amount'))
+    with open('game_json.json', 'w') as _f:
+        _f.write(json.dumps(_game_json, indent=2))
     game_stats.log_game(f"Updated team scores: "
                         f"team one:   {game_stats.team_one_points}"
                         f"team two:   {game_stats.team_two_points}"
@@ -158,8 +218,8 @@ def update_scores_post():
 
 @app.route('/update_scores')
 def update_scores():
-    one = game_stats.team_one_points
-    two = game_stats.team_two_points
-    three = game_stats.team_three_points
+    one = ug.read_team_score('Team1')
+    two = ug.read_team_score('Team2')
+    three = ug.read_team_score('Team3')
 
     return render_template('update_scores.html', one=one, two=two, three=three)

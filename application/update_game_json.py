@@ -42,8 +42,25 @@ def change_current_round(_round):
         _f.write(json.dumps(game_json, indent=2))
 
 
+def read_team_score(_team_name):
+    with open('game_json.json', 'r') as _f:
+        _team_score = json.loads(_f.read())['scores'][_team_name]
+    return _team_score
+
+
+def read_current_round():
+    with open('game_json.json', 'r') as _f:
+        return json.loads(_f.read())['current_round']
+
+
+def return_full_json():
+    with open('game_json.json', 'r') as _f:
+        return json.loads(_f.read())
+
+
 if __name__ == '__main__':
     # update_team_scores(str(input('team: ')), int(input('amount: ')))
     # update_display_question(int(input('round: ')), int(input('column: ')), int(input('question: ')), False)
     # update_display_question(1, 1, False)
-    change_current_round(2)
+    # change_current_round(2)
+    pass

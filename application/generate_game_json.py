@@ -115,6 +115,12 @@ def convert_csv_to_json():
     return list1, list2, question_json
 
 
+def generate_game_4():
+    json_tuple = convert_csv_to_json()
+    with open('game_json.json', 'w') as f:
+        f.write(generate_game_3(json_tuple[0], json_tuple[1], json_tuple[2]))
+
+
 if __name__ == '__main__':
     json_tuple = convert_csv_to_json()
     with open('game_json.json', 'w') as f:
