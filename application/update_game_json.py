@@ -58,6 +58,27 @@ def return_full_json():
         return json.loads(_f.read())
 
 
+def check_for_round_end():
+    game_json = return_full_json()
+    round_end = True
+    for x in game_json['board'][f'round{game_json["current_round"]}']['columns']:
+        for y in x['questions']:
+            if y['display'] == True:
+                round_end = False
+    return round_end
+
+
+def move_archived_game_to_current_state(file_name):
+    with open('game_json.json', 'w') as f:
+        with open(f'games/{file_name}.json', 'r') as _f:
+            f.write(_f.read())
+    with open('game_json.json', 'r') as f2:
+        cur_json = json.loads(f2.read())
+    cur_json['current_file'] = str(file_name) + '.json'
+    with open('game_json.json', 'w') as f3:
+        f3.write(json.dumps(cur_json, indent=2))
+
+
 if __name__ == '__main__':
     # update_team_scores(str(input('team: ')), int(input('amount: ')))
     # update_display_question(int(input('round: ')), int(input('column: ')), int(input('question: ')), False)

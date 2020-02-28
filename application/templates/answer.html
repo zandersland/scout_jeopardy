@@ -2,8 +2,8 @@
 
 {% block content %}
 <div class="container-answer">
-    <div class="dummy"></div>
-    <div class="answer">{{ answer }}</div>
+    <div class="dummy">{% if daily_double == 'True' %}<img src="../static/daily_double.webp" style="margin-left: 25vw; width: 50vw; height: 40vh;"> {% endif %}</div>
+    <div class="answer">{{ question }}</div>
     <div class="dummy"></div>
 </div>
 {% include 'includes/score.html' %}

@@ -1,5 +1,6 @@
 import csv
 import json
+import os
 import random
 
 
@@ -87,7 +88,6 @@ def add_daily_double(list1, list2, question_json):
             rand_2 += 1
         else:
             rand_2 -= 1
-        print('done.')
     question_json[round_1_dj_cat[0]][random.randint(0, 4)]['daily_double'] = True
     question_json[round_2_dj_cat1[0]][rand_1]['daily_double'] = True
     question_json[round_2_dj_cat2[0]][rand_2]['daily_double'] = True
@@ -115,10 +115,14 @@ def convert_csv_to_json():
     return list1, list2, question_json
 
 
-def generate_game_4():
+def generate_game_4(file_name):
     json_tuple = convert_csv_to_json()
-    with open('game_json.json', 'w') as f:
+    if os.path.exists(file_name):
+        assert True == False
+        # TODO fix file being overwritten
+    with open(f'games/{file_name}.json', 'w') as f:
         f.write(generate_game_3(json_tuple[0], json_tuple[1], json_tuple[2]))
+    print(os.listdir('games'))
 
 
 if __name__ == '__main__':

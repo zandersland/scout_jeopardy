@@ -1,7 +1,9 @@
-from application import app
-from flask import render_template, request, redirect, url_for
 import json
+import os
 
+from flask import render_template, request, redirect, url_for
+
+from application import app
 from application import generate_game as gg
 from application import generate_game_json as ggj
 from application import update_game_json as ug
@@ -9,11 +11,26 @@ from application import update_game_json as ug
 game_stats = gg.GenerateGame()
 
 
+def return_list_of_files_in_games():
+    games = ['None']
+    for line in os.listdir('games'):
+        games.append(line)
+    return games
+
+
 @app.route("/")
 @app.route("/index")
 @app.route("/home")
 def index():
-    return render_template('index.html')
+    games = return_list_of_files_in_games()
+    return render_template('index.html', games=games)
+
+
+# TODO make log
+# TODO add a drop down on main page to recover a game
+# TODO make team color light up after they answer correctly
+# TODO fix the words from going off screen when there is a daily_double
+# TODO work on final jeopardy
 
 
 # @app.route('/generate_game', methods=['POST'])
@@ -28,7 +45,13 @@ def index():
 
 @app.route('/generate_game', methods=['POST'])
 def generate_game():
-    ggj.generate_game_4()
+    print(request.form.get('dropdown-option'))
+    if request.form.get('dropdown-option') == 'None':
+        ggj.generate_game_4(request.form.get('file_name'))
+        ug.move_archived_game_to_current_state(request.form.get('file_name'))
+    else:
+        ug.move_archived_game_to_current_state(request.form.get('dropdown_option'))
+    # TODO fix this
     return redirect(url_for('game'))
 
 
@@ -43,8 +66,9 @@ def generate_game():
 def game():
     return render_template('game.html', game_json=ug.return_full_json(),
                            team_one_points=ug.read_team_score('Team1'),
-                           team_two_points=ug.read_team_score('Team2'), team_three_points=ug.read_team_score('Team3'), current_round=ug.read_current_round())
-# TODO line 52 in css, I changed row to column
+                           team_two_points=ug.read_team_score('Team2'), team_three_points=ug.read_team_score('Team3'),
+                           current_round=ug.read_current_round())
+
 
 # @app.route('/update_game', methods=['POST'])
 # def update_game():
@@ -86,7 +110,7 @@ def game():
 
 @app.route('/update_game', methods=['POST'])
 def update_game():
-    _index = int(request.args.get('index')) - 1
+    # _index = int(request.args.get('index')) - 1
     if request.form.get('team_one') is not None and request.form.get('team_one') != '':
         ug.update_team_scores('Team1', int(request.form.get('team_one', 0)))
     if request.form.get('team_two') is not None and request.form.get('team_two') != '':
@@ -102,25 +126,32 @@ def update_game():
     game_stats.log_game(f"  Scores:   One: {game_stats.team_one_points}, "
                         f"  Two: {game_stats.team_two_points}, "
                         f"  Three: {game_stats.team_three_points}")
-    clear_question = (
-        game_stats.game_data[_index][0], game_stats.game_data[_index][1], game_stats.game_data[_index][2],
-        game_stats.game_data[_index][3], '#0047b8')
-    game_stats.game_data[_index] = clear_question
+    # clear_question = (
+    #     game_stats.game_data[_index][0], game_stats.game_data[_index][1], game_stats.game_data[_index][2],
+    #     game_stats.game_data[_index][3], '#0047b8')
+    # game_stats.game_data[_index] = clear_question
+    #
+    ug.update_display_question(int(request.args.get('column_position')), int(request.args.get('row_position')),
+                               False)
+    #
+    # round_complete = True
+    # for stat in game_stats.game_data:
+    #     if stat[4] == 'white':
+    #         round_complete = False
+    #
+    # if round_complete is True:
+    #     game_stats.round += 1
+    #     game_stats.game_data = game_stats.round_two
+    #     game_stats.log_game(f'Round {game_stats.round}')
+    #
+    # if game_stats.round == 3:
+    #     return redirect(url_for('final'))
+    # else:
+    #     return redirect(url_for('game'))
+    if ug.check_for_round_end() == True:
+        ug.change_current_round(ug.read_current_round() + 1)
 
-    round_complete = True
-    for stat in game_stats.game_data:
-        if stat[4] == 'white':
-            round_complete = False
-
-    if round_complete is True:
-        game_stats.round += 1
-        game_stats.game_data = game_stats.round_two
-        game_stats.log_game(f'Round {game_stats.round}')
-
-    if game_stats.round == 3:
-        return redirect(url_for('final'))
-    else:
-        return redirect(url_for('game'))
+    return redirect(url_for('game'))
 
 
 @app.route('/answer', methods=['POST'])
@@ -128,11 +159,15 @@ def answer():
     points = request.args.get('points')
     _answer = request.args.get('answer')
     question = request.args.get('question')
-    _index = request.args.get('index')
-    color = request.args.get('color')
+    column_position = request.args.get('column_position')
+    row_position = request.args.get('row_position')
+    display = request.args.get('display')
+    daily_double = request.args.get('daily_double')
     game_stats.log_game("")
-    game_stats.log_game(f"{points}, {_answer}, {question}, {_index}, {color}")
-    return render_template('answer.html', points=points, answer=_answer, question=question, index=_index, color=color)
+    game_stats.log_game(f"{points}, {_answer}, {question}, {column_position}, {display}")
+    return render_template('answer.html', points=points, answer=_answer, question=question,
+                           column_position=column_position,
+                           display=display, row_position=row_position, daily_double=daily_double)
 
 
 @app.route('/final')
