@@ -3,10 +3,14 @@ html {
     color: #e3c102;
 }
 
+body {
+    margin: 0;
+}
+
 .main {
     background-color: #0047b8;
-    width: 99vw;
-    height: 98vh;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-flow: column;
     justify-content: space-evenly;
@@ -89,7 +93,7 @@ html {
     display: flex;
     flex-flow: column;
     justify-content: space-evenly;
-    width: 99vw;
+    width: 100vw;
     height: 94vh;
 }
 .answer {
