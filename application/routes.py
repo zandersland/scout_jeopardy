@@ -11,6 +11,14 @@ from application import update_game_json as ug
 game_stats = gg.GenerateGame()
 
 
+class json_var:
+    def __init__(self):
+        self.game_json_file = ''
+
+
+json_var_obj = json_var()
+
+
 def return_list_of_files_in_games():
     games = ['None']
     for line in os.listdir('games'):
@@ -26,97 +34,46 @@ def index():
     return render_template('index.html', games=games)
 
 
-# TODO make log
-# TODO add a drop down on main page to recover a game
-# TODO make team color light up after they answer correctly
-# TODO fix the words from going off screen when there is a daily_double
+# TODO work on button system
 # TODO work on final jeopardy
 
 
-# @app.route('/generate_game', methods=['POST'])
-# def generate_game():
-#     game_stats.log_game('Creating game')
-#     game_stats.generate_game(request.form.get('dropdown-option', ''))
-#     game_stats.log_game(f'Round {game_stats.round}')
-#     return render_template('game.html', gameData=game_stats.game_data,
-#                            team_one_points=game_stats.team_one_points,
-#                            team_two_points=game_stats.team_two_points, team_three_points=game_stats.team_three_points)
+# TODO NICETOHAVE make team color light up after they answer correctly
+# TODO NICETOHAVE fix the words from going off screen when there is a daily_double
+# TODO NICETOHAVE make log
+# TODO NICETOHAVE use javascript to switch between dropdown and textbox for game selection
 
 
 @app.route('/generate_game', methods=['POST'])
 def generate_game():
-    print(request.form.get('dropdown-option'))
-    if request.form.get('dropdown-option') == 'None':
-        ggj.generate_game_4(request.form.get('file_name'))
-        ug.move_archived_game_to_current_state(request.form.get('file_name'))
+    print('|' + str(request.form.get('dropdown-option')) + '|')
+    if "None" == str(request.form.get('dropdown-option')):
+        print('generate true')
+        json_var_obj.game_json_file = request.form.get('file_name') + '.json'
+        ggj.generate_game_4(json_var_obj.game_json_file)
     else:
-        ug.move_archived_game_to_current_state(request.form.get('dropdown_option'))
+        print('generate false')
+        json_var_obj.game_json_file = request.form.get('dropdown-option')
     # TODO fix this
     return redirect(url_for('game'))
 
 
-# @app.route('/game')
-# def game():
-#     return render_template('game.html', gameData=game_stats.game_data,
-#                            team_one_points=game_stats.team_one_points,
-#                            team_two_points=game_stats.team_two_points, team_three_points=game_stats.team_three_points)
-
-
 @app.route('/game')
 def game():
-    return render_template('game.html', game_json=ug.return_full_json(),
-                           team_one_points=ug.read_team_score('Team1'),
-                           team_two_points=ug.read_team_score('Team2'), team_three_points=ug.read_team_score('Team3'),
-                           current_round=ug.read_current_round())
-
-
-# @app.route('/update_game', methods=['POST'])
-# def update_game():
-#     _index = int(request.args.get('index')) - 1
-#     if request.form.get('team_one') is not None and request.form.get('team_one') != '':
-#         game_stats.team_one_points += int(request.form.get('team_one', 0))
-#     if request.form.get('team_two') is not None and request.form.get('team_two') != '':
-#         game_stats.team_two_points += int(request.form.get('team_two', 0))
-#     if request.form.get('team_three') is not None and request.form.get('team_three') != '':
-#         game_stats.team_three_points += int(request.form.get('team_three', 0))
-#
-#     game_stats.log_game(
-#         f"  Points:   One: {request.form.get('team_one')}, "
-#         f"  Two: {request.form.get('team_two')}, "
-#         f"  Three: {request.form.get('team_three')}")
-#     game_stats.log_game(f"  Scores:   One: {game_stats.team_one_points}, "
-#                         f"  Two: {game_stats.team_two_points}, "
-#                         f"  Three: {game_stats.team_three_points}")
-#     clear_question = (
-#         game_stats.game_data[_index][0], game_stats.game_data[_index][1], game_stats.game_data[_index][2],
-#         game_stats.game_data[_index][3], '#0047b8')
-#     game_stats.game_data[_index] = clear_question
-#
-#     round_complete = True
-#     for stat in game_stats.game_data:
-#         if stat[4] == 'white':
-#             round_complete = False
-#
-#     if round_complete is True:
-#         game_stats.round += 1
-#         game_stats.game_data = game_stats.round_two
-#         game_stats.log_game(f'Round {game_stats.round}')
-#
-#     if game_stats.round == 3:
-#         return redirect(url_for('final'))
-#     else:
-#         return redirect(url_for('game'))
+    return render_template('game.html', game_json=ug.return_full_json(json_var_obj.game_json_file),
+                           team_one_points=ug.read_team_score('Team1', json_var_obj.game_json_file),
+                           team_two_points=ug.read_team_score('Team2', json_var_obj.game_json_file), team_three_points=ug.read_team_score('Team3', json_var_obj.game_json_file),
+                           current_round=ug.read_current_round(json_var_obj.game_json_file))
 
 
 @app.route('/update_game', methods=['POST'])
 def update_game():
-    # _index = int(request.args.get('index')) - 1
     if request.form.get('team_one') is not None and request.form.get('team_one') != '':
-        ug.update_team_scores('Team1', int(request.form.get('team_one', 0)))
+        ug.update_team_scores('Team1', int(request.form.get('team_one', 0)), json_var_obj.game_json_file)
     if request.form.get('team_two') is not None and request.form.get('team_two') != '':
-        ug.update_team_scores('Team2', int(request.form.get('team_two', 0)))
+        ug.update_team_scores('Team2', int(request.form.get('team_two', 0)), json_var_obj.game_json_file)
     if request.form.get('team_three') is not None and request.form.get('team_three') != '':
-        ug.update_team_scores('Team3', int(request.form.get('team_three', 0)))
+        ug.update_team_scores('Team3', int(request.form.get('team_three', 0)), json_var_obj.game_json_file)
 
     # TODO figure out if I want to log the game
     game_stats.log_game(
@@ -126,30 +83,10 @@ def update_game():
     game_stats.log_game(f"  Scores:   One: {game_stats.team_one_points}, "
                         f"  Two: {game_stats.team_two_points}, "
                         f"  Three: {game_stats.team_three_points}")
-    # clear_question = (
-    #     game_stats.game_data[_index][0], game_stats.game_data[_index][1], game_stats.game_data[_index][2],
-    #     game_stats.game_data[_index][3], '#0047b8')
-    # game_stats.game_data[_index] = clear_question
-    #
     ug.update_display_question(int(request.args.get('column_position')), int(request.args.get('row_position')),
-                               False)
-    #
-    # round_complete = True
-    # for stat in game_stats.game_data:
-    #     if stat[4] == 'white':
-    #         round_complete = False
-    #
-    # if round_complete is True:
-    #     game_stats.round += 1
-    #     game_stats.game_data = game_stats.round_two
-    #     game_stats.log_game(f'Round {game_stats.round}')
-    #
-    # if game_stats.round == 3:
-    #     return redirect(url_for('final'))
-    # else:
-    #     return redirect(url_for('game'))
-    if ug.check_for_round_end() == True:
-        ug.change_current_round(ug.read_current_round() + 1)
+                               False, json_var_obj.game_json_file)
+    if ug.check_for_round_end(json_var_obj.game_json_file) == True:
+        ug.change_current_round(ug.read_current_round(json_var_obj.game_json_file) + 1, json_var_obj.game_json_file)
 
     return redirect(url_for('game'))
 
@@ -186,12 +123,6 @@ def game_result():
     two = game_stats.team_two_points
     three = game_stats.team_three_points
 
-    # one_answer = 'abc'
-    # one_wager = 100
-    # two_answer = 'def'
-    # two_wager = 200
-    # three_answer = 'ghi'
-    # three_wager = 300
     one_answer = game_stats.team_one_answer
     one_wager = game_stats.team_one_wager
     two_answer = game_stats.team_two_answer
@@ -253,8 +184,8 @@ def update_scores_post():
 
 @app.route('/update_scores')
 def update_scores():
-    one = ug.read_team_score('Team1')
-    two = ug.read_team_score('Team2')
-    three = ug.read_team_score('Team3')
+    one = ug.read_team_score('Team1', json_var_obj.game_json_file)
+    two = ug.read_team_score('Team2', json_var_obj.game_json_file)
+    three = ug.read_team_score('Team3', json_var_obj.game_json_file)
 
     return render_template('update_scores.html', one=one, two=two, three=three)

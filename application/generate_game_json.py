@@ -117,12 +117,14 @@ def convert_csv_to_json():
 
 def generate_game_4(file_name):
     json_tuple = convert_csv_to_json()
-    if os.path.exists(file_name):
-        assert True == False
+    if os.path.exists(f'games/{file_name}'):
+        pass
+        # assert True == False
         # TODO fix file being overwritten
-    with open(f'games/{file_name}.json', 'w') as f:
-        f.write(generate_game_3(json_tuple[0], json_tuple[1], json_tuple[2]))
-    print(os.listdir('games'))
+    else:
+        with open(f'games/{file_name}', 'w') as f:
+            f.write(generate_game_3(json_tuple[0], json_tuple[1], json_tuple[2]))
+    # print(os.listdir('games'))
 
 
 if __name__ == '__main__':

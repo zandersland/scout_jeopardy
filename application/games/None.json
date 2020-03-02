@@ -1,8 +1,8 @@
 {
   "current_round": 1,
   "scores": {
-    "Team1": 0,
-    "Team2": 0,
+    "Team1": 200,
+    "Team2": -200,
     "Team3": 0
   },
   "board": {
@@ -25,7 +25,7 @@
               "answer": "Dehydration",
               "position": 2,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 200
             },
             {
@@ -63,7 +63,7 @@
               "answer": "Cooking",
               "position": 1,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 100
             },
             {

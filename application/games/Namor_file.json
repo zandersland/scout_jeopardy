@@ -3,7 +3,7 @@
   "scores": {
     "Team1": 0,
     "Team2": 0,
-    "Team3": 0
+    "Team3": 100
   },
   "board": {
     "round1": {
@@ -109,7 +109,7 @@
               "answer": "CPR",
               "position": 1,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 100
             },
             {
