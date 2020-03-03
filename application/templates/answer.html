@@ -2,9 +2,21 @@
 
 {% block content %}
 <div class="container-answer">
-    <div class="dummy">{% if daily_double == 'True' %}<img src="../static/daily_double.webp" style="margin-left: 25vw; width: 50vw; height: 40vh;"> {% endif %}</div>
+    <div class="dummy">{% if daily_double == 'True' %}<img src="../static/daily_double.webp"
+                                                           style="margin-left: 25vw; width: 50vw; height: 40vh;"> {%
+        endif %}
+    </div>
     <div class="answer">{{ question }}</div>
-    <div class="dummy"></div>
+    <div class="dummy">
+        <div class="test">
+            <script src="../../static/css/ping.js"></script>
+            <ul data-bind="foreach:servers">
+                <li><a href="#" data-bind="text:name,attr:{href: 'http://'+name}">tester</a> <span
+                        data-bind="text:status,css:status"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 {% include 'includes/score.html' %}
 {% endblock %}

@@ -9,14 +9,12 @@ led_white = 12
 button1 = 17
 button2 = 27
 button3 = 22
-button_ready = 23
 
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(button1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(button3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(button_ready, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(led1, GPIO.OUT)
 GPIO.setup(led2, GPIO.OUT)
 GPIO.setup(led3, GPIO.OUT)
@@ -42,21 +40,12 @@ def button_callback3(channel):
     print('button3 was pushed at: ', current_timestamp())
 
 
-def button_callbackr(channel):
-    print('ready button was pushed at: ', current_timestamp())
-
-
 # for x in range(1000000000):
 #    if GPIO.input(22) == GPIO.HIGH:
 #        print('button was pushed!', x)
 try:
     for x in range(1000000000000):
         print_list = []
-        if GPIO.input(button_ready) == GPIO.HIGH:
-            print_list.append('buttonr ')
-            GPIO.output(led_white, GPIO.HIGH)
-        else:
-            print_list.append('        ')
         if GPIO.input(button3) == GPIO.HIGH:
             print_list.append('button3 ')
             GPIO.output(led3, GPIO.HIGH)

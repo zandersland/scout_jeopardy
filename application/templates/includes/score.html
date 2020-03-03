@@ -17,6 +17,10 @@
     }
 
 
+
+
+
+
 </script>
 <div class="scoring_answer">
     <div class="scoring-teams">
@@ -46,7 +50,8 @@
             </button>
         </div>
     </div>
-    <form class="scoring-teams" id="score_form" action="{{ url_for('update_game', points=points, column_position=column_position, row_position=row_position) }}"
+    <form class="scoring-teams" id="score_form"
+          action="{{ url_for('update_game', points=points, column_position=column_position, row_position=row_position) }}"
           method="POST">
         <div class="scoring">
             <button class="answer-buttons">Submit</button>

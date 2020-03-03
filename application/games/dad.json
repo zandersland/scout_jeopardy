@@ -1,7 +1,7 @@
 {
   "current_round": 1,
   "scores": {
-    "Team1": 0,
+    "Team1": 100,
     "Team2": 700,
     "Team3": 500
   },
@@ -79,7 +79,7 @@
               "answer": "Emergency Preparedness",
               "position": 3,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 300
             },
             {
@@ -201,7 +201,7 @@
               "answer": "CPR",
               "position": 1,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 100
             },
             {
@@ -217,7 +217,7 @@
               "answer": "Heart attack",
               "position": 3,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 300
             },
             {
