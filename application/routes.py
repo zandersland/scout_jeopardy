@@ -187,5 +187,16 @@ def update_scores():
     one = ug.read_team_score('Team1', json_var_obj.game_json_file)
     two = ug.read_team_score('Team2', json_var_obj.game_json_file)
     three = ug.read_team_score('Team3', json_var_obj.game_json_file)
-
     return render_template('update_scores.html', one=one, two=two, three=three)
+
+
+@app.route('/pingtest', methods=['GET', 'POST'])
+def pingtest():
+    print('The ping worked!!!!!!!!!!')
+    return 'Hello World!'
+
+
+@app.route('/start_buttons_ping', methods=['GET', 'POST'])
+def start_buttons_ping():
+    # TODO start reading the buttons without a certain team
+    pass

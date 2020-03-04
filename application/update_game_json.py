@@ -83,6 +83,11 @@ def manage_game_file(file_name, create):
     return curr_file
 
 
+def update_team_guesses():
+    # TODO work on this
+    pass
+
+
 if __name__ == '__main__':
     # update_team_scores(str(input('team: ')), int(input('amount: ')))
     # update_display_question(int(input('round: ')), int(input('column: ')), int(input('question: ')), False)
