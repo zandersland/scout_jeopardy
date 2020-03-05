@@ -27,7 +27,7 @@
         <div class="scoring-team">Team 1: {{ team_one_points }}
         </div>
         <div class="scoring-button">
-            <a class="team_a" href="#" ping="/pingtest">Wrong answer</a>
+            <a class="team_a" href="#" ping="{{ url_for('start_buttons_ping', team_id=0) }}">Wrong answer</a>
             <button type="button" class="answer-buttons" id="team_one_pos"
                     onclick="setScoring(this, {{points}}, 'team_one')">0
             </button>
@@ -37,7 +37,7 @@
         <div class="scoring-team">Team 2: {{ team_two_points }}
         </div>
         <div class="scoring-button">
-            <a href="#" ping="/pingtest">Wrong answer</a>
+            <a href="#" ping="{{ url_for('start_buttons_ping', team_id=1) }}">Wrong answer</a>
             <button type="button" class="answer-buttons" id="team_two_pos"
                     onclick="setScoring(this, {{points}}, 'team_two')">0
             </button>
@@ -47,7 +47,7 @@
         <div class="scoring-team">Team 3: {{ team_three_points }}
         </div>
         <div class="scoring-button">
-            <a href="#" ping="/pingtest">Wrong answer</a>
+            <a href="#" ping="{{ url_for('start_buttons_ping', team_id=2) }}">Wrong answer</a>
             <button type="button" class="answer-buttons" id="team_three_pos"
                     onclick="setScoring(this, {{points}}, 'team_three')">0
             </button>
@@ -64,3 +64,8 @@
         </div>
     </form>
 </div>
+<div class="buzzer_states"><iframe src="{{ url_for('pingtest') }}" id="buzzer_states_iframe"></iframe></div>
+<script>
+    var image = new Image()
+    image.src = '{{ url_for('start_buttons_ping') }}'
+</script>

@@ -1,0 +1,11 @@
+<head>
+    <meta http-equiv="refresh" content="5"/>
+</head>
+<body>
+<h3 style="color: #FFFFFF">{{ game_json_file }}</h3>
+<p style="color: #FFFFFF;">
+    {% for line in log_list %}
+    {{ line }}<br>
+    {% endfor %}
+</p>
+</body>

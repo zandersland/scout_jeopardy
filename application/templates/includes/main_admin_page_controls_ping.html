@@ -1,0 +1,23 @@
+<button onClick="window.location.reload();">Refresh values</button>
+<form class="update_scores" id="update_scores" action="{{ url_for('main_admin_page_post') }}"
+      method="POST">
+    <div class="update_scores">
+        <div>
+            <label style="color: #FFFFFF">Team 1</label>
+            <input type="text" name="team_one_amount" id="team_one_amount" value="{{one}}"/>
+        </div>
+        <div>
+            <label style="color: #FFFFFF">Team 2</label>
+            <input type="text" name="team_two_amount" id="team_two_amount" value="{{two}}"/>
+        </div>
+        <div>
+            <label style="color: #FFFFFF">Team 3</label>
+            <input type="text" name="team_three_amount" id="team_three_amount" value="{{three}}"/>
+        </div>
+        <div>
+            <label style="color: #FFFFFF">Current Round</label>
+            <input type="text" name="current_round" id="current_round" value="{{ round_num }}">
+        </div>
+        <button class="final-buttons">Submit</button>
+    </div>
+</form>

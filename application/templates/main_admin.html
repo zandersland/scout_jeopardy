@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin page for scout jeopardy</title>
+    <style type="text/css">
+        #answer_bar{
+            border: solid;
+            border-color: #009900;
+            border-width: 1px;
+            border-radius: 50px;
+        }
+
+        #answer_bar iframe {
+            width: 99vw;
+            height: 20vh;
+            color: #FFFFFF;
+            border: solid;
+            border-width: 0;
+        }
+
+        html, body {
+            margin: 0;
+            background-color: #26262b;
+        }
+
+        #bottom_2_divs {
+            display: flex;
+            flex-flow: row;
+        }
+
+        #log, #edit_game {
+            color: #FFFFFF;
+            border: solid;
+            border-width: 1px;
+            border-radius: 50px;
+            border-color: #009900;
+            margin: 0;
+            height: 79vh;
+        }
+
+        #log {
+            width: 70vw;
+        }
+
+        #log iframe {
+            width: 60vw;
+            height: 70vh;
+            color: #FFFFFF;
+            border: solid;
+            border-width: 0;
+            margin: 25px;
+        }
+
+        #edit_game {
+            width: 30vw;
+        }
+
+        #edit_game iframe {
+            width: 25vw;
+            height: 70vh;
+            color: #FFFFFF;
+            border: solid;
+            border-width: 0;
+            margin: 25px;
+        }
+    </style>
+</head>
+<body>
+<div id="answer_bar"><iframe src="{{ url_for('main_admin_page_answer_ping') }}"></iframe></div>
+
+<div id="bottom_2_divs">
+<div id="log">
+    <iframe src="{{ url_for('main_admin_page_log_ping') }}"></iframe>
+</div>
+<div id="edit_game">
+    <iframe src="{{ url_for('main_admin_page_post') }}"></iframe>
+</div>
+</div>
+</body>
+</html>

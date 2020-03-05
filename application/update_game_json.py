@@ -9,8 +9,13 @@ def update_team_scores(team_name, amount_to_add, game_json_file):
         game_json = f.read()
         game_json = json.loads(game_json)
     game_json['scores'][team_name] += amount_to_add
-    with open(f'games/{game_json_file}', 'w') as f:
-        f.write(json.dumps(game_json, indent=2))
+    write_to_json_file(game_json_file, game_json)
+
+
+def set_team_score(game_json_file, team_name, amount_to_set_to):
+    game_json = return_full_json(game_json_file)
+    game_json['scores'][team_name] = amount_to_set_to
+    write_to_json_file(game_json_file, game_json)
 
 
 def update_display_question(q_column, q_num, q_display_t_or_f, game_json_file):
@@ -30,16 +35,14 @@ def update_display_question(q_column, q_num, q_display_t_or_f, game_json_file):
 
     game_json['board'][_round]['columns'][q_column]['questions'][q_num]['display'] = q_display_t_or_f
 
-    with open(f'games/{game_json_file}', 'w') as f:
-        f.write(json.dumps(game_json, indent=2))
+    write_to_json_file(game_json_file, game_json)
 
 
 def change_current_round(_round, game_json_file):
     with open(f'games/{game_json_file}', 'r')as _f:
         game_json = json.loads(_f.read())
     game_json['current_round'] = int(_round)
-    with open(f'games/{game_json_file}', 'w') as _f:
-        _f.write(json.dumps(game_json, indent=2))
+    write_to_json_file(game_json_file, game_json)
 
 
 def read_team_score(_team_name, game_json_file):
@@ -58,6 +61,11 @@ def return_full_json(game_json_file):
         return json.loads(_f.read())
 
 
+def write_to_json_file(game_json_file, game_json):
+    with open(f'games/{game_json_file}', 'w') as f1:
+        f1.write(json.dumps(game_json, indent=2))
+
+
 def check_for_round_end(game_json_file):
     game_json = return_full_json(game_json_file)
     round_end = True
@@ -68,24 +76,59 @@ def check_for_round_end(game_json_file):
     return round_end
 
 
-def manage_game_file(file_name, create):
-    # with open('game_json.json', 'w') as f:
-    #     with open(f'games/{file_name}.json', 'r') as _f:
-    #         f.write(_f.read())
-    # with open('game_json.json', 'r') as f2:
-    #     cur_json = json.loads(f2.read())
-    # cur_json['current_file'] = str(file_name) + '.json'
-    # with open('game_json.json', 'w') as f3:
-    #     f3.write(json.dumps(cur_json, indent=2))
-    curr_file = ''
-    if create == True:
-        pass
-    return curr_file
+def read_team_guesses(game_json_file):
+    game_json = return_full_json(game_json_file)
+    try:
+        return game_json['buzzer_positions']
+    except:
+        game_json['buzzer_positions'] = (True, True, True)
+        write_to_json_file(game_json_file, game_json)
+        return game_json['buzzer_positions']
 
 
-def update_team_guesses():
-    # TODO work on this
-    pass
+def update_team_guesses(game_json_file, wrong_team_answer):
+    game_json = return_full_json(game_json_file)
+    try:
+        print(game_json['buzzer_positions'])
+    except KeyError:
+        game_json['buzzer_positions'] = (True, True, True)
+
+    game_json['buzzer_positions'][int(wrong_team_answer)] = False
+
+    write_to_json_file(game_json_file, game_json)
+    return game_json['buzzer_positions']
+
+
+def reset_team_guesses(game_json_file):
+    game_json = return_full_json(game_json_file)
+
+    game_json['buzzer_positions'] = (True, True, True)
+
+    write_to_json_file(game_json_file, game_json)
+
+
+def update_first_player(game_json_file, first_player):
+    game_json = return_full_json(game_json_file)
+    game_json['first_player'] = first_player
+    write_to_json_file(game_json_file, game_json)
+
+
+def add_line_to_log(game_json_file, log_line):
+    game_json = return_full_json(game_json_file)
+    try:
+        game_json['log'].append(log_line)
+    except:
+        game_json['log'] = [log_line]
+    write_to_json_file(game_json_file, game_json)
+
+def read_log(game_json_file):
+    game_json = return_full_json(game_json_file)
+    try:
+        return game_json['log']
+    except:
+        game_json['log'] = []
+        write_to_json_file(game_json_file, game_json)
+        return game_json['log']
 
 
 if __name__ == '__main__':

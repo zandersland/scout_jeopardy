@@ -1,6 +1,6 @@
 <div id="game-container">
     {% for data in game_json['board']['round{}'.format(current_round)]['columns'] %}
-    <div>
+    <div class="game-container_div">
         <div class="container-button">
             <button class="game-cat-buttons" style="color:white;">{{ data['title'] }}</button>
         </div>

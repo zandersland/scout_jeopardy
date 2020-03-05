@@ -1,4 +1,4 @@
-FLASK_ENV=production
+FLASK_ENV=development
 FLASK_APP=routes.py
 FLASK_RUN_PORT=5006
 FLASK_RUN_HOST=0.0.0.0

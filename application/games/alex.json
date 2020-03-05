@@ -1,108 +1,21 @@
 {
   "current_round": 1,
   "scores": {
-    "Team1": 0,
+    "Team1": -100,
     "Team2": 0,
-    "Team3": 0
+    "Team3": 100
   },
+  "buzzer_positions": [
+    true,
+    true,
+    true
+  ],
   "board": {
     "round1": {
       "columns": [
         {
-          "title": "Life or Death",
-          "position": 1,
-          "questions": [
-            {
-              "question": "If someone is not breathing and has no heart beat, do this after calling for help",
-              "answer": "CPR",
-              "position": 1,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 100
-            },
-            {
-              "question": "Symptoms of this common condition are fatigue, head and muscle aches, and confusion",
-              "answer": "Dehydration",
-              "position": 2,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 200
-            },
-            {
-              "question": "Uncomfortable pressure in the chest, unusual sweating, nausea, and shortness of breath are all common signs of this",
-              "answer": "Heart attack",
-              "position": 3,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 300
-            },
-            {
-              "question": "When someone is choking and cannot speak, cough, or breath, use this manuever to save their life",
-              "answer": "Heimlich Maneuver",
-              "position": 4,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 400
-            },
-            {
-              "question": "Very hot skin, red skin damp or dry with sweat, rapid pulse and noisy breathing, confusion and irritability, unconsciousness are all signs of this",
-              "answer": "Heatstroke",
-              "position": 5,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 500
-            }
-          ]
-        },
-        {
-          "title": "Eagle Requried Merit Badges",
-          "position": 2,
-          "questions": [
-            {
-              "question": "This badge requires planning menus for three full days of meals, plus one dessert",
-              "answer": "Cooking",
-              "position": 1,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 100
-            },
-            {
-              "question": "This badge requires a scout to attend a meeting of their city, town, or county councilor school board;",
-              "answer": "Citizenship in the Community",
-              "position": 2,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 200
-            },
-            {
-              "question": "For this merit badge, Scouts must conduct an emergency mobilization.",
-              "answer": "Emergency Preparedness",
-              "position": 3,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 300
-            },
-            {
-              "question": "For this merit badge, Scouts learn thrift.",
-              "answer": "Personal Management",
-              "position": 4,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 400
-            },
-            {
-              "question": "For this merit badge, Scouts must watch a 1' square piece of land for 60 minutes.",
-              "answer": "Environmental Science",
-              "position": 5,
-              "daily_double": true,
-              "display": true,
-              "score_amount": 500
-            }
-          ]
-        },
-        {
           "title": "Knots",
-          "position": 3,
+          "position": 1,
           "questions": [
             {
               "question": "This is known as the first-aid knot.",
@@ -147,44 +60,44 @@
           ]
         },
         {
-          "title": "Stars (and Stripes)",
-          "position": 4,
+          "title": "Nature",
+          "position": 2,
           "questions": [
             {
-              "question": "The nickname given to the flag of the United States of America",
-              "answer": "Old Glory or Star Spangled Banner",
+              "question": "Conifer and Broadleaf are two types of this",
+              "answer": "Tree",
               "position": 1,
               "daily_double": false,
               "display": true,
               "score_amount": 100
             },
             {
-              "question": "The original US Flag had 13 stars and stripes, which stood for these",
-              "answer": "Original 13 Colonies",
+              "question": "A 'Plant Key' is used for identifying types of these",
+              "answer": "Trees or plants",
               "position": 2,
               "daily_double": false,
               "display": true,
               "score_amount": 200
             },
             {
-              "question": "This is the fifth rank earned in Scouts",
-              "answer": "Star Scout",
+              "question": "Minnesota's State bird",
+              "answer": "Common Loon",
               "position": 3,
               "daily_double": false,
               "display": true,
               "score_amount": 300
             },
             {
-              "question": "This constellation  can be used to find the North Star",
-              "answer": "Ursa Major or the Big Dipper",
+              "question": "Animals can be divided into these two types (get a backbone, why don't you?)",
+              "answer": "Vertebrates and Invertebrates",
               "position": 4,
               "daily_double": false,
               "display": true,
               "score_amount": 400
             },
             {
-              "question": "The stars on the badge of some scout ranks are a symbol of these two things",
-              "answer": "Truth and knowledge (or stars in the night sky, suggesting a scouts outdoor adventures)",
+              "question": "Stinging nettle, Wisteria and Foxglove are all types of this",
+              "answer": "Poisonous plants",
               "position": 5,
               "daily_double": false,
               "display": true,
@@ -193,44 +106,90 @@
           ]
         },
         {
-          "title": "EDGE Method",
-          "position": 5,
+          "title": "Grab bag 2",
+          "position": 3,
           "questions": [
             {
-              "question": "Use the 'EDGE' method when doing this",
-              "answer": "Teaching a skill to others",
+              "question": "The adult leader of a Scout Troop is called this",
+              "answer": "Scoutmaster",
               "position": 1,
               "daily_double": false,
               "display": true,
               "score_amount": 100
             },
             {
-              "question": "This is what the third letter of the 'EDGE' method stands for",
-              "answer": "Guide",
+              "question": "This is the eighth point of the scout law",
+              "answer": "Cheerful",
               "position": 2,
               "daily_double": false,
               "display": true,
               "score_amount": 200
             },
             {
-              "question": "The second letter of the 'EDGE' method stands for this",
-              "answer": "Demonstrate",
+              "question": "This should always be carried on a hike",
+              "answer": "First Aid Kit",
               "position": 3,
               "daily_double": false,
               "display": true,
               "score_amount": 300
             },
             {
-              "question": "This is what the first letter of the 'EDGE' method stands for",
-              "answer": "Explain",
+              "question": "This system of communication uses a series of dots and dashes",
+              "answer": "Morse Code",
               "position": 4,
               "daily_double": false,
               "display": true,
               "score_amount": 400
             },
             {
-              "question": "The fourth letter of the 'EDGE' method stands for this",
-              "answer": "Enable",
+              "question": "This is considered the symbol of scouting around the world",
+              "answer": "Fleur de Lis  or Trefoil",
+              "position": 5,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 500
+            }
+          ]
+        },
+        {
+          "title": "First Aid",
+          "position": 4,
+          "questions": [
+            {
+              "question": "'Leaves of three, let it be' is the common warning to stay away from this plant",
+              "answer": "Poison Ivy, Poison Oak",
+              "position": 1,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 100
+            },
+            {
+              "question": "Use the RICE method to treat sprains and strains - Rest, Ice, Compression, and this",
+              "answer": "Elevation",
+              "position": 2,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 200
+            },
+            {
+              "question": "To identify a poisonous coral snake, remember this rhyme: 'Red on Yellow....'",
+              "answer": "Kill a fellow",
+              "position": 3,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 300
+            },
+            {
+              "question": "This is the most common immediate treatment for chemical burns",
+              "answer": "Wash off with lots of water",
+              "position": 4,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 400
+            },
+            {
+              "question": "This is the first step in the First Aid Method",
+              "answer": "Check the scene",
               "position": 5,
               "daily_double": false,
               "display": true,
@@ -240,7 +199,7 @@
         },
         {
           "title": "21st Century Merit Badges",
-          "position": 6,
+          "position": 5,
           "questions": [
             {
               "question": "To receive this merit badge, you join two metal plates and inscribe your initials",
@@ -278,6 +237,52 @@
               "question": "Boy Scouts learn about coding and debugging while earning this computing-based merit badge.",
               "answer": "Programming",
               "position": 5,
+              "daily_double": true,
+              "display": false,
+              "score_amount": 500
+            }
+          ]
+        },
+        {
+          "title": "Boy Scout Activities",
+          "position": 6,
+          "questions": [
+            {
+              "question": "When Scouts swim safely, they use this system in which one Scout looks out for the other and vice versa.",
+              "answer": "Buddy System",
+              "position": 1,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 100
+            },
+            {
+              "question": "Patterns a Scout can use to build a fire include cross-ditch, pyramid, and this one named for a Native American structure.",
+              "answer": "Teepee",
+              "position": 2,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 200
+            },
+            {
+              "question": "When a properly prepared Scout gets out on the water, he doesn\u2019t leave shore without a PFD, short for this.",
+              "answer": "Personal Flotation Device",
+              "position": 3,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 300
+            },
+            {
+              "question": "To qualify for a Bugling merit badge, a Scout must know 15 calls including this one sounded at the end of the day.",
+              "answer": "Taps",
+              "position": 4,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 400
+            },
+            {
+              "question": "From the French for summoning, it\u2019s the practice of a Scout safely lowering himself down a mountainside.",
+              "answer": "Rappelling",
+              "position": 5,
               "daily_double": false,
               "display": true,
               "score_amount": 500
@@ -289,44 +294,44 @@
     "round2": {
       "columns": [
         {
-          "title": "Grab bag 2",
+          "title": "Eagle Requried Merit Badges",
           "position": 1,
           "questions": [
             {
-              "question": "The adult leader of a Scout Troop is called this",
-              "answer": "Scoutmaster",
+              "question": "This badge requires planning menus for three full days of meals, plus one dessert",
+              "answer": "Cooking",
               "position": 1,
               "daily_double": false,
               "display": true,
               "score_amount": 200
             },
             {
-              "question": "This is the eighth point of the scout law",
-              "answer": "Cheerful",
+              "question": "This badge requires a scout to attend a meeting of their city, town, or county councilor school board;",
+              "answer": "Citizenship in the Community",
               "position": 2,
-              "daily_double": false,
+              "daily_double": true,
               "display": true,
               "score_amount": 400
             },
             {
-              "question": "This should always be carried on a hike",
-              "answer": "First Aid Kit",
+              "question": "For this merit badge, Scouts must conduct an emergency mobilization.",
+              "answer": "Emergency Preparedness",
               "position": 3,
               "daily_double": false,
               "display": true,
               "score_amount": 600
             },
             {
-              "question": "This system of communication uses a series of dots and dashes",
-              "answer": "Morse Code",
+              "question": "For this merit badge, Scouts learn thrift.",
+              "answer": "Personal Management",
               "position": 4,
               "daily_double": false,
               "display": true,
               "score_amount": 800
             },
             {
-              "question": "This is considered the symbol of scouting around the world",
-              "answer": "Fleur de Lis  or Trefoil",
+              "question": "For this merit badge, Scouts must watch a 1' square piece of land for 60 minutes.",
+              "answer": "Environmental Science",
               "position": 5,
               "daily_double": false,
               "display": true,
@@ -335,136 +340,44 @@
           ]
         },
         {
-          "title": "First Aid",
+          "title": "Stars (and Stripes)",
           "position": 2,
           "questions": [
             {
-              "question": "'Leaves of three, let it be' is the common warning to stay away from this plant",
-              "answer": "Poison Ivy, Poison Oak",
+              "question": "The nickname given to the flag of the United States of America",
+              "answer": "Old Glory or Star Spangled Banner",
               "position": 1,
               "daily_double": false,
               "display": true,
               "score_amount": 200
             },
             {
-              "question": "Use the RICE method to treat sprains and strains - Rest, Ice, Compression, and this",
-              "answer": "Elevation",
+              "question": "The original US Flag had 13 stars and stripes, which stood for these",
+              "answer": "Original 13 Colonies",
               "position": 2,
               "daily_double": false,
               "display": true,
               "score_amount": 400
             },
             {
-              "question": "To identify a poisonous coral snake, remember this rhyme: 'Red on Yellow....'",
-              "answer": "Kill a fellow",
+              "question": "This is the fifth rank earned in Scouts",
+              "answer": "Star Scout",
               "position": 3,
               "daily_double": false,
               "display": true,
               "score_amount": 600
             },
             {
-              "question": "This is the most common immediate treatment for chemical burns",
-              "answer": "Wash off with lots of water",
+              "question": "This constellation  can be used to find the North Star",
+              "answer": "Ursa Major or the Big Dipper",
               "position": 4,
               "daily_double": false,
               "display": true,
               "score_amount": 800
             },
             {
-              "question": "This is the first step in the First Aid Method",
-              "answer": "Check the scene",
-              "position": 5,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 1000
-            }
-          ]
-        },
-        {
-          "title": "Creeds",
-          "position": 3,
-          "questions": [
-            {
-              "question": "To follow the Scout Slogan, do one of 'these' daily",
-              "answer": "Good turn",
-              "position": 1,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 200
-            },
-            {
-              "question": "This two word phrase is known as the scout motto",
-              "answer": "Be Prepared",
-              "position": 2,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 400
-            },
-            {
-              "question": "Begins with the phrase 'On my honor'",
-              "answer": "Scout Oath (or promise)",
-              "position": 3,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 600
-            },
-            {
-              "question": "This is the third value of the Scout Law",
-              "answer": "Scout Law",
-              "position": 4,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 800
-            },
-            {
-              "question": "Often jokingly referred to as the 13th point of the Scout Law.",
-              "answer": "What is 'hungry'",
-              "position": 5,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 1000
-            }
-          ]
-        },
-        {
-          "title": "Nature",
-          "position": 4,
-          "questions": [
-            {
-              "question": "Conifer and Broadleaf are two types of this",
-              "answer": "Tree",
-              "position": 1,
-              "daily_double": true,
-              "display": true,
-              "score_amount": 200
-            },
-            {
-              "question": "A 'Plant Key' is used for identifying types of these",
-              "answer": "Trees or plants",
-              "position": 2,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 400
-            },
-            {
-              "question": "Minnesota's State bird",
-              "answer": "Common Loon",
-              "position": 3,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 600
-            },
-            {
-              "question": "Animals can be divided into these two types (get a backbone, why don't you?)",
-              "answer": "Vertebrates and Invertebrates",
-              "position": 4,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 800
-            },
-            {
-              "question": "Stinging nettle, Wisteria and Foxglove are all types of this",
-              "answer": "Poisonous plants",
+              "question": "The stars on the badge of some scout ranks are a symbol of these two things",
+              "answer": "Truth and knowledge (or stars in the night sky, suggesting a scouts outdoor adventures)",
               "position": 5,
               "daily_double": false,
               "display": true,
@@ -474,7 +387,7 @@
         },
         {
           "title": "Grab bag",
-          "position": 5,
+          "position": 3,
           "questions": [
             {
               "question": "When any leader holds up their hand with the scout sign, they are asking for this",
@@ -519,44 +432,136 @@
           ]
         },
         {
-          "title": "Boy Scout Activities",
-          "position": 6,
+          "title": "Creeds",
+          "position": 4,
           "questions": [
             {
-              "question": "When Scouts swim safely, they use this system in which one Scout looks out for the other and vice versa.",
-              "answer": "Buddy System",
+              "question": "To follow the Scout Slogan, do one of 'these' daily",
+              "answer": "Good turn",
               "position": 1,
               "daily_double": false,
               "display": true,
               "score_amount": 200
             },
             {
-              "question": "Patterns a Scout can use to build a fire include cross-ditch, pyramid, and this one named for a Native American structure.",
-              "answer": "Teepee",
+              "question": "This two word phrase is known as the scout motto",
+              "answer": "Be Prepared",
               "position": 2,
               "daily_double": false,
               "display": true,
               "score_amount": 400
             },
             {
-              "question": "When a properly prepared Scout gets out on the water, he doesn\u2019t leave shore without a PFD, short for this.",
-              "answer": "Personal Flotation Device",
+              "question": "Begins with the phrase 'On my honor'",
+              "answer": "Scout Oath (or promise)",
               "position": 3,
-              "daily_double": true,
+              "daily_double": false,
               "display": true,
               "score_amount": 600
             },
             {
-              "question": "To qualify for a Bugling merit badge, a Scout must know 15 calls including this one sounded at the end of the day.",
-              "answer": "Taps",
+              "question": "This is the third value of the Scout Law",
+              "answer": "Scout Law",
               "position": 4,
               "daily_double": false,
               "display": true,
               "score_amount": 800
             },
             {
-              "question": "From the French for summoning, it\u2019s the practice of a Scout safely lowering himself down a mountainside.",
-              "answer": "Rappelling",
+              "question": "Often jokingly referred to as the 13th point of the Scout Law.",
+              "answer": "What is 'hungry'",
+              "position": 5,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 1000
+            }
+          ]
+        },
+        {
+          "title": "EDGE Method",
+          "position": 5,
+          "questions": [
+            {
+              "question": "Use the 'EDGE' method when doing this",
+              "answer": "Teaching a skill to others",
+              "position": 1,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 200
+            },
+            {
+              "question": "This is what the third letter of the 'EDGE' method stands for",
+              "answer": "Guide",
+              "position": 2,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 400
+            },
+            {
+              "question": "The second letter of the 'EDGE' method stands for this",
+              "answer": "Demonstrate",
+              "position": 3,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 600
+            },
+            {
+              "question": "This is what the first letter of the 'EDGE' method stands for",
+              "answer": "Explain",
+              "position": 4,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 800
+            },
+            {
+              "question": "The fourth letter of the 'EDGE' method stands for this",
+              "answer": "Enable",
+              "position": 5,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 1000
+            }
+          ]
+        },
+        {
+          "title": "Life or Death",
+          "position": 6,
+          "questions": [
+            {
+              "question": "If someone is not breathing and has no heart beat, do this after calling for help",
+              "answer": "CPR",
+              "position": 1,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 200
+            },
+            {
+              "question": "Symptoms of this common condition are fatigue, head and muscle aches, and confusion",
+              "answer": "Dehydration",
+              "position": 2,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 400
+            },
+            {
+              "question": "Uncomfortable pressure in the chest, unusual sweating, nausea, and shortness of breath are all common signs of this",
+              "answer": "Heart attack",
+              "position": 3,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 600
+            },
+            {
+              "question": "When someone is choking and cannot speak, cough, or breath, use this manuever to save their life",
+              "answer": "Heimlich Maneuver",
+              "position": 4,
+              "daily_double": true,
+              "display": true,
+              "score_amount": 800
+            },
+            {
+              "question": "Very hot skin, red skin damp or dry with sweat, rapid pulse and noisy breathing, confusion and irritability, unconsciousness are all signs of this",
+              "answer": "Heatstroke",
               "position": 5,
               "daily_double": false,
               "display": true,
@@ -566,6 +571,5 @@
         }
       ]
     }
-  },
-  "current_file": "None.json"
+  }
 }

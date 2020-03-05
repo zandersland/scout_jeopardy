@@ -56,6 +56,12 @@ body {
     flex-flow: row wrap;
     justify-content: space-evenly;
 }
+
+.game-container_div {
+    display: flex;
+    flex-flow: column wrap;
+}
+
 .container-button {
     margin-top: 8px;
     margin-right: 4px;
@@ -94,7 +100,7 @@ body {
     flex-flow: column;
     justify-content: space-evenly;
     width: 100vw;
-    height: 94vh;
+    height: 90vh;
 }
 .answer {
     font-size: 100px;
@@ -138,12 +144,16 @@ body {
 
 
 
-.responded {
-    color: green;
+.buzzer_states {
+    margin: 0;
+    overflow: hidden;
 }
-.checking,.unchecked {
-    color: #FF8C00;
+
+#buzzer_states_iframe {
+    border: solid;
+    border-width: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 3vh;
 }
-.timeout {
-    color: red;
-}
+

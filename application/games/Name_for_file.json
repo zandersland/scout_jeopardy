@@ -217,7 +217,7 @@
               "answer": "Emergency Preparedness",
               "position": 3,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 300
             },
             {
@@ -566,5 +566,10 @@
         }
       ]
     }
-  }
+  },
+  "buzzer_positions": [
+    true,
+    true,
+    true
+  ]
 }

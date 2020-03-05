@@ -1,9 +1,9 @@
 {
-  "current_round": 1,
+  "current_round": 2,
   "scores": {
-    "Team1": 100,
-    "Team2": 700,
-    "Team3": 500
+    "Team1": -1700,
+    "Team2": -500,
+    "Team3": 31000
   },
   "board": {
     "round1": {
@@ -17,7 +17,7 @@
               "answer": "Teaching a skill to others",
               "position": 1,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 100
             },
             {
@@ -25,7 +25,7 @@
               "answer": "Guide",
               "position": 2,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 200
             },
             {
@@ -33,7 +33,7 @@
               "answer": "Demonstrate",
               "position": 3,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 300
             },
             {
@@ -41,7 +41,7 @@
               "answer": "Explain",
               "position": 4,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 400
             },
             {
@@ -49,7 +49,7 @@
               "answer": "Enable",
               "position": 5,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 500
             }
           ]
@@ -63,7 +63,7 @@
               "answer": "Cooking",
               "position": 1,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 100
             },
             {
@@ -87,7 +87,7 @@
               "answer": "Personal Management",
               "position": 4,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 400
             },
             {
@@ -95,7 +95,7 @@
               "answer": "Environmental Science",
               "position": 5,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 500
             }
           ]
@@ -109,7 +109,7 @@
               "answer": "Quiet, attention",
               "position": 1,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 100
             },
             {
@@ -117,7 +117,7 @@
               "answer": "Boys life",
               "position": 2,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 200
             },
             {
@@ -133,7 +133,7 @@
               "answer": "Trick question! NONE!",
               "position": 4,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 400
             },
             {
@@ -141,7 +141,7 @@
               "answer": "11",
               "position": 5,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 500
             }
           ]
@@ -155,7 +155,7 @@
               "answer": "Buddy System",
               "position": 1,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 100
             },
             {
@@ -163,7 +163,7 @@
               "answer": "Teepee",
               "position": 2,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 200
             },
             {
@@ -179,7 +179,7 @@
               "answer": "Taps",
               "position": 4,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 400
             },
             {
@@ -209,7 +209,7 @@
               "answer": "Dehydration",
               "position": 2,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 200
             },
             {
@@ -233,7 +233,7 @@
               "answer": "Heatstroke",
               "position": 5,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 500
             }
           ]
@@ -247,7 +247,7 @@
               "answer": "Good turn",
               "position": 1,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 100
             },
             {
@@ -255,7 +255,7 @@
               "answer": "Be Prepared",
               "position": 2,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 200
             },
             {
@@ -263,7 +263,7 @@
               "answer": "Scout Oath (or promise)",
               "position": 3,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 300
             },
             {
@@ -279,7 +279,7 @@
               "answer": "What is 'hungry'",
               "position": 5,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 500
             }
           ]
@@ -297,7 +297,7 @@
               "answer": "Welding",
               "position": 1,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 200
             },
             {
@@ -343,7 +343,7 @@
               "answer": "Poison Ivy, Poison Oak",
               "position": 1,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 200
             },
             {
@@ -351,7 +351,7 @@
               "answer": "Elevation",
               "position": 2,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 400
             },
             {
@@ -359,7 +359,7 @@
               "answer": "Kill a fellow",
               "position": 3,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 600
             },
             {
@@ -367,7 +367,7 @@
               "answer": "Wash off with lots of water",
               "position": 4,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 800
             },
             {
@@ -375,7 +375,7 @@
               "answer": "Check the scene",
               "position": 5,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 1000
             }
           ]
@@ -389,7 +389,7 @@
               "answer": "Tree",
               "position": 1,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 200
             },
             {
@@ -397,7 +397,7 @@
               "answer": "Trees or plants",
               "position": 2,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 400
             },
             {
@@ -405,7 +405,7 @@
               "answer": "Common Loon",
               "position": 3,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 600
             },
             {
@@ -413,7 +413,7 @@
               "answer": "Vertebrates and Invertebrates",
               "position": 4,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 800
             },
             {
@@ -443,7 +443,7 @@
               "answer": "Cheerful",
               "position": 2,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 400
             },
             {
@@ -451,7 +451,7 @@
               "answer": "First Aid Kit",
               "position": 3,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 600
             },
             {
@@ -459,7 +459,7 @@
               "answer": "Morse Code",
               "position": 4,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 800
             },
             {
@@ -467,7 +467,7 @@
               "answer": "Fleur de Lis  or Trefoil",
               "position": 5,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 1000
             }
           ]
@@ -489,7 +489,7 @@
               "answer": "Original 13 Colonies",
               "position": 2,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 400
             },
             {
@@ -497,7 +497,7 @@
               "answer": "Star Scout",
               "position": 3,
               "daily_double": true,
-              "display": true,
+              "display": false,
               "score_amount": 600
             },
             {
@@ -535,7 +535,7 @@
               "answer": "Splicing",
               "position": 2,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 400
             },
             {
@@ -543,7 +543,7 @@
               "answer": "Bowline",
               "position": 3,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 600
             },
             {
@@ -551,7 +551,7 @@
               "answer": "Tautline Hitch",
               "position": 4,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 800
             },
             {
@@ -566,5 +566,38 @@
         }
       ]
     }
-  }
+  },
+  "buzzer_positions": [
+    false,
+    false,
+    false
+  ],
+  "log": [
+    "Updating game",
+    "Updating game",
+    "Updating game",
+    "Updating game",
+    "Admin Override: Team1 new score=-700, Team2 new score=-300, Team3 new score=3200",
+    "Admin Override: Team1 new score=-700, Team2 new score=-300, Team3 new score=3200",
+    "Admin Override: Team1 new score=-700, Team2 new score=-300, Team3 new score=3200",
+    "Admin Override: Team1 new score=-700, Team2 new score=-300, Team3 new score=3200, New Round number=2",
+    "Admin Override: Team1 new score=-700, Team2 new score=-300, Team3 new score=3200, New Round number=2",
+    "Admin Override: Team1 new score=-700, Team2 new score=-300, Team3 new score=3200, New Round number=2",
+    "Admin Override: Team1 new score=-700, Team2 new score=-300, Team3 new score=3200000, New Round number=2",
+    "Admin Override: Team1 new score=-700, Team2 new score=-300, Team3 new score=320, New Round number=2",
+    "Admin Override: Team1 new score=-700, Team2 new score=-300, Team3 new score=32000, New Round number=2",
+    "points=800, column_position=3, row_position=4, daily_double=False",
+    "Admin Override: Team1 new score=-700, Team2 new score=-300, Team3 new score=32000, New Round number=2",
+    "points=800, column_position=5, row_position=4, daily_double=False",
+    "points=800, column_position=2, row_position=4, daily_double=False",
+    "Updating team scores: Team1=-700, Team2=-300, Team3=32000",
+    "Updating game: column_position=2, row_position=4, set_to=False",
+    "points=800, column_position=3, row_position=4, daily_double=False",
+    "Updating team scores: Team1=-700, Team2=500, Team3=32000",
+    "Updating game: column_position=3, row_position=4, set_to=False",
+    "points=1000, column_position=2, row_position=5, daily_double=False",
+    "Updating team scores: Team1=-1700, Team2=-500, Team3=31000",
+    "Updating game: column_position=2, row_position=5, set_to=False"
+  ],
+  "first_player": "TeamNone"
 }

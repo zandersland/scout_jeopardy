@@ -1,52 +1,57 @@
 {
   "current_round": 1,
   "scores": {
-    "Team1": -400,
-    "Team2": -200,
-    "Team3": -600
+    "Team1": 0,
+    "Team2": 0,
+    "Team3": 300
   },
+  "buzzer_positions": [
+    true,
+    true,
+    true
+  ],
   "board": {
     "round1": {
       "columns": [
         {
-          "title": "Life or Death",
+          "title": "Grab bag",
           "position": 1,
           "questions": [
             {
-              "question": "If someone is not breathing and has no heart beat, do this after calling for help",
-              "answer": "CPR",
+              "question": "When any leader holds up their hand with the scout sign, they are asking for this",
+              "answer": "Quiet, attention",
               "position": 1,
               "daily_double": false,
               "display": true,
               "score_amount": 100
             },
             {
-              "question": "Symptoms of this common condition are fatigue, head and muscle aches, and confusion",
-              "answer": "Dehydration",
+              "question": "This is the official magazine of boy scouts",
+              "answer": "Boys life",
               "position": 2,
               "daily_double": false,
-              "display": false,
+              "display": true,
               "score_amount": 200
             },
             {
-              "question": "Uncomfortable pressure in the chest, unusual sweating, nausea, and shortness of breath are all common signs of this",
-              "answer": "Heart attack",
+              "question": "This is the color of the background on Scout rank badge",
+              "answer": "Tan",
               "position": 3,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 300
             },
             {
-              "question": "When someone is choking and cannot speak, cough, or breath, use this manuever to save their life",
-              "answer": "Heimlich Maneuver",
+              "question": "Number of items (besides merit badges) that can be worn on the merit badge sash",
+              "answer": "Trick question! NONE!",
               "position": 4,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 400
             },
             {
-              "question": "Very hot skin, red skin damp or dry with sweat, rapid pulse and noisy breathing, confusion and irritability, unconsciousness are all signs of this",
-              "answer": "Heatstroke",
+              "question": "This is the number of merit badges required for Life Scout",
+              "answer": "11",
               "position": 5,
               "daily_double": false,
               "display": true,
@@ -55,136 +60,44 @@
           ]
         },
         {
-          "title": "Eagle Requried Merit Badges",
+          "title": "Grab bag 2",
           "position": 2,
           "questions": [
             {
-              "question": "This badge requires planning menus for three full days of meals, plus one dessert",
-              "answer": "Cooking",
-              "position": 1,
-              "daily_double": false,
-              "display": false,
-              "score_amount": 100
-            },
-            {
-              "question": "This badge requires a scout to attend a meeting of their city, town, or county councilor school board;",
-              "answer": "Citizenship in the Community",
-              "position": 2,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 200
-            },
-            {
-              "question": "For this merit badge, Scouts must conduct an emergency mobilization.",
-              "answer": "Emergency Preparedness",
-              "position": 3,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 300
-            },
-            {
-              "question": "For this merit badge, Scouts learn thrift.",
-              "answer": "Personal Management",
-              "position": 4,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 400
-            },
-            {
-              "question": "For this merit badge, Scouts must watch a 1' square piece of land for 60 minutes.",
-              "answer": "Environmental Science",
-              "position": 5,
-              "daily_double": true,
-              "display": true,
-              "score_amount": 500
-            }
-          ]
-        },
-        {
-          "title": "Knots",
-          "position": 3,
-          "questions": [
-            {
-              "question": "This is known as the first-aid knot.",
-              "answer": "Square knot",
+              "question": "The adult leader of a Scout Troop is called this",
+              "answer": "Scoutmaster",
               "position": 1,
               "daily_double": false,
               "display": true,
               "score_amount": 100
             },
             {
-              "question": "This practice (also used by film editors) joins 2 ropes and makes them almost as strong as the original ones",
-              "answer": "Splicing",
+              "question": "This is the eighth point of the scout law",
+              "answer": "Cheerful",
               "position": 2,
               "daily_double": false,
               "display": true,
               "score_amount": 200
             },
             {
-              "question": "The knot you'd use if you were hanging from one hand on a cliff.",
-              "answer": "Bowline",
+              "question": "This should always be carried on a hike",
+              "answer": "First Aid Kit",
               "position": 3,
               "daily_double": false,
               "display": true,
               "score_amount": 300
             },
             {
-              "question": "Knot used to secure tents in wet weather or when using synthetic ropes.",
-              "answer": "Tautline Hitch",
+              "question": "This system of communication uses a series of dots and dashes",
+              "answer": "Morse Code",
               "position": 4,
               "daily_double": false,
               "display": true,
               "score_amount": 400
             },
             {
-              "question": "Technically not a knot, it is used to start many lashings.",
-              "answer": "Clove Hitch",
-              "position": 5,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 500
-            }
-          ]
-        },
-        {
-          "title": "Stars (and Stripes)",
-          "position": 4,
-          "questions": [
-            {
-              "question": "The nickname given to the flag of the United States of America",
-              "answer": "Old Glory or Star Spangled Banner",
-              "position": 1,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 100
-            },
-            {
-              "question": "The original US Flag had 13 stars and stripes, which stood for these",
-              "answer": "Original 13 Colonies",
-              "position": 2,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 200
-            },
-            {
-              "question": "This is the fifth rank earned in Scouts",
-              "answer": "Star Scout",
-              "position": 3,
-              "daily_double": false,
-              "display": false,
-              "score_amount": 300
-            },
-            {
-              "question": "This constellation  can be used to find the North Star",
-              "answer": "Ursa Major or the Big Dipper",
-              "position": 4,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 400
-            },
-            {
-              "question": "The stars on the badge of some scout ranks are a symbol of these two things",
-              "answer": "Truth and knowledge (or stars in the night sky, suggesting a scouts outdoor adventures)",
+              "question": "This is considered the symbol of scouting around the world",
+              "answer": "Fleur de Lis  or Trefoil",
               "position": 5,
               "daily_double": false,
               "display": true,
@@ -194,7 +107,7 @@
         },
         {
           "title": "EDGE Method",
-          "position": 5,
+          "position": 3,
           "questions": [
             {
               "question": "Use the 'EDGE' method when doing this",
@@ -209,7 +122,7 @@
               "answer": "Guide",
               "position": 2,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 200
             },
             {
@@ -217,7 +130,7 @@
               "answer": "Demonstrate",
               "position": 3,
               "daily_double": false,
-              "display": false,
+              "display": true,
               "score_amount": 300
             },
             {
@@ -240,7 +153,7 @@
         },
         {
           "title": "21st Century Merit Badges",
-          "position": 6,
+          "position": 4,
           "questions": [
             {
               "question": "To receive this merit badge, you join two metal plates and inscribe your initials",
@@ -255,7 +168,7 @@
               "answer": "Mars",
               "position": 2,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 200
             },
             {
@@ -271,7 +184,7 @@
               "answer": "Geocaching",
               "position": 4,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 400
             },
             {
@@ -283,60 +196,10 @@
               "score_amount": 500
             }
           ]
-        }
-      ]
-    },
-    "round2": {
-      "columns": [
-        {
-          "title": "Grab bag 2",
-          "position": 1,
-          "questions": [
-            {
-              "question": "The adult leader of a Scout Troop is called this",
-              "answer": "Scoutmaster",
-              "position": 1,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 200
-            },
-            {
-              "question": "This is the eighth point of the scout law",
-              "answer": "Cheerful",
-              "position": 2,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 400
-            },
-            {
-              "question": "This should always be carried on a hike",
-              "answer": "First Aid Kit",
-              "position": 3,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 600
-            },
-            {
-              "question": "This system of communication uses a series of dots and dashes",
-              "answer": "Morse Code",
-              "position": 4,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 800
-            },
-            {
-              "question": "This is considered the symbol of scouting around the world",
-              "answer": "Fleur de Lis  or Trefoil",
-              "position": 5,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 1000
-            }
-          ]
         },
         {
           "title": "First Aid",
-          "position": 2,
+          "position": 5,
           "questions": [
             {
               "question": "'Leaves of three, let it be' is the common warning to stay away from this plant",
@@ -344,23 +207,23 @@
               "position": 1,
               "daily_double": false,
               "display": true,
-              "score_amount": 200
+              "score_amount": 100
             },
             {
               "question": "Use the RICE method to treat sprains and strains - Rest, Ice, Compression, and this",
               "answer": "Elevation",
               "position": 2,
               "daily_double": false,
-              "display": true,
-              "score_amount": 400
+              "display": false,
+              "score_amount": 200
             },
             {
               "question": "To identify a poisonous coral snake, remember this rhyme: 'Red on Yellow....'",
               "answer": "Kill a fellow",
               "position": 3,
               "daily_double": false,
-              "display": true,
-              "score_amount": 600
+              "display": false,
+              "score_amount": 300
             },
             {
               "question": "This is the most common immediate treatment for chemical burns",
@@ -368,11 +231,107 @@
               "position": 4,
               "daily_double": false,
               "display": true,
-              "score_amount": 800
+              "score_amount": 400
             },
             {
               "question": "This is the first step in the First Aid Method",
               "answer": "Check the scene",
+              "position": 5,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 500
+            }
+          ]
+        },
+        {
+          "title": "Life or Death",
+          "position": 6,
+          "questions": [
+            {
+              "question": "If someone is not breathing and has no heart beat, do this after calling for help",
+              "answer": "CPR",
+              "position": 1,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 100
+            },
+            {
+              "question": "Symptoms of this common condition are fatigue, head and muscle aches, and confusion",
+              "answer": "Dehydration",
+              "position": 2,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 200
+            },
+            {
+              "question": "Uncomfortable pressure in the chest, unusual sweating, nausea, and shortness of breath are all common signs of this",
+              "answer": "Heart attack",
+              "position": 3,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 300
+            },
+            {
+              "question": "When someone is choking and cannot speak, cough, or breath, use this manuever to save their life",
+              "answer": "Heimlich Maneuver",
+              "position": 4,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 400
+            },
+            {
+              "question": "Very hot skin, red skin damp or dry with sweat, rapid pulse and noisy breathing, confusion and irritability, unconsciousness are all signs of this",
+              "answer": "Heatstroke",
+              "position": 5,
+              "daily_double": true,
+              "display": true,
+              "score_amount": 500
+            }
+          ]
+        }
+      ]
+    },
+    "round2": {
+      "columns": [
+        {
+          "title": "Eagle Requried Merit Badges",
+          "position": 1,
+          "questions": [
+            {
+              "question": "This badge requires planning menus for three full days of meals, plus one dessert",
+              "answer": "Cooking",
+              "position": 1,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 200
+            },
+            {
+              "question": "This badge requires a scout to attend a meeting of their city, town, or county councilor school board;",
+              "answer": "Citizenship in the Community",
+              "position": 2,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 400
+            },
+            {
+              "question": "For this merit badge, Scouts must conduct an emergency mobilization.",
+              "answer": "Emergency Preparedness",
+              "position": 3,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 600
+            },
+            {
+              "question": "For this merit badge, Scouts learn thrift.",
+              "answer": "Personal Management",
+              "position": 4,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 800
+            },
+            {
+              "question": "For this merit badge, Scouts must watch a 1' square piece of land for 60 minutes.",
+              "answer": "Environmental Science",
               "position": 5,
               "daily_double": false,
               "display": true,
@@ -381,44 +340,136 @@
           ]
         },
         {
-          "title": "Creeds",
-          "position": 3,
+          "title": "Stars (and Stripes)",
+          "position": 2,
           "questions": [
             {
-              "question": "To follow the Scout Slogan, do one of 'these' daily",
-              "answer": "Good turn",
+              "question": "The nickname given to the flag of the United States of America",
+              "answer": "Old Glory or Star Spangled Banner",
               "position": 1,
               "daily_double": false,
               "display": true,
               "score_amount": 200
             },
             {
-              "question": "This two word phrase is known as the scout motto",
-              "answer": "Be Prepared",
+              "question": "The original US Flag had 13 stars and stripes, which stood for these",
+              "answer": "Original 13 Colonies",
               "position": 2,
               "daily_double": false,
               "display": true,
               "score_amount": 400
             },
             {
-              "question": "Begins with the phrase 'On my honor'",
-              "answer": "Scout Oath (or promise)",
+              "question": "This is the fifth rank earned in Scouts",
+              "answer": "Star Scout",
               "position": 3,
               "daily_double": false,
               "display": true,
               "score_amount": 600
             },
             {
-              "question": "This is the third value of the Scout Law",
-              "answer": "Scout Law",
+              "question": "This constellation  can be used to find the North Star",
+              "answer": "Ursa Major or the Big Dipper",
               "position": 4,
               "daily_double": false,
               "display": true,
               "score_amount": 800
             },
             {
-              "question": "Often jokingly referred to as the 13th point of the Scout Law.",
-              "answer": "What is 'hungry'",
+              "question": "The stars on the badge of some scout ranks are a symbol of these two things",
+              "answer": "Truth and knowledge (or stars in the night sky, suggesting a scouts outdoor adventures)",
+              "position": 5,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 1000
+            }
+          ]
+        },
+        {
+          "title": "Boy Scout Activities",
+          "position": 3,
+          "questions": [
+            {
+              "question": "When Scouts swim safely, they use this system in which one Scout looks out for the other and vice versa.",
+              "answer": "Buddy System",
+              "position": 1,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 200
+            },
+            {
+              "question": "Patterns a Scout can use to build a fire include cross-ditch, pyramid, and this one named for a Native American structure.",
+              "answer": "Teepee",
+              "position": 2,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 400
+            },
+            {
+              "question": "When a properly prepared Scout gets out on the water, he doesn\u2019t leave shore without a PFD, short for this.",
+              "answer": "Personal Flotation Device",
+              "position": 3,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 600
+            },
+            {
+              "question": "To qualify for a Bugling merit badge, a Scout must know 15 calls including this one sounded at the end of the day.",
+              "answer": "Taps",
+              "position": 4,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 800
+            },
+            {
+              "question": "From the French for summoning, it\u2019s the practice of a Scout safely lowering himself down a mountainside.",
+              "answer": "Rappelling",
+              "position": 5,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 1000
+            }
+          ]
+        },
+        {
+          "title": "Knots",
+          "position": 4,
+          "questions": [
+            {
+              "question": "This is known as the first-aid knot.",
+              "answer": "Square knot",
+              "position": 1,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 200
+            },
+            {
+              "question": "This practice (also used by film editors) joins 2 ropes and makes them almost as strong as the original ones",
+              "answer": "Splicing",
+              "position": 2,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 400
+            },
+            {
+              "question": "The knot you'd use if you were hanging from one hand on a cliff.",
+              "answer": "Bowline",
+              "position": 3,
+              "daily_double": true,
+              "display": true,
+              "score_amount": 600
+            },
+            {
+              "question": "Knot used to secure tents in wet weather or when using synthetic ropes.",
+              "answer": "Tautline Hitch",
+              "position": 4,
+              "daily_double": false,
+              "display": true,
+              "score_amount": 800
+            },
+            {
+              "question": "Technically not a knot, it is used to start many lashings.",
+              "answer": "Clove Hitch",
               "position": 5,
               "daily_double": false,
               "display": true,
@@ -428,13 +479,13 @@
         },
         {
           "title": "Nature",
-          "position": 4,
+          "position": 5,
           "questions": [
             {
               "question": "Conifer and Broadleaf are two types of this",
               "answer": "Tree",
               "position": 1,
-              "daily_double": true,
+              "daily_double": false,
               "display": true,
               "score_amount": 200
             },
@@ -473,90 +524,44 @@
           ]
         },
         {
-          "title": "Grab bag",
-          "position": 5,
-          "questions": [
-            {
-              "question": "When any leader holds up their hand with the scout sign, they are asking for this",
-              "answer": "Quiet, attention",
-              "position": 1,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 200
-            },
-            {
-              "question": "This is the official magazine of boy scouts",
-              "answer": "Boys life",
-              "position": 2,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 400
-            },
-            {
-              "question": "This is the color of the background on Scout rank badge",
-              "answer": "Tan",
-              "position": 3,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 600
-            },
-            {
-              "question": "Number of items (besides merit badges) that can be worn on the merit badge sash",
-              "answer": "Trick question! NONE!",
-              "position": 4,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 800
-            },
-            {
-              "question": "This is the number of merit badges required for Life Scout",
-              "answer": "11",
-              "position": 5,
-              "daily_double": false,
-              "display": true,
-              "score_amount": 1000
-            }
-          ]
-        },
-        {
-          "title": "Boy Scout Activities",
+          "title": "Creeds",
           "position": 6,
           "questions": [
             {
-              "question": "When Scouts swim safely, they use this system in which one Scout looks out for the other and vice versa.",
-              "answer": "Buddy System",
+              "question": "To follow the Scout Slogan, do one of 'these' daily",
+              "answer": "Good turn",
               "position": 1,
               "daily_double": false,
               "display": true,
               "score_amount": 200
             },
             {
-              "question": "Patterns a Scout can use to build a fire include cross-ditch, pyramid, and this one named for a Native American structure.",
-              "answer": "Teepee",
+              "question": "This two word phrase is known as the scout motto",
+              "answer": "Be Prepared",
               "position": 2,
               "daily_double": false,
               "display": true,
               "score_amount": 400
             },
             {
-              "question": "When a properly prepared Scout gets out on the water, he doesn\u2019t leave shore without a PFD, short for this.",
-              "answer": "Personal Flotation Device",
+              "question": "Begins with the phrase 'On my honor'",
+              "answer": "Scout Oath (or promise)",
               "position": 3,
-              "daily_double": true,
+              "daily_double": false,
               "display": true,
               "score_amount": 600
             },
             {
-              "question": "To qualify for a Bugling merit badge, a Scout must know 15 calls including this one sounded at the end of the day.",
-              "answer": "Taps",
+              "question": "This is the third value of the Scout Law",
+              "answer": "Scout Law",
               "position": 4,
-              "daily_double": false,
+              "daily_double": true,
               "display": true,
               "score_amount": 800
             },
             {
-              "question": "From the French for summoning, it\u2019s the practice of a Scout safely lowering himself down a mountainside.",
-              "answer": "Rappelling",
+              "question": "Often jokingly referred to as the 13th point of the Scout Law.",
+              "answer": "What is 'hungry'",
               "position": 5,
               "daily_double": false,
               "display": true,
@@ -567,9 +572,6 @@
       ]
     }
   },
-  "buzzer_positions": [
-    false,
-    true,
-    false
-  ]
+  "log": [],
+  "first_player": "TeamNone"
 }
