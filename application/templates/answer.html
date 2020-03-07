@@ -1,16 +1,36 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+
+{% if daily_double == 'True' %}
+<script type="text/javascript">
+    function hide_dd_img() {
+        var x = document.getElementById("daily_double_img");
+        x.style.display = "none";
+    }
+</script>
+
+<img id="daily_double_img" src="../static/daily_double.webp" onclick="hide_dd_img()"
+     style="width: 100vw; height: 100vh;">
+<style>
+    body {
+        overflow: hidden;
+    }
+</style>
+{% endif %}
+
+{% if daily_double == 'False' %}
+<script>
+    var image = new Image()
+    image.src = '{{ url_for('start_buttons_ping') }}'
+
+</script>
+{% endif %}
+
 <div class="container-answer">
-    <div class="dummy">{% if daily_double == 'True' %}<img src="../static/daily_double.webp"
-                                                           style="margin-left: 25vw; width: 50vw; height: 40vh;"> {%
-        endif %}
-    </div>
+    <div class="dummy"></div>
     <div class="answer">{{ question }}</div>
-    <div class="dummy">
-        <div class="test">
-        </div>
-    </div>
+    <div class="dummy"></div>
 </div>
 {% include 'includes/score.html' %}
 {% endblock %}

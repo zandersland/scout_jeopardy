@@ -109,7 +109,7 @@
               "answer": "Tree",
               "position": 1,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 100
             },
             {
@@ -566,5 +566,27 @@
         }
       ]
     }
+  },
+  "log": [
+    "2020-03-06 23:21:44.198814 - points=100, column_position=3, row_position=1, daily_double=False",
+    "2020-03-06 23:21:52.161194 - Updating team scores: Team1=600, Team2=100, Team3=-500",
+    "2020-03-06 23:21:52.178079 - Updating game: column_position=3, row_position=1, set_to=False"
+  ],
+  "buzzer_positions": [
+    true,
+    true,
+    false
+  ],
+  "first_player": "Team2",
+  "final_jeopardy": {
+    "category": "Scout Essentials",
+    "question": "Name at least 5 of the 10 Scout Basic Essentials, used to make any outdoor adventure better",
+    "answer": "Pocketknife, rain gear, trail food, flashlight, extra clothing, first aid kit, sun protection, Map and compass, matches and fire starters, water bottle",
+    "team_one_wager": "",
+    "team_two_wager": "",
+    "team_three_wager": "",
+    "team_one_answer": "",
+    "team_two_answer": "",
+    "team_three_answer": ""
   }
 }

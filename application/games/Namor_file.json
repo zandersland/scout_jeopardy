@@ -566,5 +566,17 @@
         }
       ]
     }
+  },
+  "log": [],
+  "final_jeopardy": {
+    "category": "Scout Essentials",
+    "question": "Name at least 5 of the 10 Scout Basic Essentials, used to make any outdoor adventure better",
+    "answer": "Pocketknife, rain gear, trail food, flashlight, extra clothing, first aid kit, sun protection, Map and compass, matches and fire starters, water bottle",
+    "team_one_wager": "",
+    "team_two_wager": "",
+    "team_three_wager": "",
+    "team_one_answer": "",
+    "team_two_answer": "",
+    "team_three_answer": ""
   }
 }

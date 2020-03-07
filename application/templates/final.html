@@ -3,15 +3,15 @@
 {% block content %}
 <div class="container-answer">
     <div class="dummy"></div>
-    <div class="answer" id="answer">{{ final[0][0] }}</div>
+    <div class="answer" id="answer">{{ final['category'] }}</div>
     <div class="dummy"></div>
 </div>
 <script>
     function advanceFinalRound(ref) {
         current = document.getElementById(ref).innerHTML;
 
-        if (current == "{{ final[0][0] }}") {
-            document.getElementById(ref).innerHTML = "{{ final[0][1] }}";
+        if (current == "{{ final['category'] }}") {
+            document.getElementById(ref).innerHTML = "{{ final['question'] }}";
         }
     }
 
@@ -46,7 +46,7 @@
     <form class="scoring-teams" id="score_form" action="{{ url_for('game_result') }}"
           method="POST">
         <div class="scoring">
-            <button class="answer-buttons">Submit</button>
+            <button class="answer-buttons" onclick="alert('Make sure all values are inputed')">Submit</button>
         </div>
     </form>
     <audio controls style='height: 20px; margin-left: 30px;'>

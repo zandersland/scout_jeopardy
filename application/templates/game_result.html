@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container-answer">
     <div class="dummy"></div>
-    <div class="answer" id="answer">{{ final[0][1] }}</div>
+    <div class="answer" id="answer">{{ final['question'] }}</div>
     <div class="dummy"></div>
 </div>
 <script>
@@ -71,7 +71,7 @@
         }
 
         if (input == 'a') {
-            document.getElementById(ref).innerHTML = "{{ final[0][2] }}";
+            document.getElementById(ref).innerHTML = "{{ final['answer'] }}";
         }
 
         if (input == 'f') {

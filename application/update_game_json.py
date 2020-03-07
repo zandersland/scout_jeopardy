@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 
 def update_team_scores(team_name, amount_to_add, game_json_file):
@@ -116,10 +117,11 @@ def update_first_player(game_json_file, first_player):
 def add_line_to_log(game_json_file, log_line):
     game_json = return_full_json(game_json_file)
     try:
-        game_json['log'].append(log_line)
+        game_json['log'].append(f'{datetime.utcnow()} - ' + log_line)
     except:
-        game_json['log'] = [log_line]
+        game_json['log'] = [f'{datetime.utcnow()} - ' + log_line]
     write_to_json_file(game_json_file, game_json)
+
 
 def read_log(game_json_file):
     game_json = return_full_json(game_json_file)
@@ -129,6 +131,36 @@ def read_log(game_json_file):
         game_json['log'] = []
         write_to_json_file(game_json_file, game_json)
         return game_json['log']
+
+
+def get_final_jeopardy(game_json_file):
+    game_json = return_full_json(game_json_file)
+    try:
+        return_statement = game_json['final_jeopardy']
+    except:
+        import generate_game_json as ggj
+        print(ggj.create_final_jeopardy)
+        game_json['final_jeopardy'] = ggj.create_final_jeopardy()
+        return_statement = game_json['final_jeopardy']
+        write_to_json_file(game_json_file, game_json)
+    return return_statement
+
+
+def get_entry_in_final_jeopardy(game_json_file, line):
+    game_json = return_full_json(game_json_file)
+    try:
+        return game_json['final_jeopardy'][line]
+    except:
+        import generate_game_json as ggj
+        game_json['final_jeopardy'] = ggj.create_final_jeopardy()
+        write_to_json_file(game_json_file, game_json)
+        return game_json['final_jeopardy'][line]
+
+
+def update_final_jeopardy(game_json_file, field_to_update, value):
+    game_json = return_full_json(game_json_file)
+    game_json['final_jeopardy'][field_to_update] = value
+    write_to_json_file(game_json_file, game_json)
 
 
 if __name__ == '__main__':

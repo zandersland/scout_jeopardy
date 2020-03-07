@@ -5,14 +5,16 @@ from datetime import datetime
 
 # noinspection PyUnresolvedReferences
 import RPi.GPIO as GPIO
-from flask import render_template, request, redirect, url_for
-
-from application import app
-from application import generate_game as gg
-from application import generate_game_json as ggj
-from application import update_game_json as ug
+# from application import app
+import generate_game as gg
+import generate_game_json as ggj
+import update_game_json as ug
+from flask import Flask, render_template, request, redirect, url_for
+# noinspection PyUnresolvedReferences
+from rpi_ws281x import PixelStrip, Color
 
 game_stats = gg.GenerateGame()
+app = Flask(__name__)
 
 
 class jsonVar:
@@ -36,13 +38,13 @@ def index():
     return render_template('index.html', games=games)
 
 
-# TODO work on button system
 # TODO work on final jeopardy
 
 # TODO NICETOHAVE make team color light up after they answer correctly
 # TODO NICETOHAVE fix the words from going off screen when there is a daily_double
 # TODO NICETOHAVE make log
 # TODO NICETOHAVE use javascript to switch between dropdown and textbox for game selection
+# TODO NICETOHAVE daily_double music
 
 # TODO NICETOHAVE ADMINPAGE update points
 # TODO NICETOHAVE ADMINPAGE reset team buzzer state to be (True, True, True)
@@ -92,7 +94,46 @@ def update_game():
 
     if ug.check_for_round_end(jsonVar.game_json_file):
         ug.change_current_round(ug.read_current_round(jsonVar.game_json_file) + 1, jsonVar.game_json_file)
+    if ug.read_current_round(jsonVar.game_json_file) == 3:
+        jsonVar.answer = 'On Final Round...'
+        return redirect('/final')
+
     jsonVar.answer = 'Waiting for question...'
+
+    def turn_off_strip_and_leds():
+        LED_COUNT = 60
+        LED_PIN = 12
+        LED_FREQ_HZ = 800000
+        LED_DMA = 10
+        LED_BRIGHTNESS = 200
+        LED_INVERT = False
+        LED_CHANNEL = 0
+
+        led1 = 5
+        led2 = 6
+        led3 = 13
+        led_white = 16
+
+        strip = PixelStrip(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
+        strip.begin()
+
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(led1, GPIO.OUT)
+        GPIO.setup(led2, GPIO.OUT)
+        GPIO.setup(led3, GPIO.OUT)
+        GPIO.setup(led_white, GPIO.OUT)
+
+        for x in range(strip.numPixels()):
+            strip.setPixelColor(x, Color(0, 0, 0))
+        strip.show()
+
+        GPIO.output(led1, GPIO.LOW)
+        GPIO.output(led2, GPIO.LOW)
+        GPIO.output(led3, GPIO.LOW)
+        GPIO.output(led_white, GPIO.LOW)
+        GPIO.cleanup()
+
+    turn_off_strip_and_leds()
     return redirect(url_for('game'))
 
 
@@ -101,13 +142,23 @@ class player:
 
 
 def button_functions():
+    LED_COUNT = 60
+    LED_PIN = 12
+    LED_FREQ_HZ = 800000
+    LED_DMA = 10
+    LED_BRIGHTNESS = 200
+    LED_INVERT = False
+    LED_CHANNEL = 0
+    strip = PixelStrip(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
+    strip.begin()
+
     player_list = ug.read_team_guesses(jsonVar.game_json_file)
     timer = 10
 
-    # led1 = 5
-    # led2 = 6
-    # led3 = 13
-    # led_white = 12
+    led1 = 5
+    led2 = 6
+    led3 = 13
+    led_white = 16
     button1 = 17
     button2 = 27
     button3 = 22
@@ -117,10 +168,26 @@ def button_functions():
     GPIO.setup(button2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
     GPIO.setup(button3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-    # GPIO.setup(led1, GPIO.OUT)
-    # GPIO.setup(led2, GPIO.OUT)
-    # GPIO.setup(led3, GPIO.OUT)
-    # GPIO.setup(led_white, GPIO.OUT)
+    GPIO.setup(led1, GPIO.OUT)
+    GPIO.setup(led2, GPIO.OUT)
+    GPIO.setup(led3, GPIO.OUT)
+    GPIO.setup(led_white, GPIO.OUT)
+
+    GPIO.output(led1, GPIO.LOW)
+    GPIO.output(led2, GPIO.LOW)
+    GPIO.output(led3, GPIO.LOW)
+    GPIO.output(led_white, GPIO.LOW)
+
+    def set_strip_to_color(strip_color):
+        if player_list[0]:
+            strip.setPixelColor(0, Color(255, 0, 0))
+        if player_list[1]:
+            strip.setPixelColor(1, Color(0, 255, 0))
+        if player_list[2]:
+            strip.setPixelColor(2, Color(0, 0, 255))
+        for i in range(3, strip.numPixels()):
+            strip.setPixelColor(i, strip_color)
+        strip.show()
 
     def end():
         print('\ncleaning up...')
@@ -129,17 +196,17 @@ def button_functions():
     def button_callback1(channel):
         print('button1 was pushed at: ', datetime.utcnow())
         player.first_player = 'Team1'
-        end()
+        set_strip_to_color(Color(255, 0, 0))
 
     def button_callback2(channel):
         print('button2 was pushed at: ', datetime.utcnow())
         player.first_player = 'Team2'
-        end()
+        set_strip_to_color(Color(0, 255, 0))
 
     def button_callback3(channel):
         print('button3 was pushed at: ', datetime.utcnow())
         player.first_player = 'Team3'
-        end()
+        set_strip_to_color(Color(0, 0, 255))
 
     if player_list[0]:
         GPIO.add_event_detect(button1, GPIO.RISING, callback=button_callback1)
@@ -148,13 +215,21 @@ def button_functions():
     if player_list[2]:
         GPIO.add_event_detect(button3, GPIO.RISING, callback=button_callback3)
     player.first_player = 'TeamNone'
+    set_strip_to_color(Color(100, 100, 100))
+    GPIO.output(led_white, GPIO.HIGH)
     for x in range(timer * 100):
         if player.first_player != 'TeamNone':
+            GPIO.output(led_white, GPIO.LOW)
             end()
             break
         else:
             time.sleep(0.01)
     print('ending...')
+    if player.first_player == 'TeamNone':
+        set_strip_to_color(Color(0, 0, 0))
+        for x in range(3):
+            strip.setPixelColor(x, Color(0, 0, 0))
+        strip.show()
     end()
     print(player.first_player)
     ug.update_first_player(jsonVar.game_json_file, player.first_player)
@@ -183,26 +258,26 @@ def answer():
 
 @app.route('/final')
 def final():
-    _final = game_stats.final_jeopardy
-    one = game_stats.team_one_points
-    two = game_stats.team_two_points
-    three = game_stats.team_three_points
+    _final = ug.get_final_jeopardy(jsonVar.game_json_file)
+    one = ug.read_team_score('Team1', jsonVar.game_json_file)
+    two = ug.read_team_score('Team2', jsonVar.game_json_file)
+    three = ug.read_team_score('Team3', jsonVar.game_json_file)
     return render_template('final.html', final=_final, one=one, two=two, three=three)
 
 
 @app.route('/game_result', methods=['POST'])
 def game_result():
-    _final = game_stats.final_jeopardy
-    one = game_stats.team_one_points
-    two = game_stats.team_two_points
-    three = game_stats.team_three_points
+    _final = ug.get_final_jeopardy(jsonVar.game_json_file)
+    one = ug.read_team_score('Team1', jsonVar.game_json_file)
+    two = ug.read_team_score('Team2', jsonVar.game_json_file)
+    three = ug.read_team_score('Team3', jsonVar.game_json_file)
 
-    one_answer = game_stats.team_one_answer
-    one_wager = game_stats.team_one_wager
-    two_answer = game_stats.team_two_answer
-    two_wager = game_stats.team_two_wager
-    three_answer = game_stats.team_three_answer
-    three_wager = game_stats.team_three_wager
+    one_answer = ug.get_entry_in_final_jeopardy(jsonVar.game_json_file, 'team_one_answer')
+    one_wager = ug.get_entry_in_final_jeopardy(jsonVar.game_json_file, 'team_one_wager')
+    two_answer = ug.get_entry_in_final_jeopardy(jsonVar.game_json_file, 'team_two_answer')
+    two_wager = ug.get_entry_in_final_jeopardy(jsonVar.game_json_file, 'team_two_wager')
+    three_answer = ug.get_entry_in_final_jeopardy(jsonVar.game_json_file, 'team_three_answer')
+    three_wager = ug.get_entry_in_final_jeopardy(jsonVar.game_json_file, 'team_three_wager')
     return render_template('game_result.html', final=_final, one=one, two=two, three=three, one_answer=one_answer,
                            one_wager=one_wager, two_answer=two_answer, two_wager=two_wager, three_answer=three_answer,
                            three_wager=three_wager)
@@ -210,21 +285,20 @@ def game_result():
 
 @app.route('/record_final_answers', methods=['POST'])
 def record_final_answers():
-    game_stats.team_one_wager = request.form.get('team_one_wager')
-    game_stats.team_two_wager = request.form.get('team_two_wager')
-    game_stats.team_three_wager = request.form.get('team_three_wager')
+    ug.update_final_jeopardy(jsonVar.game_json_file, 'team_one_wager', request.form.get('team_one_wager'))
+    ug.update_final_jeopardy(jsonVar.game_json_file, 'team_two_wager', request.form.get('team_two_wager'))
+    ug.update_final_jeopardy(jsonVar.game_json_file, 'team_three_wager', request.form.get('team_three_wager'))
 
-    game_stats.team_one_answer = request.form.get('team_one_answer')
-    game_stats.team_two_answer = request.form.get('team_two_answer')
-    game_stats.team_three_answer = request.form.get('team_three_answer')
+    ug.update_final_jeopardy(jsonVar.game_json_file, 'team_one_answer', request.form.get('team_one_answer'))
+    ug.update_final_jeopardy(jsonVar.game_json_file, 'team_two_answer', request.form.get('team_two_answer'))
+    ug.update_final_jeopardy(jsonVar.game_json_file, 'team_three_answer', request.form.get('team_three_answer'))
 
-    print(request.form.get('team_one_wager'), request.form.get('team_two_wager'))
-    game_stats.log_game(
-        f"Final wager/answers: {request.form.get('team_one_wager')} {request.form.get('team_one_answer')}, "
-        f"{request.form.get('team_two_wager')} {request.form.get('team_two_answer')}, "
-        f"{request.form.get('team_three_wager')} {request.form.get('team_three_answer')}")
+    ug.add_line_to_log(jsonVar.game_json_file,
+                       f"Final wager/answers: {request.form.get('team_one_wager')} {request.form.get('team_one_answer')}, "
+                       f"{request.form.get('team_two_wager')} {request.form.get('team_two_answer')}, "
+                       f"{request.form.get('team_three_wager')} {request.form.get('team_three_answer')}")
 
-    return redirect(url_for('log'))
+    return 'Updated final wagers and answers'
 
 
 @app.route('/record_final')
@@ -232,36 +306,36 @@ def record_final():
     return render_template('record_final.html')
 
 
-@app.route('/log')
-def log():
-    return render_template('log.html', log=game_stats.log)
+# @app.route('/log')
+# def log():
+#     return render_template('log.html', log=game_stats.log)
 
 
-@app.route('/update_scores_post', methods=['POST'])
-def update_scores_post():
-    with open('game_json.json', 'r') as _f:
-        _game_json = json.loads(_f.read())
-    game_stats.team_one_points = int(request.form.get('team_one_amount'))
-    _game_json['scores']['Team1'] = int(request.form.get('team_one_amount'))
-    game_stats.team_two_points = int(request.form.get('team_two_amount'))
-    _game_json['scores']['Team2'] = int(request.form.get('team_two_amount'))
-    game_stats.team_three_points = int(request.form.get('team_three_amount'))
-    _game_json['scores']['Team3'] = int(request.form.get('team_three_amount'))
-    with open('game_json.json', 'w') as _f:
-        _f.write(json.dumps(_game_json, indent=2))
-    game_stats.log_game(f"Updated team scores: "
-                        f"team one:   {game_stats.team_one_points}"
-                        f"team two:   {game_stats.team_two_points}"
-                        f"team three: {game_stats.team_three_points}")
-    return redirect(url_for('log'))
-
-
-@app.route('/update_scores')
-def update_scores():
-    one = ug.read_team_score('Team1', jsonVar.game_json_file)
-    two = ug.read_team_score('Team2', jsonVar.game_json_file)
-    three = ug.read_team_score('Team3', jsonVar.game_json_file)
-    return render_template('update_scores.html', one=one, two=two, three=three)
+# @app.route('/update_scores_post', methods=['POST'])
+# def update_scores_post():
+#     with open('game_json.json', 'r') as _f:
+#         _game_json = json.loads(_f.read())
+#     game_stats.team_one_points = int(request.form.get('team_one_amount'))
+#     _game_json['scores']['Team1'] = int(request.form.get('team_one_amount'))
+#     game_stats.team_two_points = int(request.form.get('team_two_amount'))
+#     _game_json['scores']['Team2'] = int(request.form.get('team_two_amount'))
+#     game_stats.team_three_points = int(request.form.get('team_three_amount'))
+#     _game_json['scores']['Team3'] = int(request.form.get('team_three_amount'))
+#     with open('game_json.json', 'w') as _f:
+#         _f.write(json.dumps(_game_json, indent=2))
+#     game_stats.log_game(f"Updated team scores: "
+#                         f"team one:   {game_stats.team_one_points}"
+#                         f"team two:   {game_stats.team_two_points}"
+#                         f"team three: {game_stats.team_three_points}")
+#     return redirect(url_for('log'))
+#
+#
+# @app.route('/update_scores')
+# def update_scores():
+#     one = ug.read_team_score('Team1', jsonVar.game_json_file)
+#     two = ug.read_team_score('Team2', jsonVar.game_json_file)
+#     three = ug.read_team_score('Team3', jsonVar.game_json_file)
+#     return render_template('update_scores.html', one=one, two=two, three=three)
 
 
 @app.route('/main_admin_page')
@@ -305,7 +379,8 @@ def main_admin_page_log_ping():
         _game_json_file = 'No file selected'
     else:
         _game_json_file = 'Current file: ' + jsonVar.game_json_file
-    return render_template('includes/main_admin_page_log_ping.html', log_list=log_list, game_json_file=_game_json_file)
+    return render_template('includes/main_admin_page_log_ping.html', log_list=reversed(log_list),
+                           game_json_file=_game_json_file)
 
 
 @app.route('/main_admin_page_answer_ping', methods=['GET', 'POST'])
@@ -337,3 +412,7 @@ def fireworks():
           '+++                        +++\n++++++++++++++++++++++++++++++\n\n')
     return '<br>++++++++++++++++++++++++++++++<br>+++<br>+++     FIREWORKS!!!!!     ' \
            '+++<br>+++<br>++++++++++++++++++++++++++++++ '
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5007, debug=True)

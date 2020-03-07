@@ -1,3 +1,46 @@
+<script type="text/javascript">
+function display_c(){
+var refresh=1000; // Refresh rate in milli seconds
+mytime=setTimeout('display_ct()',refresh)
+}
+
+function display_ct() {
+var x = new Date()
+var x1=x.toUTCString();// changing the display to UTC string
+document.getElementById('ct').innerHTML = x1;
+tt=display_c();
+ }
+
+function toggle_final_commands() {
+    var x = document.getElementById("commands");
+    if (x.style.display == "none") {
+        x.style.display = "block"
+    }
+
+    else {
+        x.style.display = "none"
+    }
+}
+
+
+</script>
+<body onload=display_ct(); style="color: #FF0000">
+Server time: <span id='ct' style="background-color: #26262b; color: #FFFFFF;"></span><br><br>
+</body>
+<button onclick="toggle_final_commands()">Toggle commands</button>
+<div id="commands" style="display: none;">
+    <h3>prefix the command with 1, 2, or 3</h3>
+    <h3>w = wager</h3>
+    <h3>a = answer</h3>
+    <h3>c = correct answer</h3>
+    <h3>i = incorrect answer</h3>
+    <h3>f = final scores</h3>
+    <h3>a = answer</h3>
+    <h3>Examples (1w, 2a, 3c, 3i, f, a)</h3>
+</div>
+<br><br>
+
+<body>
 <button onClick="window.location.reload();">Refresh values</button>
 <form class="update_scores" id="update_scores" action="{{ url_for('main_admin_page_post') }}"
       method="POST">
@@ -21,3 +64,33 @@
         <button class="final-buttons">Submit</button>
     </div>
 </form>
+
+<br><br>
+<h3>Record final scores and answers</h3>
+<form class="record-final" id="final-form" action="{{ url_for('record_final_answers') }}"
+      method="POST">
+    <div class="record-final-values">
+        <div>
+            <label>Team 1 wager</label>
+            <input type="text" name="team_one_wager" id="team_one_wager" value=""/><br>
+            <label>Team 1 answer</label>
+            <input type="text" name="team_one_answer" id="team_one_answer" value=""/>
+        </div>
+        <br>
+        <div>
+            <label>Team 2 wager</label>
+            <input type="text" name="team_two_wager" id="team_two_wager"/><br>
+            <label>Team 1 answer</label>
+            <input type="text" name="team_two_answer" id="team_two_answer" value=""/>
+        </div>
+        <br>
+        <div>
+            <label>Team 3 wager</label>
+            <input type="text" name="team_three_wager" id="team_three_wager" value=""/><br>
+            <label>Team 1 answer</label>
+            <input type="text" name="team_three_answer" id="team_three_answer" value=""/>
+        </div>
+        <button class="final-buttons">Submit</button>
+    </div>
+</form>
+</body>

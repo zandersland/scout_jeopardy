@@ -69,8 +69,30 @@ def create_team_buzzers():
     return buzzers
 
 
+def create_final_jeopardy():
+    final_jeop = {}
+    with open('final_jeopardy_questions.csv', 'r') as f1:
+        final_jeop_csv_list = list(csv.reader(f1))
+    print(final_jeop_csv_list)
+
+    random_final = random.sample(final_jeop_csv_list, 1)
+    final_jeop['category'] = random_final[0][0]
+    final_jeop['question'] = random_final[0][1]
+    final_jeop['answer'] = random_final[0][2]
+
+    final_jeop['team_one_wager'] = ''
+    final_jeop['team_two_wager'] = ''
+    final_jeop['team_three_wager'] = ''
+
+    final_jeop['team_one_answer'] = ''
+    final_jeop['team_two_answer'] = ''
+    final_jeop['team_three_answer'] = ''
+    return final_jeop
+
+
 def generate_game_3(round_1_category, round_2_category, question_json):
-    game = {'current_round': 1, 'scores': create_scores(), 'buzzer_positions': create_team_buzzers(), 'board': create_board(), 'log': []}
+    game = {'current_round': 1, 'scores': create_scores(), 'buzzer_positions': create_team_buzzers(),
+            'board': create_board(), 'final_jeopardy': create_final_jeopardy(), 'log': []}
 
     game['board']['round1'] = create_columns(6, round_1_category, question_json, 1)
 

@@ -2,7 +2,7 @@
   "current_round": 2,
   "scores": {
     "Team1": -1700,
-    "Team2": -500,
+    "Team2": -300,
     "Team3": 31000
   },
   "board": {
@@ -305,7 +305,7 @@
               "answer": "Mars",
               "position": 2,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 400
             },
             {
@@ -313,7 +313,7 @@
               "answer": "Search and Rescue",
               "position": 3,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 600
             },
             {
@@ -321,7 +321,7 @@
               "answer": "Geocaching",
               "position": 4,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 800
             },
             {
@@ -329,7 +329,7 @@
               "answer": "Programming",
               "position": 5,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 1000
             }
           ]
@@ -421,7 +421,7 @@
               "answer": "Poisonous plants",
               "position": 5,
               "daily_double": true,
-              "display": true,
+              "display": false,
               "score_amount": 1000
             }
           ]
@@ -435,7 +435,7 @@
               "answer": "Scoutmaster",
               "position": 1,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 200
             },
             {
@@ -481,7 +481,7 @@
               "answer": "Old Glory or Star Spangled Banner",
               "position": 1,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 200
             },
             {
@@ -505,7 +505,7 @@
               "answer": "Ursa Major or the Big Dipper",
               "position": 4,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 800
             },
             {
@@ -513,7 +513,7 @@
               "answer": "Truth and knowledge (or stars in the night sky, suggesting a scouts outdoor adventures)",
               "position": 5,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 1000
             }
           ]
@@ -527,7 +527,7 @@
               "answer": "Square knot",
               "position": 1,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 200
             },
             {
@@ -559,7 +559,7 @@
               "answer": "Clove Hitch",
               "position": 5,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 1000
             }
           ]
@@ -568,9 +568,9 @@
     }
   },
   "buzzer_positions": [
-    false,
-    false,
-    false
+    true,
+    true,
+    true
   ],
   "log": [
     "Updating game",
@@ -597,7 +597,43 @@
     "Updating game: column_position=3, row_position=4, set_to=False",
     "points=1000, column_position=2, row_position=5, daily_double=False",
     "Updating team scores: Team1=-1700, Team2=-500, Team3=31000",
-    "Updating game: column_position=2, row_position=5, set_to=False"
+    "Updating game: column_position=2, row_position=5, set_to=False",
+    "points=200, column_position=4, row_position=1, daily_double=False",
+    "Updating team scores: Team1=-1700, Team2=-500, Team3=31000",
+    "Updating game: column_position=4, row_position=1, set_to=False",
+    "points=800, column_position=5, row_position=4, daily_double=False",
+    "Updating team scores: Team1=-1700, Team2=-500, Team3=31000",
+    "Updating game: column_position=5, row_position=4, set_to=False",
+    "points=1000, column_position=3, row_position=5, daily_double=True",
+    "Updating team scores: Team1=-1700, Team2=-500, Team3=31000",
+    "Updating game: column_position=3, row_position=5, set_to=False",
+    "points=200, column_position=5, row_position=1, daily_double=False",
+    "Updating team scores: Team1=-1700, Team2=-300, Team3=31000",
+    "Updating game: column_position=5, row_position=1, set_to=False",
+    "points=400, column_position=1, row_position=2, daily_double=False",
+    "points=400, column_position=1, row_position=2, daily_double=False",
+    "Updating team scores: Team1=-1700, Team2=-300, Team3=31000",
+    "Updating game: column_position=1, row_position=2, set_to=False",
+    "points=600, column_position=1, row_position=3, daily_double=False",
+    "points=600, column_position=1, row_position=3, daily_double=False",
+    "Updating team scores: Team1=-1700, Team2=-300, Team3=31000",
+    "Updating game: column_position=1, row_position=3, set_to=False",
+    "points=800, column_position=1, row_position=4, daily_double=False",
+    "Updating team scores: Team1=-1700, Team2=-300, Team3=31000",
+    "Updating game: column_position=1, row_position=4, set_to=False",
+    "points=1000, column_position=5, row_position=5, daily_double=False",
+    "Updating team scores: Team1=-1700, Team2=-300, Team3=31000",
+    "Updating game: column_position=5, row_position=5, set_to=False",
+    "points=200, column_position=6, row_position=1, daily_double=False",
+    "Updating team scores: Team1=-1700, Team2=-300, Team3=31000",
+    "Updating game: column_position=6, row_position=1, set_to=False",
+    "points=1000, column_position=1, row_position=5, daily_double=False",
+    "Updating team scores: Team1=-1700, Team2=-300, Team3=31000",
+    "Updating game: column_position=1, row_position=5, set_to=False",
+    "points=1000, column_position=6, row_position=5, daily_double=False",
+    "Updating team scores: Team1=-1700, Team2=-300, Team3=31000",
+    "Updating game: column_position=6, row_position=5, set_to=False",
+    "Admin Override: Team1 new score=-1700, Team2 new score=-300, Team3 new score=31000, New Round number=2"
   ],
-  "first_player": "TeamNone"
+  "first_player": "Team1"
 }

@@ -15,12 +15,6 @@
         document.getElementById(team).value = new_pts;
 
     }
-
-
-
-
-
-
 </script>
 <div class="scoring_answer">
     <div class="scoring-teams">
@@ -64,8 +58,3 @@
         </div>
     </form>
 </div>
-<div class="buzzer_states"><iframe src="{{ url_for('pingtest') }}" id="buzzer_states_iframe"></iframe></div>
-<script>
-    var image = new Image()
-    image.src = '{{ url_for('start_buttons_ping') }}'
-</script>
