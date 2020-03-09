@@ -1,5 +1,5 @@
 {
-  "current_round": 2,
+  "current_round": 3,
   "scores": {
     "Team1": -1700,
     "Team2": -300,
@@ -633,7 +633,29 @@
     "points=1000, column_position=6, row_position=5, daily_double=False",
     "Updating team scores: Team1=-1700, Team2=-300, Team3=31000",
     "Updating game: column_position=6, row_position=5, set_to=False",
-    "Admin Override: Team1 new score=-1700, Team2 new score=-300, Team3 new score=31000, New Round number=2"
+    "Admin Override: Team1 new score=-1700, Team2 new score=-300, Team3 new score=31000, New Round number=2",
+    "2020-03-07 22:17:19.014073 - Admin Override: Team1 new score=-1700, Team2 new score=-300, Team3 new score=31000, New Round number=1",
+    "2020-03-07 22:17:25.911198 - Admin Override: Team1 new score=-1700, Team2 new score=-300, Team3 new score=31000, New Round number=2",
+    "2020-03-07 22:17:31.168969 - Admin Override: Team1 new score=-1700, Team2 new score=-300, Team3 new score=31000, New Round number=3",
+    "2020-03-07 22:55:24.082359 - Admin Override: Team1 new score=-1700, Team2 new score=-300, Team3 new score=31000, New Round number=1",
+    "2020-03-07 22:56:18.404871 - points=100, column_position=1, row_position=1, daily_double=False",
+    "2020-03-07 22:56:23.571616 - Updating team scores: Team1=-1700, Team2=-300, Team3=31000",
+    "2020-03-07 22:56:23.579853 - Updating game: column_position=1, row_position=1, set_to=False",
+    "2020-03-07 22:56:32.537919 - points=200, column_position=1, row_position=1, daily_double=False",
+    "2020-03-07 22:56:37.212468 - Updating team scores: Team1=-1700, Team2=-300, Team3=31000",
+    "2020-03-07 22:56:37.220196 - Updating game: column_position=1, row_position=1, set_to=False"
   ],
-  "first_player": "Team1"
+  "first_player": "Team2",
+  "current_team_highlight": 1,
+  "final_jeopardy": {
+    "category": "Scout Essentials",
+    "question": "Name at least 5 of the 10 Scout Basic Essentials, used to make any outdoor adventure better",
+    "answer": "Pocketknife, rain gear, trail food, flashlight, extra clothing, first aid kit, sun protection, Map and compass, matches and fire starters, water bottle",
+    "team_one_wager": "",
+    "team_two_wager": "",
+    "team_three_wager": "",
+    "team_one_answer": "",
+    "team_two_answer": "",
+    "team_three_answer": ""
+  }
 }

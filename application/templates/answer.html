@@ -12,6 +12,10 @@
 
 <img id="daily_double_img" src="../static/daily_double.webp" onclick="hide_dd_img()"
      style="width: 100vw; height: 100vh;">
+
+    <audio controls style='display: none;' autoplay>
+    <source src="static/Jeopardy_Daily_Double.mp3" type='audio/mpeg'>
+    </audio>
 <style>
     body {
         overflow: hidden;
@@ -22,7 +26,7 @@
 {% if daily_double == 'False' %}
 <script>
     var image = new Image()
-    image.src = '{{ url_for('start_buttons_ping') }}'
+    image.src = '{{ url_for('start_buttons_ping', game_json_file=game_json_file) }}'
 
 </script>
 {% endif %}

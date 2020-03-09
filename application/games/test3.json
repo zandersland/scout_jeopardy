@@ -233,7 +233,7 @@
               "answer": "11",
               "position": 5,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 500
             }
           ]
@@ -568,8 +568,38 @@
     }
   },
   "buzzer_positions": [
-    true,
-    true,
-    true
-  ]
+    false,
+    false,
+    false
+  ],
+  "current_team_highlight": 1,
+  "log": [
+    "2020-03-07 22:29:02.164731 - points=500, column_position=5, row_position=5, daily_double=False",
+    "2020-03-07 22:29:06.407752 - Updating team scores: Team1=0, Team2=400, Team3=0",
+    "2020-03-07 22:29:06.424634 - Updating game: column_position=5, row_position=5, set_to=False",
+    "2020-03-07 22:29:51.461190 - points=300, column_position=2, row_position=3, daily_double=True",
+    "2020-03-07 22:30:33.886471 - points=300, column_position=2, row_position=3, daily_double=True",
+    "2020-03-07 22:30:46.017179 - points=300, column_position=2, row_position=3, daily_double=True",
+    "2020-03-07 22:30:54.468054 - points=300, column_position=2, row_position=3, daily_double=True",
+    "2020-03-07 22:30:58.546972 - points=300, column_position=2, row_position=3, daily_double=True",
+    "2020-03-07 22:32:22.981988 - points=300, column_position=2, row_position=3, daily_double=True",
+    "2020-03-07 22:32:36.709151 - points=300, column_position=2, row_position=3, daily_double=True",
+    "2020-03-07 22:33:53.913729 - Admin Override: Team1 new score=0, Team2 new score=400, Team3 new score=0, New Round number=3",
+    "2020-03-07 22:45:25.398075 - Admin Override: Team1 new score=0, Team2 new score=400, Team3 new score=0, New Round number=1",
+    "2020-03-07 22:45:38.518895 - points=100, column_position=2, row_position=1, daily_double=False",
+    "2020-03-07 22:46:39.062240 - points=100, column_position=2, row_position=1, daily_double=False",
+    "2020-03-07 22:46:50.484728 - points=100, column_position=2, row_position=1, daily_double=False"
+  ],
+  "first_player": "TeamNone",
+  "final_jeopardy": {
+    "category": "Scout Essentials",
+    "question": "Name at least 5 of the 10 Scout Basic Essentials, used to make any outdoor adventure better",
+    "answer": "Pocketknife, rain gear, trail food, flashlight, extra clothing, first aid kit, sun protection, Map and compass, matches and fire starters, water bottle",
+    "team_one_wager": "",
+    "team_two_wager": "",
+    "team_three_wager": "",
+    "team_one_answer": "",
+    "team_two_answer": "",
+    "team_three_answer": ""
+  }
 }

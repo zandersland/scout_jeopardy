@@ -1,0 +1,796 @@
+{
+  "current_round": 3,
+  "scores": {
+    "Team1": 4000,
+    "Team2": -800,
+    "Team3": 1200
+  },
+  "buzzer_positions": [
+    true,
+    true,
+    true
+  ],
+  "board": {
+    "round1": {
+      "columns": [
+        {
+          "title": "Creeds",
+          "position": 1,
+          "questions": [
+            {
+              "question": "To follow the Scout Slogan, do one of 'these' daily",
+              "answer": "Good turn",
+              "position": 1,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 100
+            },
+            {
+              "question": "This two word phrase is known as the scout motto",
+              "answer": "Be Prepared",
+              "position": 2,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 200
+            },
+            {
+              "question": "Begins with the phrase 'On my honor'",
+              "answer": "Scout Oath (or promise)",
+              "position": 3,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 300
+            },
+            {
+              "question": "This is the third value of the Scout Law",
+              "answer": "Scout Law",
+              "position": 4,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 400
+            },
+            {
+              "question": "Often jokingly referred to as the 13th point of the Scout Law.",
+              "answer": "What is 'hungry'",
+              "position": 5,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 500
+            }
+          ]
+        },
+        {
+          "title": "Knots",
+          "position": 2,
+          "questions": [
+            {
+              "question": "This is known as the first-aid knot.",
+              "answer": "Square knot",
+              "position": 1,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 100
+            },
+            {
+              "question": "This practice (also used by film editors) joins 2 ropes and makes them almost as strong as the original ones",
+              "answer": "Splicing",
+              "position": 2,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 200
+            },
+            {
+              "question": "The knot you'd use if you were hanging from one hand on a cliff.",
+              "answer": "Bowline",
+              "position": 3,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 300
+            },
+            {
+              "question": "Knot used to secure tents in wet weather or when using synthetic ropes.",
+              "answer": "Tautline Hitch",
+              "position": 4,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 400
+            },
+            {
+              "question": "Technically not a knot, it is used to start many lashings.",
+              "answer": "Clove Hitch",
+              "position": 5,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 500
+            }
+          ]
+        },
+        {
+          "title": "Grab bag",
+          "position": 3,
+          "questions": [
+            {
+              "question": "When any leader holds up their hand with the scout sign, they are asking for this",
+              "answer": "Quiet, attention",
+              "position": 1,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 100
+            },
+            {
+              "question": "This is the official magazine of boy scouts",
+              "answer": "Boys life",
+              "position": 2,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 200
+            },
+            {
+              "question": "This is the color of the background on Scout rank badge",
+              "answer": "Tan",
+              "position": 3,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 300
+            },
+            {
+              "question": "Number of items (besides merit badges) that can be worn on the merit badge sash",
+              "answer": "Trick question! NONE!",
+              "position": 4,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 400
+            },
+            {
+              "question": "This is the number of merit badges required for Life Scout",
+              "answer": "11",
+              "position": 5,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 500
+            }
+          ]
+        },
+        {
+          "title": "EDGE Method",
+          "position": 4,
+          "questions": [
+            {
+              "question": "Use the 'EDGE' method when doing this",
+              "answer": "Teaching a skill to others",
+              "position": 1,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 100
+            },
+            {
+              "question": "This is what the third letter of the 'EDGE' method stands for",
+              "answer": "Guide",
+              "position": 2,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 200
+            },
+            {
+              "question": "The second letter of the 'EDGE' method stands for this",
+              "answer": "Demonstrate",
+              "position": 3,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 300
+            },
+            {
+              "question": "This is what the first letter of the 'EDGE' method stands for",
+              "answer": "Explain",
+              "position": 4,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 400
+            },
+            {
+              "question": "The fourth letter of the 'EDGE' method stands for this",
+              "answer": "Enable",
+              "position": 5,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 500
+            }
+          ]
+        },
+        {
+          "title": "Stars (and Stripes)",
+          "position": 5,
+          "questions": [
+            {
+              "question": "The nickname given to the flag of the United States of America",
+              "answer": "Old Glory or Star Spangled Banner",
+              "position": 1,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 100
+            },
+            {
+              "question": "The original US Flag had 13 stars and stripes, which stood for these",
+              "answer": "Original 13 Colonies",
+              "position": 2,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 200
+            },
+            {
+              "question": "This is the fifth rank earned in Scouts",
+              "answer": "Star Scout",
+              "position": 3,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 300
+            },
+            {
+              "question": "This constellation  can be used to find the North Star",
+              "answer": "Ursa Major or the Big Dipper",
+              "position": 4,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 400
+            },
+            {
+              "question": "The stars on the badge of some scout ranks are a symbol of these two things",
+              "answer": "Truth and knowledge (or stars in the night sky, suggesting a scouts outdoor adventures)",
+              "position": 5,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 500
+            }
+          ]
+        },
+        {
+          "title": "Nature",
+          "position": 6,
+          "questions": [
+            {
+              "question": "Conifer and Broadleaf are two types of this",
+              "answer": "Tree",
+              "position": 1,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 100
+            },
+            {
+              "question": "A 'Plant Key' is used for identifying types of these",
+              "answer": "Trees or plants",
+              "position": 2,
+              "daily_double": true,
+              "display": false,
+              "score_amount": 200
+            },
+            {
+              "question": "Minnesota's State bird",
+              "answer": "Common Loon",
+              "position": 3,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 300
+            },
+            {
+              "question": "Animals can be divided into these two types (get a backbone, why don't you?)",
+              "answer": "Vertebrates and Invertebrates",
+              "position": 4,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 400
+            },
+            {
+              "question": "Stinging nettle, Wisteria and Foxglove are all types of this",
+              "answer": "Poisonous plants",
+              "position": 5,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 500
+            }
+          ]
+        }
+      ]
+    },
+    "round2": {
+      "columns": [
+        {
+          "title": "21st Century Merit Badges",
+          "position": 1,
+          "questions": [
+            {
+              "question": "To receive this merit badge, you join two metal plates and inscribe your initials",
+              "answer": "Welding",
+              "position": 1,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 200
+            },
+            {
+              "question": "The Robotics merit badge depicts this planet, but you can earn it on Earth.",
+              "answer": "Mars",
+              "position": 2,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 400
+            },
+            {
+              "question": "The 'S-A-R' on the badge created in 2012 stands for this lifesaving process.",
+              "answer": "Search and Rescue",
+              "position": 3,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 600
+            },
+            {
+              "question": "There's a GPS unit on the badge for this new 10-letter orienteering hobby.",
+              "answer": "Geocaching",
+              "position": 4,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 800
+            },
+            {
+              "question": "Boy Scouts learn about coding and debugging while earning this computing-based merit badge.",
+              "answer": "Programming",
+              "position": 5,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 1000
+            }
+          ]
+        },
+        {
+          "title": "Life or Death",
+          "position": 2,
+          "questions": [
+            {
+              "question": "If someone is not breathing and has no heart beat, do this after calling for help",
+              "answer": "CPR",
+              "position": 1,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 200
+            },
+            {
+              "question": "Symptoms of this common condition are fatigue, head and muscle aches, and confusion",
+              "answer": "Dehydration",
+              "position": 2,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 400
+            },
+            {
+              "question": "Uncomfortable pressure in the chest, unusual sweating, nausea, and shortness of breath are all common signs of this",
+              "answer": "Heart attack",
+              "position": 3,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 600
+            },
+            {
+              "question": "When someone is choking and cannot speak, cough, or breath, use this manuever to save their life",
+              "answer": "Heimlich Maneuver",
+              "position": 4,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 800
+            },
+            {
+              "question": "Very hot skin, red skin damp or dry with sweat, rapid pulse and noisy breathing, confusion and irritability, unconsciousness are all signs of this",
+              "answer": "Heatstroke",
+              "position": 5,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 1000
+            }
+          ]
+        },
+        {
+          "title": "Grab bag 2",
+          "position": 3,
+          "questions": [
+            {
+              "question": "The adult leader of a Scout Troop is called this",
+              "answer": "Scoutmaster",
+              "position": 1,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 200
+            },
+            {
+              "question": "This is the eighth point of the scout law",
+              "answer": "Cheerful",
+              "position": 2,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 400
+            },
+            {
+              "question": "This should always be carried on a hike",
+              "answer": "First Aid Kit",
+              "position": 3,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 600
+            },
+            {
+              "question": "This system of communication uses a series of dots and dashes",
+              "answer": "Morse Code",
+              "position": 4,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 800
+            },
+            {
+              "question": "This is considered the symbol of scouting around the world",
+              "answer": "Fleur de Lis  or Trefoil",
+              "position": 5,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 1000
+            }
+          ]
+        },
+        {
+          "title": "Boy Scout Activities",
+          "position": 4,
+          "questions": [
+            {
+              "question": "When Scouts swim safely, they use this system in which one Scout looks out for the other and vice versa.",
+              "answer": "Buddy System",
+              "position": 1,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 200
+            },
+            {
+              "question": "Patterns a Scout can use to build a fire include cross-ditch, pyramid, and this one named for a Native American structure.",
+              "answer": "Teepee",
+              "position": 2,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 400
+            },
+            {
+              "question": "When a properly prepared Scout gets out on the water, he doesn\u2019t leave shore without a PFD, short for this.",
+              "answer": "Personal Flotation Device",
+              "position": 3,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 600
+            },
+            {
+              "question": "To qualify for a Bugling merit badge, a Scout must know 15 calls including this one sounded at the end of the day.",
+              "answer": "Taps",
+              "position": 4,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 800
+            },
+            {
+              "question": "From the French for summoning, it\u2019s the practice of a Scout safely lowering himself down a mountainside.",
+              "answer": "Rappelling",
+              "position": 5,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 1000
+            }
+          ]
+        },
+        {
+          "title": "First Aid",
+          "position": 5,
+          "questions": [
+            {
+              "question": "'Leaves of three, let it be' is the common warning to stay away from this plant",
+              "answer": "Poison Ivy, Poison Oak",
+              "position": 1,
+              "daily_double": true,
+              "display": false,
+              "score_amount": 200
+            },
+            {
+              "question": "Use the RICE method to treat sprains and strains - Rest, Ice, Compression, and this",
+              "answer": "Elevation",
+              "position": 2,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 400
+            },
+            {
+              "question": "To identify a poisonous coral snake, remember this rhyme: 'Red on Yellow....'",
+              "answer": "Kill a fellow",
+              "position": 3,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 600
+            },
+            {
+              "question": "This is the most common immediate treatment for chemical burns",
+              "answer": "Wash off with lots of water",
+              "position": 4,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 800
+            },
+            {
+              "question": "This is the first step in the First Aid Method",
+              "answer": "Check the scene",
+              "position": 5,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 1000
+            }
+          ]
+        },
+        {
+          "title": "Eagle Requried Merit Badges",
+          "position": 6,
+          "questions": [
+            {
+              "question": "This badge requires planning menus for three full days of meals, plus one dessert",
+              "answer": "Cooking",
+              "position": 1,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 200
+            },
+            {
+              "question": "This badge requires a scout to attend a meeting of their city, town, or county councilor school board;",
+              "answer": "Citizenship in the Community",
+              "position": 2,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 400
+            },
+            {
+              "question": "For this merit badge, Scouts must conduct an emergency mobilization.",
+              "answer": "Emergency Preparedness",
+              "position": 3,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 600
+            },
+            {
+              "question": "For this merit badge, Scouts learn thrift.",
+              "answer": "Personal Management",
+              "position": 4,
+              "daily_double": false,
+              "display": false,
+              "score_amount": 800
+            },
+            {
+              "question": "For this merit badge, Scouts must watch a 1' square piece of land for 60 minutes.",
+              "answer": "Environmental Science",
+              "position": 5,
+              "daily_double": true,
+              "display": false,
+              "score_amount": 1000
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "final_jeopardy": {
+    "category": "Scout Essentials",
+    "question": "Name at least 5 of the 10 Scout Basic Essentials, used to make any outdoor adventure better",
+    "answer": "Pocketknife, rain gear, trail food, flashlight, extra clothing, first aid kit, sun protection, Map and compass, matches and fire starters, water bottle",
+    "team_one_wager": "56456",
+    "team_two_wager": "6854658",
+    "team_three_wager": "5414",
+    "team_one_answer": "ufvu",
+    "team_two_answer": "vgkuijyhg",
+    "team_three_answer": "kjhb"
+  },
+  "log": [
+    "2020-03-07 16:42:13.544376 - Admin Override: Team1 new score=0, Team2 new score=0, Team3 new score=0, New Round number=3",
+    "2020-03-07 16:42:28.668629 - Admin Override: Team1 new score=0, Team2 new score=0, Team3 new score=0, New Round number=1",
+    "2020-03-07 16:42:34.888035 - points=100, column_position=1, row_position=1, daily_double=False",
+    "2020-03-07 16:42:49.684361 - Updating team scores: Team1=0, Team2=0, Team3=0",
+    "2020-03-07 16:42:49.702920 - Updating game: column_position=1, row_position=1, set_to=False",
+    "2020-03-07 16:42:55.951075 - Admin Override: Team1 new score=0, Team2 new score=0, Team3 new score=0, New Round number=1",
+    "2020-03-07 16:43:12.723923 - Admin Override: Team1 new score=-100, Team2 new score=-100, Team3 new score=100, New Round number=1",
+    "2020-03-07 16:43:18.689972 - points=100, column_position=2, row_position=1, daily_double=False",
+    "2020-03-07 16:43:26.038979 - Updating team scores: Team1=0, Team2=-100, Team3=100",
+    "2020-03-07 16:43:26.057568 - Updating game: column_position=2, row_position=1, set_to=False",
+    "2020-03-07 16:43:28.853822 - points=200, column_position=1, row_position=2, daily_double=False",
+    "2020-03-07 16:43:44.788222 - Updating team scores: Team1=200, Team2=-300, Team3=100",
+    "2020-03-07 16:43:45.074727 - Updating game: column_position=1, row_position=2, set_to=False",
+    "2020-03-07 16:43:51.270427 - points=100, column_position=3, row_position=1, daily_double=False",
+    "2020-03-07 16:44:06.360806 - Updating team scores: Team1=300, Team2=-300, Team3=100",
+    "2020-03-07 16:44:06.518236 - Updating game: column_position=3, row_position=1, set_to=False",
+    "2020-03-07 16:44:12.135231 - points=100, column_position=4, row_position=1, daily_double=False",
+    "2020-03-07 16:44:32.623151 - Updating team scores: Team1=300, Team2=-200, Team3=0",
+    "2020-03-07 16:44:32.640822 - Updating game: column_position=4, row_position=1, set_to=False",
+    "2020-03-07 16:44:51.250458 - points=300, column_position=5, row_position=3, daily_double=False",
+    "2020-03-07 16:45:08.105622 - Updating team scores: Team1=0, Team2=-200, Team3=-300",
+    "2020-03-07 16:45:08.123548 - Updating game: column_position=5, row_position=3, set_to=False",
+    "2020-03-07 16:45:35.166279 - points=200, column_position=4, row_position=2, daily_double=False",
+    "2020-03-07 16:45:38.653219 - Updating team scores: Team1=0, Team2=-200, Team3=-300",
+    "2020-03-07 16:45:38.670604 - Updating game: column_position=4, row_position=2, set_to=False",
+    "2020-03-07 16:45:46.726032 - points=400, column_position=4, row_position=4, daily_double=False",
+    "2020-03-07 16:45:50.766496 - Updating team scores: Team1=0, Team2=-200, Team3=-300",
+    "2020-03-07 16:45:50.786291 - Updating game: column_position=4, row_position=4, set_to=False",
+    "2020-03-07 16:46:14.207588 - points=100, column_position=5, row_position=1, daily_double=False",
+    "2020-03-07 16:46:33.175438 - Updating team scores: Team1=-100, Team2=-100, Team3=-400",
+    "2020-03-07 16:46:33.193867 - Updating game: column_position=5, row_position=1, set_to=False",
+    "2020-03-07 16:46:37.522194 - points=300, column_position=4, row_position=3, daily_double=False",
+    "2020-03-07 16:47:13.035585 - points=300, column_position=4, row_position=3, daily_double=False",
+    "2020-03-07 16:47:25.246621 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 16:47:25.272646 - Updating game: column_position=4, row_position=3, set_to=False",
+    "2020-03-07 17:07:38.841199 - points=200, column_position=3, row_position=2, daily_double=False",
+    "2020-03-07 17:07:47.624348 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 17:07:47.641364 - Updating game: column_position=3, row_position=2, set_to=False",
+    "2020-03-07 17:07:53.875834 - points=200, column_position=5, row_position=2, daily_double=False",
+    "2020-03-07 17:07:56.308143 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 17:07:56.325436 - Updating game: column_position=5, row_position=2, set_to=False",
+    "2020-03-07 17:09:57.419594 - points=300, column_position=3, row_position=3, daily_double=False",
+    "2020-03-07 17:10:02.835296 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 17:10:02.855053 - Updating game: column_position=3, row_position=3, set_to=False",
+    "2020-03-07 17:10:04.963510 - points=400, column_position=5, row_position=4, daily_double=False",
+    "2020-03-07 17:10:07.913588 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 17:10:07.931720 - Updating game: column_position=5, row_position=4, set_to=False",
+    "2020-03-07 17:10:09.327367 - points=500, column_position=4, row_position=5, daily_double=False",
+    "2020-03-07 17:10:12.124802 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 17:10:12.142343 - Updating game: column_position=4, row_position=5, set_to=False",
+    "2020-03-07 17:10:55.626813 - points=300, column_position=2, row_position=3, daily_double=False",
+    "2020-03-07 17:10:58.886455 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 17:10:58.903611 - Updating game: column_position=2, row_position=3, set_to=False",
+    "2020-03-07 17:11:00.177901 - points=500, column_position=5, row_position=5, daily_double=False",
+    "2020-03-07 17:11:02.708414 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 17:11:02.725813 - Updating game: column_position=5, row_position=5, set_to=False",
+    "2020-03-07 17:11:03.961239 - points=300, column_position=6, row_position=3, daily_double=False",
+    "2020-03-07 17:11:11.821356 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 17:11:11.838697 - Updating game: column_position=6, row_position=3, set_to=False",
+    "2020-03-07 17:14:44.869788 - points=200, column_position=2, row_position=2, daily_double=False",
+    "2020-03-07 17:14:49.449667 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 17:14:49.467037 - Updating game: column_position=2, row_position=2, set_to=False",
+    "2020-03-07 18:05:20.039811 - points=200, column_position=6, row_position=2, daily_double=True",
+    "2020-03-07 18:05:22.746694 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 18:05:22.765603 - Updating game: column_position=6, row_position=2, set_to=False",
+    "2020-03-07 18:05:43.834709 - points=300, column_position=1, row_position=3, daily_double=False",
+    "2020-03-07 18:05:45.654036 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 18:05:45.671491 - Updating game: column_position=1, row_position=3, set_to=False",
+    "2020-03-07 18:05:48.500345 - points=400, column_position=3, row_position=4, daily_double=False",
+    "2020-03-07 18:05:49.540344 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 18:05:49.558209 - Updating game: column_position=3, row_position=4, set_to=False",
+    "2020-03-07 18:08:04.149078 - points=400, column_position=2, row_position=4, daily_double=False",
+    "2020-03-07 18:08:05.682366 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 18:08:05.701315 - Updating game: column_position=2, row_position=4, set_to=False",
+    "2020-03-07 18:08:38.958772 - points=400, column_position=1, row_position=4, daily_double=False",
+    "2020-03-07 18:08:46.299748 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 18:08:46.317578 - Updating game: column_position=1, row_position=4, set_to=False",
+    "2020-03-07 18:09:14.098240 - points=400, column_position=6, row_position=4, daily_double=False",
+    "2020-03-07 18:09:16.060280 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 18:09:16.079737 - Updating game: column_position=6, row_position=4, set_to=False",
+    "2020-03-07 18:09:33.014029 - Admin Override: Team1 new score=-400, Team2 new score=200, Team3 new score=-400, New Round number=3",
+    "2020-03-07 18:12:12.276775 - Admin Override: Team1 new score=-400, Team2 new score=200, Team3 new score=-400, New Round number=1",
+    "2020-03-07 18:12:30.168058 - points=500, column_position=3, row_position=5, daily_double=False",
+    "2020-03-07 18:13:04.804363 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 18:13:04.826915 - Updating game: column_position=3, row_position=5, set_to=False",
+    "2020-03-07 18:13:15.970339 - points=500, column_position=6, row_position=5, daily_double=False",
+    "2020-03-07 18:13:33.284306 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 18:13:33.302708 - Updating game: column_position=6, row_position=5, set_to=False",
+    "2020-03-07 18:15:22.868869 - points=100, column_position=6, row_position=1, daily_double=False",
+    "2020-03-07 18:15:40.764977 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 18:15:40.783305 - Updating game: column_position=6, row_position=1, set_to=False",
+    "2020-03-07 18:16:14.034731 - points=500, column_position=2, row_position=5, daily_double=False",
+    "2020-03-07 18:16:38.960602 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 18:16:38.978493 - Updating game: column_position=2, row_position=5, set_to=False",
+    "2020-03-07 18:42:39.648399 - points=500, column_position=1, row_position=5, daily_double=False",
+    "2020-03-07 18:42:47.773204 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 18:42:47.791354 - Updating game: column_position=1, row_position=5, set_to=False",
+    "2020-03-07 18:42:49.438813 - points=200, column_position=1, row_position=1, daily_double=False",
+    "2020-03-07 18:42:54.100343 - Updating team scores: Team1=-400, Team2=200, Team3=-400",
+    "2020-03-07 18:42:54.118325 - Updating game: column_position=1, row_position=1, set_to=False",
+    "2020-03-07 19:27:09.169974 - points=200, column_position=2, row_position=1, daily_double=False",
+    "2020-03-07 19:27:36.660279 - Updating team scores: Team1=-200, Team2=0, Team3=-600",
+    "2020-03-07 19:27:36.678055 - Updating game: column_position=2, row_position=1, set_to=False",
+    "2020-03-07 19:36:50.973800 - points=200, column_position=3, row_position=1, daily_double=False",
+    "2020-03-07 19:37:20.049760 - Updating team scores: Team1=-200, Team2=0, Team3=-600",
+    "2020-03-07 19:37:20.067795 - Updating game: column_position=3, row_position=1, set_to=False",
+    "2020-03-07 19:37:21.702019 - points=200, column_position=4, row_position=1, daily_double=False",
+    "2020-03-07 19:37:27.676660 - Updating team scores: Team1=-200, Team2=0, Team3=-400",
+    "2020-03-07 19:37:27.699705 - Updating game: column_position=4, row_position=1, set_to=False",
+    "2020-03-07 19:53:16.502140 - points=400, column_position=2, row_position=2, daily_double=False",
+    "2020-03-07 19:53:18.877178 - Updating team scores: Team1=-200, Team2=0, Team3=-400",
+    "2020-03-07 19:53:18.900197 - Updating game: column_position=2, row_position=2, set_to=False",
+    "2020-03-07 19:56:18.629889 - points=400, column_position=3, row_position=2, daily_double=False",
+    "2020-03-07 19:56:22.889553 - Updating team scores: Team1=-200, Team2=0, Team3=-400",
+    "2020-03-07 19:56:22.908053 - Updating game: column_position=3, row_position=2, set_to=False",
+    "2020-03-07 20:11:29.535218 - points=200, column_position=5, row_position=1, daily_double=True",
+    "2020-03-07 20:11:46.423950 - Updating team scores: Team1=-200, Team2=0, Team3=-400",
+    "2020-03-07 20:11:46.432259 - Updating game: column_position=5, row_position=1, set_to=False",
+    "2020-03-07 20:11:48.694105 - points=400, column_position=5, row_position=2, daily_double=False",
+    "2020-03-07 20:11:58.727247 - Updating team scores: Team1=200, Team2=0, Team3=-400",
+    "2020-03-07 20:11:58.747486 - Updating game: column_position=5, row_position=2, set_to=False",
+    "2020-03-07 20:12:03.285221 - points=400, column_position=4, row_position=2, daily_double=False",
+    "2020-03-07 20:12:35.425381 - Updating team scores: Team1=200, Team2=0, Team3=-400",
+    "2020-03-07 20:12:35.444022 - Updating game: column_position=4, row_position=2, set_to=False",
+    "2020-03-07 20:12:52.523360 - points=600, column_position=4, row_position=3, daily_double=False",
+    "2020-03-07 20:12:58.956804 - Updating team scores: Team1=200, Team2=0, Team3=-400",
+    "2020-03-07 20:12:58.979434 - Updating game: column_position=4, row_position=3, set_to=False",
+    "2020-03-07 20:30:33.541232 - points=600, column_position=3, row_position=3, daily_double=False",
+    "2020-03-07 20:30:42.842728 - Updating team scores: Team1=200, Team2=0, Team3=-400",
+    "2020-03-07 20:30:42.861637 - Updating game: column_position=3, row_position=3, set_to=False",
+    "2020-03-07 20:30:44.092874 - points=600, column_position=5, row_position=3, daily_double=False",
+    "2020-03-07 20:46:16.055203 - points=600, column_position=5, row_position=3, daily_double=False",
+    "2020-03-07 20:46:22.135342 - Updating team scores: Team1=200, Team2=0, Team3=-400",
+    "2020-03-07 20:46:22.153967 - Updating game: column_position=5, row_position=3, set_to=False",
+    "2020-03-07 20:46:22.958781 - points=800, column_position=5, row_position=4, daily_double=False",
+    "2020-03-07 20:46:24.736845 - Updating team scores: Team1=200, Team2=0, Team3=-400",
+    "2020-03-07 20:46:24.745379 - Updating game: column_position=5, row_position=4, set_to=False",
+    "2020-03-07 20:46:25.822845 - points=800, column_position=4, row_position=4, daily_double=False",
+    "2020-03-07 20:46:27.408151 - Updating team scores: Team1=200, Team2=0, Team3=-400",
+    "2020-03-07 20:46:27.419346 - Updating game: column_position=4, row_position=4, set_to=False",
+    "2020-03-07 20:46:28.701863 - points=1000, column_position=4, row_position=5, daily_double=False",
+    "2020-03-07 20:46:30.647760 - Updating team scores: Team1=200, Team2=0, Team3=-400",
+    "2020-03-07 20:46:30.658924 - Updating game: column_position=4, row_position=5, set_to=False",
+    "2020-03-07 20:46:32.669945 - points=1000, column_position=3, row_position=5, daily_double=False",
+    "2020-03-07 20:46:37.466543 - Updating team scores: Team1=200, Team2=0, Team3=600",
+    "2020-03-07 20:46:37.485411 - Updating game: column_position=3, row_position=5, set_to=False",
+    "2020-03-07 20:48:13.675010 - Admin Override: Team1 new score=200, Team2 new score=0, Team3 new score=600, New Round number=2",
+    "2020-03-07 20:48:18.438518 - Admin Override: Team1 new score=200, Team2 new score=0, Team3 new score=600, New Round number=2",
+    "2020-03-07 20:48:19.243888 - Admin Override: Team1 new score=200, Team2 new score=0, Team3 new score=600, New Round number=2",
+    "2020-03-07 20:48:19.962543 - Admin Override: Team1 new score=200, Team2 new score=0, Team3 new score=600, New Round number=2",
+    "2020-03-07 20:48:21.172321 - Admin Override: Team1 new score=200, Team2 new score=0, Team3 new score=600, New Round number=2",
+    "2020-03-07 20:48:23.300984 - Admin Override: Team1 new score=200, Team2 new score=0, Team3 new score=600, New Round number=2",
+    "2020-03-07 20:48:28.078388 - Admin Override: Team1 new score=200, Team2 new score=0, Team3 new score=600, New Round number=2",
+    "2020-03-07 20:48:28.373428 - Admin Override: Team1 new score=200, Team2 new score=0, Team3 new score=600, New Round number=2",
+    "2020-03-07 20:48:28.592930 - Admin Override: Team1 new score=200, Team2 new score=0, Team3 new score=600, New Round number=2",
+    "2020-03-07 20:48:29.011636 - Admin Override: Team1 new score=200, Team2 new score=0, Team3 new score=600, New Round number=2",
+    "2020-03-07 20:48:29.306731 - Admin Override: Team1 new score=200, Team2 new score=0, Team3 new score=600, New Round number=2",
+    "2020-03-07 20:48:29.482700 - Admin Override: Team1 new score=200, Team2 new score=0, Team3 new score=600, New Round number=2",
+    "2020-03-07 20:51:42.465924 - Admin Override: Team1 new score=200, Team2 new score=0, Team3 new score=600, New Round number=2",
+    "2020-03-07 20:57:37.669737 - points=800, column_position=3, row_position=4, daily_double=False",
+    "2020-03-07 20:58:09.612064 - points=800, column_position=3, row_position=4, daily_double=False",
+    "2020-03-07 20:58:55.514595 - points=800, column_position=3, row_position=4, daily_double=False",
+    "2020-03-07 20:59:37.210987 - Updating team scores: Team1=200, Team2=0, Team3=600",
+    "2020-03-07 20:59:37.219504 - Updating game: column_position=3, row_position=4, set_to=False",
+    "2020-03-07 21:02:19.020200 - points=200, column_position=6, row_position=1, daily_double=False",
+    "2020-03-07 21:02:29.971253 - Updating team scores: Team1=200, Team2=0, Team3=600",
+    "2020-03-07 21:02:29.990143 - Updating game: column_position=6, row_position=1, set_to=False",
+    "2020-03-07 21:09:52.933395 - points=800, column_position=2, row_position=4, daily_double=False",
+    "2020-03-07 21:10:20.344056 - points=600, column_position=6, row_position=3, daily_double=False",
+    "2020-03-07 21:10:32.241023 - Updating team scores: Team1=200, Team2=0, Team3=600",
+    "2020-03-07 21:10:32.250003 - Updating game: column_position=6, row_position=3, set_to=False",
+    "2020-03-07 22:05:16.734788 - points=600, column_position=2, row_position=3, daily_double=False",
+    "2020-03-07 22:06:19.439476 - points=600, column_position=2, row_position=3, daily_double=False",
+    "2020-03-07 22:06:38.007287 - Updating team scores: Team1=200, Team2=-600, Team3=1200",
+    "2020-03-07 22:06:38.034036 - Updating game: column_position=2, row_position=3, set_to=False",
+    "2020-03-07 22:13:13.436740 - points=400, column_position=6, row_position=2, daily_double=False",
+    "2020-03-07 22:13:20.251739 - Updating team scores: Team1=600, Team2=-600, Team3=1200",
+    "2020-03-07 22:13:20.260256 - Updating game: column_position=6, row_position=2, set_to=False",
+    "2020-03-07 22:13:59.123565 - points=800, column_position=6, row_position=4, daily_double=False",
+    "2020-03-07 22:14:04.113085 - Updating team scores: Team1=600, Team2=-600, Team3=2000",
+    "2020-03-07 22:14:04.122379 - Updating game: column_position=6, row_position=4, set_to=False",
+    "2020-03-07 22:14:06.676812 - points=800, column_position=2, row_position=4, daily_double=False",
+    "2020-03-07 22:14:10.006376 - Updating team scores: Team1=600, Team2=-600, Team3=1200",
+    "2020-03-07 22:14:10.027700 - Updating game: column_position=2, row_position=4, set_to=False",
+    "2020-03-07 22:14:26.309381 - points=1000, column_position=5, row_position=5, daily_double=False",
+    "2020-03-07 22:14:32.437127 - Updating team scores: Team1=1600, Team2=-1600, Team3=200",
+    "2020-03-07 22:14:32.448059 - Updating game: column_position=5, row_position=5, set_to=False",
+    "2020-03-07 22:14:34.893320 - points=1000, column_position=2, row_position=5, daily_double=False",
+    "2020-03-07 22:14:37.179255 - Updating team scores: Team1=1600, Team2=-1600, Team3=1200",
+    "2020-03-07 22:14:37.189916 - Updating game: column_position=2, row_position=5, set_to=False",
+    "2020-03-07 22:14:39.555381 - points=800, column_position=1, row_position=4, daily_double=False",
+    "2020-03-07 22:14:43.309872 - Updating team scores: Team1=2400, Team2=-800, Team3=1200",
+    "2020-03-07 22:14:43.323618 - Updating game: column_position=1, row_position=4, set_to=False",
+    "2020-03-07 22:14:45.191085 - points=1000, column_position=6, row_position=5, daily_double=True",
+    "2020-03-07 22:14:51.927956 - Updating team scores: Team1=2400, Team2=-800, Team3=1200",
+    "2020-03-07 22:14:51.941453 - Updating game: column_position=6, row_position=5, set_to=False",
+    "2020-03-07 22:14:55.073951 - points=400, column_position=1, row_position=2, daily_double=False",
+    "2020-03-07 22:14:57.018094 - Updating team scores: Team1=2400, Team2=-800, Team3=1200",
+    "2020-03-07 22:14:57.027376 - Updating game: column_position=1, row_position=2, set_to=False",
+    "2020-03-07 22:14:58.211770 - points=600, column_position=1, row_position=3, daily_double=False",
+    "2020-03-07 22:15:02.065891 - Updating team scores: Team1=3000, Team2=-800, Team3=1200",
+    "2020-03-07 22:15:02.074735 - Updating game: column_position=1, row_position=3, set_to=False",
+    "2020-03-07 22:15:20.425338 - points=1000, column_position=1, row_position=5, daily_double=False",
+    "2020-03-07 22:15:23.778995 - Updating team scores: Team1=4000, Team2=-800, Team3=1200",
+    "2020-03-07 22:15:23.787724 - Updating game: column_position=1, row_position=5, set_to=False",
+    "2020-03-07 23:03:12.658219 - Final wager/answers: 56456 ufvu, 6854658 vgkuijyhg, 5414 kjhb"
+  ],
+  "first_player": "Team1",
+  "current_team_highlight": 2
+}

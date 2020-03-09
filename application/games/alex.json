@@ -1,14 +1,14 @@
 {
   "current_round": 1,
   "scores": {
-    "Team1": -100,
-    "Team2": 0,
-    "Team3": 100
+    "Team1": -500,
+    "Team2": -300,
+    "Team3": -1000
   },
   "buzzer_positions": [
-    true,
-    true,
-    true
+    false,
+    false,
+    false
   ],
   "board": {
     "round1": {
@@ -21,8 +21,8 @@
               "question": "This is known as the first-aid knot.",
               "answer": "Square knot",
               "position": 1,
-              "daily_double": false,
-              "display": true,
+              "daily_double": true,
+              "display": false,
               "score_amount": 100
             },
             {
@@ -54,7 +54,7 @@
               "answer": "Clove Hitch",
               "position": 5,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 500
             }
           ]
@@ -114,7 +114,7 @@
               "answer": "Scoutmaster",
               "position": 1,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 100
             },
             {
@@ -160,7 +160,7 @@
               "answer": "Poison Ivy, Poison Oak",
               "position": 1,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 100
             },
             {
@@ -222,7 +222,7 @@
               "answer": "Search and Rescue",
               "position": 3,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 300
             },
             {
@@ -276,7 +276,7 @@
               "answer": "Taps",
               "position": 4,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 400
             },
             {
@@ -575,7 +575,29 @@
   "log": [
     "2020-03-06 22:51:06.898824 - points=100, column_position=2, row_position=1, daily_double=False",
     "2020-03-06 22:51:09.394840 - Updating team scores: Team1=-100, Team2=0, Team3=100",
-    "2020-03-06 22:51:09.417944 - Updating game: column_position=2, row_position=1, set_to=False"
+    "2020-03-06 22:51:09.417944 - Updating game: column_position=2, row_position=1, set_to=False",
+    "2020-03-07 22:17:46.992581 - points=100, column_position=3, row_position=1, daily_double=False",
+    "2020-03-07 22:17:50.789371 - Updating team scores: Team1=-100, Team2=100, Team3=100",
+    "2020-03-07 22:17:50.797487 - Updating game: column_position=3, row_position=1, set_to=False",
+    "2020-03-07 22:17:56.630528 - points=500, column_position=1, row_position=5, daily_double=False",
+    "2020-03-07 22:18:02.949928 - Updating team scores: Team1=-600, Team2=100, Team3=600",
+    "2020-03-07 22:18:02.958517 - Updating game: column_position=1, row_position=5, set_to=False",
+    "2020-03-07 22:18:08.303267 - points=100, column_position=1, row_position=1, daily_double=False",
+    "2020-03-07 22:18:12.317693 - Updating team scores: Team1=-500, Team2=100, Team3=600",
+    "2020-03-07 22:18:12.333683 - Updating game: column_position=1, row_position=1, set_to=False",
+    "2020-03-07 22:18:59.092915 - points=400, column_position=6, row_position=4, daily_double=False",
+    "2020-03-07 22:19:08.071421 - Updating team scores: Team1=-500, Team2=-300, Team3=1000",
+    "2020-03-07 22:19:08.078897 - Updating game: column_position=6, row_position=4, set_to=False",
+    "2020-03-08 17:03:44.496058 - points=100, column_position=1, row_position=1, daily_double=True",
+    "2020-03-08 17:03:53.560160 - Updating team scores: Team1=-500, Team2=-300, Team3=1000",
+    "2020-03-08 17:03:53.568757 - Updating game: column_position=1, row_position=1, set_to=False",
+    "2020-03-08 17:04:34.190964 - Admin Override: Team1 new score=-500, Team2 new score=-300, Team3 new score=-1000, New Round number=1",
+    "2020-03-08 17:08:32.232335 - points=100, column_position=4, row_position=1, daily_double=False",
+    "2020-03-08 17:08:50.524674 - Updating team scores: Team1=-500, Team2=-300, Team3=-1000",
+    "2020-03-08 17:08:50.533248 - Updating game: column_position=4, row_position=1, set_to=False",
+    "2020-03-08 17:08:54.601991 - points=300, column_position=5, row_position=3, daily_double=False",
+    "2020-03-08 17:09:11.680465 - Updating team scores: Team1=-500, Team2=-300, Team3=-1000",
+    "2020-03-08 17:09:11.697439 - Updating game: column_position=5, row_position=3, set_to=False"
   ],
   "final_jeopardy": {
     "category": "Scout Essentials",
@@ -588,5 +610,6 @@
     "team_two_answer": "",
     "team_three_answer": ""
   },
-  "first_player": "TeamNone"
+  "first_player": "TeamNone",
+  "current_team_highlight": 3
 }

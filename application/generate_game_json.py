@@ -92,7 +92,7 @@ def create_final_jeopardy():
 
 def generate_game_3(round_1_category, round_2_category, question_json):
     game = {'current_round': 1, 'scores': create_scores(), 'buzzer_positions': create_team_buzzers(),
-            'board': create_board(), 'final_jeopardy': create_final_jeopardy(), 'log': []}
+            'board': create_board(), 'final_jeopardy': create_final_jeopardy(), 'log': [], 'current_team_highlight': 1}
 
     game['board']['round1'] = create_columns(6, round_1_category, question_json, 1)
 

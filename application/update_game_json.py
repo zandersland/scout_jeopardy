@@ -157,6 +157,24 @@ def get_entry_in_final_jeopardy(game_json_file, line):
         return game_json['final_jeopardy'][line]
 
 
+def read_current_team_highlight(game_json_file):
+    game_json = return_full_json(game_json_file)
+    try:
+        return game_json['current_team_highlight']
+    except:
+        import generate_game_json as ggj
+        game_json['current_team_highlight'] = 1
+        write_to_json_file(game_json_file, game_json)
+        return game_json['current_team_highlight']
+
+
+def update_current_team_highlight(game_json_file, value):
+    game_json = return_full_json(game_json_file)
+    game_json['current_team_highlight'] = value
+    write_to_json_file(game_json_file, game_json)
+    return game_json['current_team_highlight']
+
+
 def update_final_jeopardy(game_json_file, field_to_update, value):
     game_json = return_full_json(game_json_file)
     game_json['final_jeopardy'][field_to_update] = value

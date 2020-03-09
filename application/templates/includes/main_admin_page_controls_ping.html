@@ -6,7 +6,7 @@ mytime=setTimeout('display_ct()',refresh)
 
 function display_ct() {
 var x = new Date()
-var x1=x.toUTCString();// changing the display to UTC string
+var x1=x.toLocaleTimeString('en-US', { hour12: false, timeZone: 'America/Chicago'});// changing the display to UTC string
 document.getElementById('ct').innerHTML = x1;
 tt=display_c();
  }
@@ -25,10 +25,16 @@ function toggle_final_commands() {
 
 </script>
 <body onload=display_ct(); style="color: #FF0000">
-Server time: <span id='ct' style="background-color: #26262b; color: #FFFFFF;"></span><br><br>
+Server time: <span id='ct' style="background-color: #26262b; color: #FFFFFF; font-size: 30px;"></span><br><br>
 </body>
-<button onclick="toggle_final_commands()">Toggle commands</button>
-<div id="commands" style="display: none;">
+<iframe src="{{ url_for('admin_aterisk_page') }}" style="border: solid; border-width: 0; height: 40px; width: 200px; overflow: hidden;"></iframe>
+<div style="display: flex">
+    <form style="margin: 0;" action="{{ url_for('main_admin_page_post') }}">
+        <button style="background-color: #2626FF">Refresh values</button>
+    </form>
+    <button onclick="toggle_final_commands()" style="background-color: #FFFF2b;">Toggle commands</button>
+</div>
+<div id="commands" style="display: none; color: #FFFF2b">
     <h3>prefix the command with 1, 2, or 3</h3>
     <h3>w = wager</h3>
     <h3>a = answer</h3>
@@ -38,12 +44,12 @@ Server time: <span id='ct' style="background-color: #26262b; color: #FFFFFF;"></
     <h3>a = answer</h3>
     <h3>Examples (1w, 2a, 3c, 3i, f, a)</h3>
 </div>
-<br><br>
 
 <body>
-<button onClick="window.location.reload();">Refresh values</button>
-<form class="update_scores" id="update_scores" action="{{ url_for('main_admin_page_post') }}"
-      method="POST">
+<br><br>
+<form class="update_scores" id="update_scores"
+      action="{{ url_for('main_admin_page_post', game_json_file=game_json_file) }}"
+      method="POST" style="color: #2626FF;">
     <div class="update_scores">
         <div>
             <label style="color: #FFFFFF">Team 1</label>
@@ -65,32 +71,41 @@ Server time: <span id='ct' style="background-color: #26262b; color: #FFFFFF;"></
     </div>
 </form>
 
-<br><br>
-<h3>Record final scores and answers</h3>
-<form class="record-final" id="final-form" action="{{ url_for('record_final_answers') }}"
-      method="POST">
+<h3 style="color: #FF26FF;">Record final scores and answers</h3>
+<form class="record-final" id="final-form" action="{{ url_for('record_final_answers', game_json_file=game_json_file) }}"
+      method="POST" style="color: #FF26FF">
     <div class="record-final-values">
         <div>
             <label>Team 1 wager</label>
-            <input type="text" name="team_one_wager" id="team_one_wager" value=""/><br>
+            <input type="text" name="team_one_wager" id="team_one_wager" value="{{ one_wager }}"/><br>
             <label>Team 1 answer</label>
-            <input type="text" name="team_one_answer" id="team_one_answer" value=""/>
+            <input type="text" name="team_one_answer" id="team_one_answer" value="{{ one_answer }}"/>
         </div>
         <br>
         <div>
             <label>Team 2 wager</label>
-            <input type="text" name="team_two_wager" id="team_two_wager"/><br>
-            <label>Team 1 answer</label>
-            <input type="text" name="team_two_answer" id="team_two_answer" value=""/>
+            <input type="text" name="team_two_wager" id="team_two_wager" value="{{ two_wager }}"/><br>
+            <label>Team 2 answer</label>
+            <input type="text" name="team_two_answer" id="team_two_answer" value="{{ two_answer }}"/>
         </div>
         <br>
         <div>
             <label>Team 3 wager</label>
-            <input type="text" name="team_three_wager" id="team_three_wager" value=""/><br>
-            <label>Team 1 answer</label>
-            <input type="text" name="team_three_answer" id="team_three_answer" value=""/>
+            <input type="text" name="team_three_wager" id="team_three_wager" value="{{ three_wager }}"/><br>
+            <label>Team 3 answer</label>
+            <input type="text" name="team_three_answer" id="team_three_answer" value="{{ three_answer }}"/>
         </div>
         <button class="final-buttons">Submit</button>
     </div>
 </form>
+<div style="display: flex;">
+    <form action="{{ url_for('reset_buttons') }}" method="post" style="margin-right: 5px;">
+        <button type="submit" style="background-color: #FF262b;">Reset Buttons
+        </button>
+    </form>
+    <form action="{{ url_for('turn_off_leds') }}" method="post" style="margin: 0;">
+        <button type="submit" style="background-color: #26FF2b;">Turn off leds
+        </button>
+    </form>
+</div>
 </body>

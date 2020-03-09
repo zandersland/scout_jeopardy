@@ -1,7 +1,30 @@
 {% extends 'layout.html' %}
-
 {% block content %}
-<div class="container-answer">
+
+{% for pos, string in zip(range(6), game_list) %}
+<script>
+        function hide_fun_{{ pos }}() {
+            var x = document.getElementById("div_id_{{ pos }}");
+            x.style.display = "none";
+        }
+
+
+</script>
+<div class="answer" id="div_id_{{ pos }}"
+     style="display: flex; width: 100vw; height: 100vh; align-items: center; justify-content: center; background-color: #0047b8;"
+     onclick="hide_fun_{{ pos }}()">
+    {{ string }}
+</div>
+
+{% endfor %}
+<div class="answer" style="display: flex; width: 100vw; height: 100vh; align-items: center; justify-content: center; background-color: #0047b8;">
+    Final scores: <br>
+    Team 1 score: {{ one }}<br>
+    Team 2 score: {{ two }}<br>
+    Team 3 score: {{ three }}
+</div>
+
+<!--<div class="container-answer">
     <div class="dummy"></div>
     <div class="answer" id="answer">{{ final['question'] }}</div>
     <div class="dummy"></div>
@@ -83,8 +106,8 @@
     }
 
 
-</script>
-<div class="scoring_answer">
+</script>-->
+<!--<div class="scoring_answer">
     <div class="scoring-teams">
         <div class="scoring-team" id="team-one">Team 1: {{ one }}
         </div>
@@ -119,5 +142,6 @@
         </div>
     </form>
 
-</div>
+</div>-->
+
 {% endblock %}

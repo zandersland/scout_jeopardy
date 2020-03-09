@@ -3,6 +3,10 @@
 <head>
     <title>Admin page for scout jeopardy</title>
     <style type="text/css">
+        body {
+            overflow: hidden;
+        }
+
         #answer_bar{
             border: solid;
             border-color: #009900;
@@ -12,7 +16,22 @@
 
         #answer_bar iframe {
             width: 99vw;
-            height: 20vh;
+            height: 10vh;
+            color: #FFFFFF;
+            border: solid;
+            border-width: 0;
+        }
+
+        #question_bar{
+            border: solid;
+            border-color: #009900;
+            border-width: 1px;
+            border-radius: 50px;
+        }
+
+        #question_bar iframe {
+            width: 99vw;
+            height: 30vh;
             color: #FFFFFF;
             border: solid;
             border-width: 0;
@@ -35,7 +54,7 @@
             border-radius: 50px;
             border-color: #009900;
             margin: 0;
-            height: 79vh;
+            height: 59vh;
         }
 
         #log {
@@ -44,7 +63,7 @@
 
         #log iframe {
             width: 60vw;
-            height: 70vh;
+            height: 55vh;
             color: #FFFFFF;
             border: solid;
             border-width: 0;
@@ -57,7 +76,7 @@
 
         #edit_game iframe {
             width: 25vw;
-            height: 70vh;
+            height: 55vh;
             color: #FFFFFF;
             border: solid;
             border-width: 0;
@@ -66,14 +85,15 @@
     </style>
 </head>
 <body>
-<div id="answer_bar"><iframe src="{{ url_for('main_admin_page_answer_ping') }}"></iframe></div>
+<div id="question_bar"><iframe src="{{ url_for('main_admin_page_question_ping', game_json_file=game_json_file) }}"></iframe></div>
+<div id="answer_bar"><iframe src="{{ url_for('main_admin_page_answer_ping', game_json_file=game_json_file) }}"></iframe></div>
 
 <div id="bottom_2_divs">
 <div id="log">
-    <iframe src="{{ url_for('main_admin_page_log_ping') }}"></iframe>
+    <iframe src="{{ url_for('main_admin_page_log_ping', game_json_file=game_json_file) }}"></iframe>
 </div>
 <div id="edit_game">
-    <iframe src="{{ url_for('main_admin_page_post') }}"></iframe>
+    <iframe src="{{ url_for('main_admin_page_post', game_json_file=game_json_file) }}"></iframe>
 </div>
 </div>
 </body>

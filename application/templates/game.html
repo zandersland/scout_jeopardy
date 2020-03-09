@@ -3,8 +3,21 @@
 {% block content %}
 {% include 'includes/board.html' %}
 <div class="scores">
-    <div>Team 1: {{ team_one_points }}</div>
-    <div>Team 2: {{ team_two_points }}</div>
-    <div>Team 3: {{ team_three_points }}</div>
+    <div style="display: flex;">
+        <div style="background-color: #DD0000;">Team 1:</div>
+        <p style="margin: 0; margin-left: 10px;"></p>
+        <div style="background-color: #000000">{{ team_one_points }}</div>
+    </div>
+    <div style="display: flex;">
+        <div style="background-color: #00AA00;">Team 2:</div>
+        <p style="margin: 0; margin-left: 10px;"></p>
+        <div style="background-color: #000000">{{ team_two_points }}</div>
+    </div>
+    <div style="display: flex;">
+        <div style="background-color: #0000FF;">Team 3:</div>
+        <p style="margin: 0; margin-left: 10px;"></p>
+        <div style="background-color: #000000">{{ team_three_points }}</div>
+    </div>
 </div>
+<a href="{{ url_for('index') }}" style="font-size: 10px; margin: 0;">Home</a>
 {% endblock %}

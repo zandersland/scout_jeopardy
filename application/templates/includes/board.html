@@ -8,7 +8,7 @@
         <div class="container-button">
             <form action="{{ url_for('answer', points=data2['score_amount'], answer=data2['answer'],
             question=data2['question'], display=data2['display'], column_position=data['position'],
-            row_position=data2['position'], daily_double=data2['daily_double']) }}"
+            row_position=data2['position'], daily_double=data2['daily_double'], game_json_file=game_json_file) }}"
                   method="POST">
                 {% if data2['display'] == False %}
                 <button class="game-buttons" style="color:#0047b8;" disabled>${{ data2['score_amount'] }}</button>

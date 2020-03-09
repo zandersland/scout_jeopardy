@@ -9,7 +9,7 @@
     </div>
     <div class="load-game">
 
-        <form action="{{ url_for('generate_game') }}" method="post">
+        <form action="{{ url_for('generate_game', game_json_file=game_json_file) }}" method="post">
             <label class="game-options" for="action">Game Options:</label>
             <select class="dropdown-options" name="dropdown-option">
                 {% for game in games %}

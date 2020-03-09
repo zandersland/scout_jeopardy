@@ -1,6 +1,7 @@
 html {
     background-color: black;
     color: #e3c102;
+    overflow: hidden;
 }
 
 body {

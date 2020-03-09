@@ -1,9 +1,9 @@
 {
   "current_round": 1,
   "scores": {
-    "Team1": 600,
+    "Team1": 800,
     "Team2": 100,
-    "Team3": -500
+    "Team3": -600
   },
   "board": {
     "round1": {
@@ -63,7 +63,7 @@
               "answer": "Square knot",
               "position": 1,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 100
             },
             {
@@ -71,7 +71,7 @@
               "answer": "Splicing",
               "position": 2,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 200
             },
             {
@@ -163,7 +163,7 @@
               "answer": "Elevation",
               "position": 2,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 200
             },
             {
@@ -171,7 +171,7 @@
               "answer": "Kill a fellow",
               "position": 3,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 300
             },
             {
@@ -217,7 +217,7 @@
               "answer": "Heart attack",
               "position": 3,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 300
             },
             {
@@ -225,7 +225,7 @@
               "answer": "Heimlich Maneuver",
               "position": 4,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 400
             },
             {
@@ -263,7 +263,7 @@
               "answer": "First Aid Kit",
               "position": 3,
               "daily_double": false,
-              "display": true,
+              "display": false,
               "score_amount": 300
             },
             {
@@ -570,14 +570,37 @@
   "log": [
     "2020-03-06 23:21:44.198814 - points=100, column_position=3, row_position=1, daily_double=False",
     "2020-03-06 23:21:52.161194 - Updating team scores: Team1=600, Team2=100, Team3=-500",
-    "2020-03-06 23:21:52.178079 - Updating game: column_position=3, row_position=1, set_to=False"
+    "2020-03-06 23:21:52.178079 - Updating game: column_position=3, row_position=1, set_to=False",
+    "2020-03-07 22:57:47.389622 - points=100, column_position=2, row_position=1, daily_double=False",
+    "2020-03-07 22:58:38.695560 - Updating team scores: Team1=600, Team2=100, Team3=-600",
+    "2020-03-07 22:58:38.703131 - Updating game: column_position=2, row_position=1, set_to=False",
+    "2020-03-07 22:59:16.664468 - Admin Override: Team1 new score=800, Team2 new score=100, Team3 new score=-600, New Round number=1",
+    "2020-03-07 22:59:31.203941 - points=200, column_position=3, row_position=2, daily_double=False",
+    "2020-03-09 15:58:25.558426 - points=200, column_position=4, row_position=2, daily_double=False",
+    "2020-03-09 15:58:37.741508 - Updating team scores: Team1=800, Team2=100, Team3=-600",
+    "2020-03-09 15:58:37.754239 - Updating game: column_position=4, row_position=2, set_to=False",
+    "2020-03-09 15:59:16.701736 - points=400, column_position=5, row_position=4, daily_double=False",
+    "2020-03-09 15:59:26.570160 - Updating team scores: Team1=800, Team2=100, Team3=-600",
+    "2020-03-09 15:59:26.588260 - Updating game: column_position=5, row_position=4, set_to=False",
+    "2020-03-09 15:59:28.427909 - points=300, column_position=4, row_position=3, daily_double=False",
+    "2020-03-09 15:59:38.908323 - Updating team scores: Team1=800, Team2=100, Team3=-600",
+    "2020-03-09 15:59:38.927697 - Updating game: column_position=4, row_position=3, set_to=False",
+    "2020-03-09 16:00:11.566673 - points=300, column_position=5, row_position=3, daily_double=False",
+    "2020-03-09 16:07:05.310457 - Updating team scores: Team1=800, Team2=100, Team3=-600",
+    "2020-03-09 16:07:05.322375 - Updating game: column_position=5, row_position=3, set_to=False",
+    "2020-03-09 16:07:29.368283 - points=200, column_position=2, row_position=2, daily_double=False",
+    "2020-03-09 16:09:48.426190 - Updating team scores: Team1=800, Team2=100, Team3=-600",
+    "2020-03-09 16:09:48.433934 - Updating game: column_position=2, row_position=2, set_to=False",
+    "2020-03-09 16:10:05.237502 - points=300, column_position=6, row_position=3, daily_double=False",
+    "2020-03-09 16:10:19.112385 - Updating team scores: Team1=800, Team2=100, Team3=-600",
+    "2020-03-09 16:10:19.120219 - Updating game: column_position=6, row_position=3, set_to=False"
   ],
   "buzzer_positions": [
-    true,
-    true,
-    false
+    false,
+    false,
+    true
   ],
-  "first_player": "Team2",
+  "first_player": "Team3",
   "final_jeopardy": {
     "category": "Scout Essentials",
     "question": "Name at least 5 of the 10 Scout Basic Essentials, used to make any outdoor adventure better",
@@ -588,5 +611,6 @@
     "team_one_answer": "",
     "team_two_answer": "",
     "team_three_answer": ""
-  }
+  },
+  "current_team_highlight": 1
 }

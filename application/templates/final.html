@@ -1,6 +1,26 @@
-{% extends 'layout.html' %}
 
+<script type="text/javascript">
+    function hide_final_jeop_img() {
+        var x = document.getElementById("final_jeop_img");
+        x.style.display = "none";
+    }
+</script>
+
+<img id="final_jeop_img" src="../static/jeopardy_ubicom-screen-03-final_jeopardy-full_size-1280x720_304779.jpg" onclick="hide_final_jeop_img()"
+     style="width: 100vw; height: 100vh; display: block;">
+
+
+<!--    <audio controls style='display: none;' autoplay>
+    <source src="static/Jeopardy_Daily_Double.mp3" type='audio/mpeg'>
+    </audio> -->
+<style>
+    body {
+        overflow: hidden;
+    }
+</style>
+{% extends 'layout.html' %}
 {% block content %}
+
 <div class="container-answer">
     <div class="dummy"></div>
     <div class="answer" id="answer">{{ final['category'] }}</div>
@@ -12,6 +32,7 @@
 
         if (current == "{{ final['category'] }}") {
             document.getElementById(ref).innerHTML = "{{ final['question'] }}";
+            document.getElementById('final_jeop_music').play();
         }
     }
 
@@ -43,13 +64,13 @@
                 onclick="advanceFinalRound('answer')">Advance
         </button>
     </div>
-    <form class="scoring-teams" id="score_form" action="{{ url_for('game_result') }}"
+    <form class="scoring-teams" id="score_form" action="{{ url_for('game_result', game_json_file=game_json_file) }}"
           method="POST">
         <div class="scoring">
             <button class="answer-buttons" onclick="alert('Make sure all values are inputed')">Submit</button>
         </div>
     </form>
-    <audio controls style='height: 20px; margin-left: 30px;'>
+    <audio controls style='height: 20px; margin-left: 30px;' id="final_jeop_music">
     <source src="static/jeopardy_music.mp3" type='audio/mpeg'>
     </audio>
 
