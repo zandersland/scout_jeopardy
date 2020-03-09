@@ -576,12 +576,12 @@
     "category": "Scout Essentials",
     "question": "Name at least 5 of the 10 Scout Basic Essentials, used to make any outdoor adventure better",
     "answer": "Pocketknife, rain gear, trail food, flashlight, extra clothing, first aid kit, sun protection, Map and compass, matches and fire starters, water bottle",
-    "team_one_wager": "56456",
-    "team_two_wager": "6854658",
-    "team_three_wager": "5414",
-    "team_one_answer": "ufvu",
-    "team_two_answer": "vgkuijyhg",
-    "team_three_answer": "kjhb"
+    "team_one_wager": "1599",
+    "team_two_wager": "0",
+    "team_three_wager": "1200",
+    "team_one_answer": "ufvu1",
+    "team_two_answer": "vgkuijyhg2",
+    "team_three_answer": "kjhb3"
   },
   "log": [
     "2020-03-07 16:42:13.544376 - Admin Override: Team1 new score=0, Team2 new score=0, Team3 new score=0, New Round number=3",
@@ -789,8 +789,14 @@
     "2020-03-07 22:15:20.425338 - points=1000, column_position=1, row_position=5, daily_double=False",
     "2020-03-07 22:15:23.778995 - Updating team scores: Team1=4000, Team2=-800, Team3=1200",
     "2020-03-07 22:15:23.787724 - Updating game: column_position=1, row_position=5, set_to=False",
-    "2020-03-07 23:03:12.658219 - Final wager/answers: 56456 ufvu, 6854658 vgkuijyhg, 5414 kjhb"
+    "2020-03-07 23:03:12.658219 - Final wager/answers: 56456 ufvu, 6854658 vgkuijyhg, 5414 kjhb",
+    "2020-03-09 18:49:35.362585 - Final wager/answers: 1599 ufvu1, 0 vgkuijyhg2, 1200 kjhb3"
   ],
   "first_player": "Team1",
-  "current_team_highlight": 2
+  "current_team_highlight": 2,
+  "final_scores": {
+    "Team1": "5599",
+    "Team2": "-800",
+    "Team3": "0"
+  }
 }

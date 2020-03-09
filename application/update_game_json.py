@@ -181,6 +181,27 @@ def update_final_jeopardy(game_json_file, field_to_update, value):
     write_to_json_file(game_json_file, game_json)
 
 
+def read_final_scores(game_json_file):
+    game_json = return_full_json(game_json_file)
+    try:
+        return game_json['final_scores']
+    except:
+        game_json['final_scores'] = {'Team1': 0, 'Team2': 0, 'Team3': 0}
+        write_to_json_file(game_json_file, game_json)
+        return game_json['final_scores']
+
+
+def update_final_scores(game_json_file, team, value):
+    game_json = return_full_json(game_json_file)
+    try:
+        game_json['final_scores'][team] = value
+        write_to_json_file(game_json_file, game_json)
+    except:
+        game_json['final_scores'] = {'Team1': 0, 'Team2': 0, 'Team3': 0, }
+        game_json['final_scores'][team] = value
+        write_to_json_file(game_json_file, game_json)
+
+
 if __name__ == '__main__':
     # update_team_scores(str(input('team: ')), int(input('amount: ')))
     # update_display_question(int(input('round: ')), int(input('column: ')), int(input('question: ')), False)

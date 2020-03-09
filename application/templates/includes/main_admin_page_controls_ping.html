@@ -6,7 +6,7 @@ mytime=setTimeout('display_ct()',refresh)
 
 function display_ct() {
 var x = new Date()
-var x1=x.toLocaleTimeString('en-US', { hour12: false, timeZone: 'America/Chicago'});// changing the display to UTC string
+var x1=x.toLocaleTimeString('en-US', { timeZone: 'America/Chicago'});// changing the display to UTC string
 document.getElementById('ct').innerHTML = x1;
 tt=display_c();
  }
@@ -23,11 +23,16 @@ function toggle_final_commands() {
 }
 
 
+
+
+
+
 </script>
 <body onload=display_ct(); style="color: #FF0000">
 Server time: <span id='ct' style="background-color: #26262b; color: #FFFFFF; font-size: 30px;"></span><br><br>
 </body>
-<iframe src="{{ url_for('admin_aterisk_page') }}" style="border: solid; border-width: 0; height: 40px; width: 200px; overflow: hidden;"></iframe>
+<iframe src="{{ url_for('admin_aterisk_page') }}"
+        style="border: solid; border-width: 0; height: 40px; width: 200px; overflow: hidden;"></iframe>
 <div style="display: flex">
     <form style="margin: 0;" action="{{ url_for('main_admin_page_post') }}">
         <button style="background-color: #2626FF">Refresh values</button>
@@ -71,10 +76,26 @@ Server time: <span id='ct' style="background-color: #26262b; color: #FFFFFF; fon
     </div>
 </form>
 
+<br>
+    <script>
+    function toggle_final_values() {
+        var x = document.getElementById("final-form");
+        if (x.style.display == "none") {
+            x.style.display = "block"
+        }
+
+        else {
+            x.style.display = "none"
+        }
+        }
+
+    </script>
+<button onclick="toggle_final_values()" style="background-color: #FF00FF;">Toggle final values</button>
+<br>
 <h3 style="color: #FF26FF;">Record final scores and answers</h3>
 <form class="record-final" id="final-form" action="{{ url_for('record_final_answers', game_json_file=game_json_file) }}"
-      method="POST" style="color: #FF26FF">
-    <div class="record-final-values">
+      method="POST" style="color: #FF26FF; display: none;">
+    <div class="record-final-values" id="record-final-values">
         <div>
             <label>Team 1 wager</label>
             <input type="text" name="team_one_wager" id="team_one_wager" value="{{ one_wager }}"/><br>
@@ -95,6 +116,16 @@ Server time: <span id='ct' style="background-color: #26262b; color: #FFFFFF; fon
             <label>Team 3 answer</label>
             <input type="text" name="team_three_answer" id="team_three_answer" value="{{ three_answer }}"/>
         </div>
+        <br><br>
+        <div>
+            <label>Team 1 final_score</label>
+            <input type="text" name="Team1_final_score" id="team1_final_score" value="{{ final_scores['Team1'] }}"/><br>
+            <label>Team 2 final_score</label>
+            <input type="text" name="Team2_final_score" id="team2_final_score" value="{{ final_scores['Team2'] }}"/><br>
+            <label>Team 3 final_score</label>
+            <input type="text" name="Team3_final_score" id="team3_final_score" value="{{ final_scores['Team3'] }}"/><br>
+        </div>
+        <br>
         <button class="final-buttons">Submit</button>
     </div>
 </form>

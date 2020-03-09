@@ -351,7 +351,7 @@ def game_result():
 
     return render_template('game_result_2.html', final=_final, one=one, two=two, three=three, one_answer=one_answer,
                            one_wager=one_wager, two_answer=two_answer, two_wager=two_wager, three_answer=three_answer,
-                           three_wager=three_wager, game_json_file=game_json_file, game_list=return_list, zip=zip)
+                           three_wager=three_wager, game_json_file=game_json_file, game_list=return_list, zip=zip, final_scores=ug.read_final_scores(jsonVar.game_json_file))
 
 
 @app.route('/record_final_answers', methods=['POST'])
@@ -363,6 +363,10 @@ def record_final_answers():
     ug.update_final_jeopardy(jsonVar.game_json_file, 'team_one_answer', request.form.get('team_one_answer'))
     ug.update_final_jeopardy(jsonVar.game_json_file, 'team_two_answer', request.form.get('team_two_answer'))
     ug.update_final_jeopardy(jsonVar.game_json_file, 'team_three_answer', request.form.get('team_three_answer'))
+
+    ug.update_final_scores(jsonVar.game_json_file, 'Team1', request.form.get('Team1_final_score'))
+    ug.update_final_scores(jsonVar.game_json_file, 'Team2', request.form.get('Team2_final_score'))
+    ug.update_final_scores(jsonVar.game_json_file, 'Team3', request.form.get('Team3_final_score'))
 
     ug.add_line_to_log(jsonVar.game_json_file,
                        f"Final wager/answers: {request.form.get('team_one_wager')} {request.form.get('team_one_answer')}, "
@@ -432,30 +436,35 @@ def main_admin_page_post():
         two = ug.read_team_score('Team2', jsonVar.game_json_file)
         three = ug.read_team_score('Team3', jsonVar.game_json_file)
         round_num = ug.read_current_round(jsonVar.game_json_file)
-    else:
-        one = None
-        two = None
-        three = None
-        round_num = None
-    if jsonVar.game_json_file is not '':
+
         one_answer = ug.get_entry_in_final_jeopardy(jsonVar.game_json_file, 'team_one_answer')
         one_wager = ug.get_entry_in_final_jeopardy(jsonVar.game_json_file, 'team_one_wager')
         two_answer = ug.get_entry_in_final_jeopardy(jsonVar.game_json_file, 'team_two_answer')
         two_wager = ug.get_entry_in_final_jeopardy(jsonVar.game_json_file, 'team_two_wager')
         three_answer = ug.get_entry_in_final_jeopardy(jsonVar.game_json_file, 'team_three_answer')
         three_wager = ug.get_entry_in_final_jeopardy(jsonVar.game_json_file, 'team_three_wager')
+
+        final_scores = ug.read_final_scores(jsonVar.game_json_file)
+
     else:
+        one = None
+        two = None
+        three = None
+        round_num = None
+
         one_answer = None
         one_wager = None
         two_answer = None
         two_wager = None
         three_answer = None
         three_wager = None
+        
+        final_scores = {'Team1': 0, 'Team2': 0, 'Team3': 0}
 
     return render_template('includes/main_admin_page_controls_ping.html', one=one, two=two, three=three,
                            round_num=round_num, one_answer=one_answer, one_wager=one_wager, two_answer=two_answer,
                            two_wager=two_wager, three_answer=three_answer,
-                           three_wager=three_wager)
+                           three_wager=three_wager, final_scores=final_scores)
 
 
 @app.route('/main_admin_page_log_ping', methods=['GET', 'POST'])
